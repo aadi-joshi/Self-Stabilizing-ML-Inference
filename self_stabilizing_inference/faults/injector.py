@@ -12,6 +12,6 @@ class FaultInjector:
             time.sleep(0.05)
 
         if random.random() < self.noise_prob:
-            x = x + 0.1 * torch.randn_like(x)
+            x = x + 0.2 * torch.randn_like(x)
 
         return x

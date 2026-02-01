@@ -7,4 +7,7 @@ class TelemetryLogger:
 
     def log(self, record):
         record["timestamp"] = time.time()
-        self.df = pd.concat([self.df, pd.DataFrame([record])], ignore_index=True)
+        self.df = pd.concat(
+            [self.df, pd.DataFrame([record])],
+            ignore_index=True
+        )

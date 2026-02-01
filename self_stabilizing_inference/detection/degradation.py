@@ -11,5 +11,5 @@ class DegradationDetector:
             self.ewma = self.alpha * reliability + (1 - self.alpha) * self.ewma
 
         degraded = self.ewma < self.threshold
-        severity = max(0, self.threshold - self.ewma)
+        severity = max(0.0, self.threshold - self.ewma)
         return degraded, severity

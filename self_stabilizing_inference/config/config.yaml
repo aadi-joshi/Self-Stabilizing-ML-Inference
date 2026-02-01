@@ -2,12 +2,8 @@ random_seed: 42
 
 inference:
   batch_size: 32
-  redundancy: false
 
 reliability:
-  entropy_weight: 0.4
-  confidence_weight: 0.4
-  consistency_weight: 0.2
   window_size: 50
 
 degradation:
@@ -15,9 +11,8 @@ degradation:
   threshold: 0.65
 
 control:
-  cooldown_steps: 20
+  cooldown_steps: 30
 
 faults:
-  enable: true
-  latency_spike_prob: 0.1
-  noise_prob: 0.05
+  latency_spike_prob: 0.15
+  noise_prob: 0.1

@@ -5,14 +5,15 @@ class ReliabilityScorer:
         self.window_size = window_size
         self.history = []
 
-    def score(self, entropy, confidence, consistency=1.0):
-        r = (
-            0.4 * (1 - entropy) +
-            0.4 * confidence +
-            0.2 * consistency
+    def score(self, entropy, confidence):
+        reliability = (
+            0.5 * confidence +
+            0.5 * (1 - entropy)
         )
-        r = np.clip(r, 0, 1)
-        self.history.append(r)
+        reliability = float(np.clip(reliability, 0, 1))
+
+        self.history.append(reliability)
         if len(self.history) > self.window_size:
             self.history.pop(0)
-        return r
+
+        return reliability

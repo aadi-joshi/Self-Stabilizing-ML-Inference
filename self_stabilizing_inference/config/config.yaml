@@ -1,0 +1,23 @@
+random_seed: 42
+
+inference:
+  batch_size: 32
+  redundancy: false
+
+reliability:
+  entropy_weight: 0.4
+  confidence_weight: 0.4
+  consistency_weight: 0.2
+  window_size: 50
+
+degradation:
+  ewma_alpha: 0.2
+  threshold: 0.65
+
+control:
+  cooldown_steps: 20
+
+faults:
+  enable: true
+  latency_spike_prob: 0.1
+  noise_prob: 0.05

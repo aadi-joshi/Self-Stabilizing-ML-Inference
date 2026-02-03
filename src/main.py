@@ -149,7 +149,7 @@ for step in range(steps):
         print(f"[STEP {step}] Actual DEGRADED state detected")
 
     # Pass both model predictions to controller
-    action, new_state = controller.decide(
+    action, new_state, oscillating, stabilization_time = controller.decide(
         smoothed_reliability, smoothed_latency, stability_state, step, last_switch_step, active_model,
         fast_pred=(fast_reliability, fast_latency),
         robust_pred=(robust_reliability, robust_latency)
@@ -179,7 +179,9 @@ for step in range(steps):
         'actual_degradation_step': actual_degradation_step,
         'lead_time': lead_time,
         'fast_J': controller.alpha * (1 - fast_reliability) + controller.beta * fast_latency,
-        'robust_J': controller.alpha * (1 - robust_reliability) + controller.beta * robust_latency
+        'robust_J': controller.alpha * (1 - robust_reliability) + controller.beta * robust_latency,
+        'oscillating': oscillating,
+        'stabilization_time': stabilization_time
     })
 
 # Artifact storage

@@ -21,6 +21,7 @@ from controller.baseline_controllers import AlwaysFastController, AlwaysRobustCo
 from controller.learning_controller import LearningController, LearningControllerState
 from monitoring.telemetry import TelemetryLogger
 from visualization.plots import plot_all
+from metrics.stability import compute_stability_metrics
 
 # Load config
 import os
@@ -298,27 +299,29 @@ for ctrl_name, df in controller_results.items():
     plt.savefig(os.path.join(plots_dir, f'{ctrl_name}_controller_state.png'))
     plt.close()
 
-# Recovery time, oscillation count, stability duration
-summary = []
+
+# Formal stability metrics and summary
+stability_metrics = []
+osc_window = 50  # Can be made configurable
+threshold = config['degradation']['threshold']
 for ctrl_name, df in controller_results.items():
-    avg_reliability = df['smoothed_reliability'].mean()
-    avg_latency = df['smoothed_latency'].mean()
-    switches = (df['active_model'] != df['active_model'].shift()).sum()
-    # Recovery time: steps from first drop below threshold to recovery above threshold
-    threshold = config['degradation']['threshold']
-    below = df['smoothed_reliability'] < threshold
-    recovery_time = None
-    if below.any():
-        drop_idx = below.idxmax()
-        recovered = (df['smoothed_reliability'][drop_idx:] > threshold)
-        if recovered.any():
-            recovery_time = recovered.idxmax() - drop_idx
-    # Oscillation count: number of switches
-    oscillation_count = switches
-    # Stability duration: longest consecutive period above threshold
-    stable = df['smoothed_reliability'] > threshold
-    max_stable = (stable.groupby((stable != stable.shift()).cumsum()).cumsum() * stable).max()
-    summary.append({'controller': ctrl_name, 'avg_reliability': avg_reliability, 'avg_latency': avg_latency, 'oscillation_count': oscillation_count, 'recovery_time': recovery_time, 'max_stability_duration': max_stable})
-summary_df = pd.DataFrame(summary)
-summary_df.to_csv(os.path.join(metrics_dir, 'controller_comparison_summary.csv'), index=False)
-print(summary_df)
+    metrics = compute_stability_metrics(df, threshold, osc_window=osc_window)
+    metrics['controller'] = ctrl_name
+    metrics['avg_reliability'] = df['smoothed_reliability'].mean()
+    metrics['avg_latency'] = df['smoothed_latency'].mean()
+    stability_metrics.append(metrics)
+stability_df = pd.DataFrame(stability_metrics)
+stability_df.to_csv(os.path.join(metrics_dir, 'stability_summary.csv'), index=False)
+print(stability_df)
+
+# Comparison plots for stability metrics
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10, 6))
+for metric in ['stability_horizon', 'oscillation_bound', 'recovery_time_mean']:
+    plt.bar(stability_df['controller'] + '_' + metric, stability_df[metric])
+plt.title('Stability Metrics Comparison')
+plt.ylabel('Metric Value')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig(os.path.join(plots_dir, 'stability_metrics_comparison.png'))
+plt.close()

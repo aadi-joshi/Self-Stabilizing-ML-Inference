@@ -15,16 +15,6 @@ build/
 .ipynb_checkpoints/
 *.ipynb
 
-# Data and results
-self_stabilizing_results/
-*.csv
-*.txt
-*.png
-*.pdf
-*.h5
-*.npy
-*.npz
-*.log
 
 # VSCode
 .vscode/

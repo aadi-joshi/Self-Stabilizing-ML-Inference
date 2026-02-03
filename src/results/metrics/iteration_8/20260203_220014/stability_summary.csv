@@ -1,0 +1,7 @@
+stability_horizon,oscillation_bound,recovery_time_mean,recovery_time_std,recovery_time_median,recovery_time_min,recovery_time_max,recovery_time_count,controller,avg_reliability,avg_latency
+499,1,1.0,0.0,1.0,1.0,1.0,1,always_fast,0.9283295814394112,3.924045115794067e-05
+500,1,,,,,,0,always_robust,0.95889310617495,2.1232713982343848e-05
+499,6,1.0,0.0,1.0,1.0,1.0,1,threshold_only,0.9289589689585676,2.2929222017906738e-05
+499,2,1.0,0.0,1.0,1.0,1.0,1,smoothing_only,0.9280362691282388,2.376739095784393e-05
+499,3,1.0,0.0,1.0,1.0,1.0,1,main,0.956728124690537,2.2114122696470624e-05
+499,43,1.0,0.0,1.0,1.0,1.0,1,learning,0.9453769936971521,6.776803836179339e-05

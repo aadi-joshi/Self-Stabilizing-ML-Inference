@@ -4,6 +4,7 @@ class StabilityState(Enum):
     STABLE = 0
     DEGRADED = 1
     RECOVERING = 2
+    PREEMPTIVE_DEGRADED = 3
 
 class DualSignalController:
     def __init__(self, reliability_threshold, latency_threshold, min_dwell_steps):

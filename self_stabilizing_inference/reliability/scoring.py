@@ -1,19 +1,14 @@
 import numpy as np
 
-class ReliabilityScorer:
-    def __init__(self, window_size):
-        self.window_size = window_size
-        self.history = []
+def compute_reliability(model, x, noise_std=0.02, trials=10):
+    preds = []
+    for _ in range(trials):
+        noisy_x = x + np.random.normal(0, noise_std, size=x.shape)
+        p = model.predict(noisy_x.reshape(1, -1), verbose=0)
+        preds.append(p)
 
-    def score(self, entropy, confidence):
-        reliability = (
-            0.5 * confidence +
-            0.5 * (1 - entropy)
-        )
-        reliability = float(np.clip(reliability, 0, 1))
+    preds = np.array(preds)
+    variance = np.var(preds, axis=0).mean()
 
-        self.history.append(reliability)
-        if len(self.history) > self.window_size:
-            self.history.pop(0)
-
-        return reliability
+    reliability = np.exp(-variance * 50.0)
+    return float(np.clip(reliability, 0.0, 1.0))

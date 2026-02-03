@@ -18,6 +18,7 @@ from metrics.latency import LatencyMetric
 from metrics.smoothing import ExponentialSmoother
 from controller.dual_controller import DualSignalController, StabilityState
 from controller.baseline_controllers import AlwaysFastController, AlwaysRobustController, ThresholdOnlyController, SmoothingOnlyController
+from controller.learning_controller import LearningController, LearningControllerState
 from monitoring.telemetry import TelemetryLogger
 from visualization.plots import plot_all
 
@@ -60,12 +61,25 @@ alpha = config['control'].get('alpha', 1.0)
 beta = config['control'].get('beta', 1.0)
 gamma = config['control'].get('gamma', 0.1)
 horizon = config['control'].get('horizon', 1)
+
+# Learning controller hyperparameters from config
+learning_cfg = config.get('learning_controller', {})
+learning_epsilon = learning_cfg.get('epsilon', 0.1)
+learning_alpha = learning_cfg.get('alpha', 0.1)
+learning_gamma = learning_cfg.get('gamma', 0.99)
+
 main_controller = DualSignalController(
     alpha=alpha,
     beta=beta,
     gamma=gamma,
     horizon=horizon,
     min_dwell_steps=config['control'].get('cooldown_steps', 0)
+)
+learning_controller = LearningController(
+    epsilon=learning_epsilon,
+    alpha=learning_alpha,
+    gamma=learning_gamma,
+    seed=random_seed
 )
 baseline_controllers = {
     'always_fast': AlwaysFastController(),
@@ -76,7 +90,8 @@ baseline_controllers = {
     'smoothing_only': SmoothingOnlyController(
         reliability_threshold=config['degradation']['threshold'],
         latency_threshold=config['degradation'].get('latency_threshold', 0.1)),
-    'main': main_controller
+    'main': main_controller,
+    'learning': learning_controller
 }
 
 
@@ -116,7 +131,10 @@ for ctrl_name, controller in baseline_controllers.items():
 
     active_model = 'fast'
     last_switch_step = -100
-    stability_state = StabilityState.STABLE if hasattr(controller, 'decide') and hasattr(controller, 'osc_window') else 'fast'
+    if ctrl_name == 'learning':
+        stability_state = LearningControllerState.STABLE
+    else:
+        stability_state = StabilityState.STABLE if hasattr(controller, 'decide') and hasattr(controller, 'osc_window') else 'fast'
 
     for step in range(steps):
         x = injector.inject(np.random.uniform(-1, 1, size=(2,)), step=step, env=env)
@@ -164,6 +182,30 @@ for ctrl_name, controller in baseline_controllers.items():
             action, new_state, oscillating, stabilization_time = controller.decide(reliability, latency)
         elif ctrl_name == 'smoothing_only':
             action, new_state, oscillating, stabilization_time = controller.decide(smoothed_reliability, smoothed_latency)
+        elif ctrl_name == 'learning':
+            # Compute derivatives for state vector
+            rel_deriv = recent_derivs[-1] if len(recent_derivs) > 0 else 0.0
+            lat_deriv = 0.0  # Optionally compute latency derivative if desired
+            osc_score = 1.0 if (active_model != action if 'action' in locals() else False) else 0.0  # Placeholder for oscillation
+            # Use learning controller's decide
+            action, new_state, oscillating, stabilization_time = controller.decide(
+                smoothed_reliability, smoothed_latency, rel_deriv, lat_deriv, osc_score, stability_state
+            )
+            # Calculate reward: negative multi-objective cost, penalize oscillation and recovery delay
+            fast_J = alpha * (1 - fast_reliability) + beta * fast_latency
+            robust_J = alpha * (1 - robust_reliability) + beta * robust_latency
+            cost = fast_J if action == 'fast' else robust_J
+            reward = -cost
+            # Penalize oscillation (switching models frequently)
+            if step > 0 and active_model != action:
+                reward -= gamma  # Use gamma as oscillation penalty
+            # Optionally penalize recovery delay (not implemented here)
+            # Update learning controller
+            next_rel_deriv = rel_deriv  # For next state, could update with new value
+            next_state = controller.get_state(
+                smoothed_reliability, smoothed_latency, next_rel_deriv, lat_deriv, osc_score, new_state
+            )
+            controller.update(reward, next_state)
         else:
             action, new_state, oscillating, stabilization_time = controller.decide(
                 smoothed_reliability, smoothed_latency, stability_state, step, last_switch_step, active_model,
@@ -194,16 +236,18 @@ for ctrl_name, controller in baseline_controllers.items():
 
 # Save and plot results
 
-# Save and plot results for iteration_7
+
+# Save and plot results for iteration_8 (learning controller)
 run_id = datetime.now().strftime('%Y%m%d_%H%M%S')
-metrics_dir = f'results/metrics/iteration_7/{run_id}'
-plots_dir = f'plots/iteration_7/{run_id}'
+metrics_dir = f'results/metrics/iteration_8/{run_id}'
+plots_dir = f'plots/iteration_8/{run_id}'
 os.makedirs(metrics_dir, exist_ok=True)
 os.makedirs(plots_dir, exist_ok=True)
 for ctrl_name, df in controller_results.items():
     df.to_csv(os.path.join(metrics_dir, f'{ctrl_name}_metrics.csv'), index=False)
 
-# Comparative plots
+
+# Comparative plots for iteration_8 (including learning controller)
 import matplotlib.pyplot as plt
 plt.figure(figsize=(12, 6))
 for ctrl_name, df in controller_results.items():
@@ -226,6 +270,33 @@ plt.legend()
 plt.tight_layout()
 plt.savefig(os.path.join(plots_dir, 'latency_comparison.png'))
 plt.close()
+
+# Plot active model over time for each controller
+for ctrl_name, df in controller_results.items():
+    plt.figure(figsize=(12, 3))
+    plt.plot(df['active_model'].map({'fast': 0, 'robust': 1}), label='Active Model')
+    plt.xlabel('Step')
+    plt.ylabel('Model')
+    plt.title(f'Active Model Over Time: {ctrl_name}')
+    plt.yticks([0, 1], ['fast', 'robust'])
+    plt.legend(loc='upper right')
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig(os.path.join(plots_dir, f'{ctrl_name}_active_model.png'))
+    plt.close()
+
+# Plot controller state over time for each controller
+for ctrl_name, df in controller_results.items():
+    plt.figure(figsize=(12, 3))
+    plt.plot(df['controller_state'], label='Controller State')
+    plt.xlabel('Step')
+    plt.ylabel('State')
+    plt.title(f'Controller State Over Time: {ctrl_name}')
+    plt.legend(loc='upper right')
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig(os.path.join(plots_dir, f'{ctrl_name}_controller_state.png'))
+    plt.close()
 
 # Recovery time, oscillation count, stability duration
 summary = []

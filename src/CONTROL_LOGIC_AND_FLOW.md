@@ -28,17 +28,24 @@ This document summarizes the data flow and control logic for the dual-signal sel
    - **Controller** (`DualSignalController.decide`) receives smoothed reliability, latency, current state, and step info, and decides if a model switch is needed.
    - If a switch is triggered, the active model and state are updated.
    - All relevant metrics and state are logged via `TelemetryLogger`.
+   - **Predictive Degradation Detection:**
+     - Computes first-order derivative and rolling volatility of smoothed reliability.
+     - If a persistent negative trend is detected (configurable window, thresholds), triggers `PREEMPTIVE_DEGRADED` state.
+     - Logs predicted and actual degradation steps, and lead time.
 4. **Logging & Artifacts:**
    - Telemetry and metrics are saved as CSVs in the results directory.
 5. **Plotting:**
    - `plot_all()` generates plots for reliability, latency, active model, and controller state over time.
+   - Reliability plot marks predicted and actual degradation events if present.
 
 ## Control Logic & State Transitions
 - **States:** `STABLE`, `DEGRADED`, `RECOVERING`
+   - `PREEMPTIVE_DEGRADED` (predictive, based on negative trend)
 - **Transitions:**
   - From `fast` to `robust` if reliability drops below threshold or latency exceeds threshold (and cooldown passed): state → `DEGRADED`.
   - From `robust` to `fast` if both reliability and latency recover (and cooldown passed): state → `RECOVERING`, then `STABLE`.
   - Remain in `RECOVERING` until next switch.
+   - From any state to `PREEMPTIVE_DEGRADED` if persistent negative trend detected in smoothed reliability.
 - **Hysteresis** is implemented to avoid rapid switching.
 
 ---
@@ -56,3 +63,15 @@ _This documentation is based on analysis of:_
 - models/robust_model.py
 - monitoring/telemetry.py
 - visualization/plots.py
+
+
+## Predictive Degradation Config (YAML)
+
+```
+degradation:
+   predictive_deriv_window: 5         # Window for mean derivative
+   predictive_vol_window: 10          # Window for rolling volatility
+   predictive_neg_deriv_thresh: -0.002 # Threshold for negative mean derivative
+   predictive_vol_thresh: 0.01        # Threshold for volatility
+   predictive_neg_trend_steps: 3      # Steps negative trend must persist
+```

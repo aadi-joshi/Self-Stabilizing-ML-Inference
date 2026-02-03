@@ -6,6 +6,15 @@ def plot_all(df, outdir):
     plt.figure(figsize=(12, 5))
     plt.plot(df['reliability'], alpha=0.3, label='Raw Reliability')
     plt.plot(df['smoothed_reliability'], linewidth=2, label='Smoothed Reliability')
+    # Mark predicted and actual degradation steps if present
+    if 'predicted_degradation_step' in df.columns and df['predicted_degradation_step'].notnull().any():
+        pred_steps = df['predicted_degradation_step'].dropna().unique()
+        for s in pred_steps:
+            plt.axvline(s, color='orange', linestyle='--', label='Predicted Degradation')
+    if 'actual_degradation_step' in df.columns and df['actual_degradation_step'].notnull().any():
+        actual_steps = df['actual_degradation_step'].dropna().unique()
+        for s in actual_steps:
+            plt.axvline(s, color='red', linestyle=':', label='Actual Degradation')
     plt.xlabel('Step')
     plt.ylabel('Reliability')
     plt.title('Raw vs Smoothed Reliability')

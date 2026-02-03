@@ -1,6 +1,8 @@
-import numpy as np
 
-class EnvironmentDegradation:
+import numpy as np
+from .degradation_interface import DegradationProcess
+
+class EnvironmentDegradation(DegradationProcess):
     def __init__(self, config):
         self.config = config
         self.burst_period = config.get('burst_period', 100)

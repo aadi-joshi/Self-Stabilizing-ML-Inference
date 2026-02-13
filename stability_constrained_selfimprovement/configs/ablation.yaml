@@ -1,0 +1,84 @@
+# ============================================================================
+# Ablation Study Configurations
+# ============================================================================
+
+ablations:
+  # --- Fixed vs Adaptive Epsilon ---
+  epsilon_strategy:
+    - name: "fixed_low"
+      epsilon_scheduler:
+        type: "fixed"
+      drift:
+        epsilon_init: 0.1
+
+    - name: "fixed_mid"
+      epsilon_scheduler:
+        type: "fixed"
+      drift:
+        epsilon_init: 1.0
+
+    - name: "fixed_high"
+      epsilon_scheduler:
+        type: "fixed"
+      drift:
+        epsilon_init: 5.0
+
+    - name: "adaptive_uncertainty"
+      epsilon_scheduler:
+        type: "uncertainty"
+        uncertainty_scale: 1.0
+      drift:
+        epsilon_init: 1.0
+
+    - name: "cosine_decay"
+      epsilon_scheduler:
+        type: "cosine"
+        decay_rate: 0.995
+      drift:
+        epsilon_init: 2.0
+
+  # --- Lambda Sensitivity ---
+  lambda_values:
+    - name: "lambda_0.01"
+      drift:
+        lambda_init: 0.01
+    - name: "lambda_0.1"
+      drift:
+        lambda_init: 0.1
+    - name: "lambda_1.0"
+      drift:
+        lambda_init: 1.0
+    - name: "lambda_10.0"
+      drift:
+        lambda_init: 10.0
+
+  # --- Model Size ---
+  model_size:
+    - name: "small"
+      experiment_a:
+        model: "resnet18_small"
+    - name: "medium"
+      experiment_a:
+        model: "resnet18_medium"
+    - name: "large"
+      experiment_a:
+        model: "resnet18_large"
+
+  # --- Constraint Activation Timing ---
+  constraint_timing:
+    - name: "from_start"
+      drift:
+        activation_step: 0
+    - name: "after_warmup"
+      drift:
+        activation_step: 500
+    - name: "late_activation"
+      drift:
+        activation_step: 2000
+
+  # --- No Constraint (Ablation Baseline) ---
+  no_constraint:
+    - name: "unconstrained"
+      drift:
+        lambda_init: 0.0
+        epsilon_init: 1e10

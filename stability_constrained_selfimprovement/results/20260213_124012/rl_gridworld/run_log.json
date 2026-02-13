@@ -1,0 +1,16 @@
+{
+  "baseline": [
+    {
+      "seed": 42,
+      "status": "success",
+      "time": 164.61844968795776
+    }
+  ],
+  "functional_trust": [
+    {
+      "seed": 42,
+      "status": "success",
+      "time": 183.44861316680908
+    }
+  ]
+}

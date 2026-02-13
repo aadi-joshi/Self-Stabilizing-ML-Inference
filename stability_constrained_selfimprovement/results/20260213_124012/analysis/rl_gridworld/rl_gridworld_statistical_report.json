@@ -1,0 +1,37 @@
+{
+  "experiment": "rl_gridworld",
+  "reference_method": "functional_trust",
+  "method_summaries": {
+    "baseline": {
+      "functional_drift": {
+        "mean": 0.00011097976675955579,
+        "std": 0.0,
+        "ci_lower": 0.00011097976675955579,
+        "ci_upper": 0.00011097976675955579,
+        "n_seeds": 1,
+        "raw_values": [
+          0.00011097976675955579
+        ]
+      }
+    },
+    "functional_trust": {
+      "functional_drift": {
+        "mean": 3.736121652764268e-05,
+        "std": 0.0,
+        "ci_lower": 3.736121652764268e-05,
+        "ci_upper": 3.736121652764268e-05,
+        "n_seeds": 1,
+        "raw_values": [
+          3.736121652764268e-05
+        ]
+      }
+    }
+  },
+  "comparisons": {
+    "functional_trust_vs_baseline": {}
+  },
+  "tables": {
+    "main": "\\begin{table}[t]\n\\centering\n\\caption{Main Results}\n\\label{tab:main_results}\n\\begin{tabular}{lcccc}\n\\toprule\nMethod & Acc. $\\uparrow$ & $D_f$ $\\downarrow$ & CKA $\\uparrow$ & Forget. $\\downarrow$ \\\\\n\\midrule\nStandard Adam & -- & 0.000 $\\pm$ 0.000 & -- & -- \\\\\n\\textbf{FTR (Ours)} & -- & \\textbf{0.000} $\\pm$ 0.000 & -- & -- \\\\\n\\bottomrule\n\\end{tabular}\n\\end{table}",
+    "comparison": "\\begin{table}[t]\n\\centering\n\\caption{Statistical Significance (vs.\\ FTR)}\n\\label{tab:significance}\n\\begin{tabular}{llcccc}\n\\toprule\nComparison & Metric & $t$-stat & $p$-value & Cohen\\'s $d$ & Sig. \\\\\n\\midrule\n\\bottomrule\n\\end{tabular}\n\\end{table}"
+  }
+}

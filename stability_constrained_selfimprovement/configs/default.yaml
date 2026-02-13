@@ -1,0 +1,111 @@
+# ============================================================================
+# Stability-Constrained Self-Improving Agents via Functional Trust Regions
+# Default Configuration
+# ============================================================================
+
+# --- Reproducibility ---
+seed: 42
+num_seeds: 5  # For statistical rigor
+seeds: [42, 137, 256, 512, 1024]
+deterministic: true
+
+# --- Device ---
+device: "auto"  # auto, cpu, cuda, mps
+
+# --- Functional Drift ---
+drift:
+  # Drift estimation
+  num_reference_points: 1024    # Number of points to estimate E_x[||f_θ(x) - f_θ0(x)||²]
+  reference_batch_size: 128
+  norm_type: "l2"               # l2, linf, kl
+  # Constraint
+  epsilon_init: 1.0             # Initial drift budget ε₀
+  epsilon_min: 0.01             # Minimum ε
+  epsilon_max: 10.0             # Maximum ε
+  # Lagrangian
+  lambda_init: 0.1              # Initial Lagrange multiplier λ₀
+  lambda_lr: 0.01               # Learning rate for dual variable
+  lambda_max: 100.0             # Maximum λ
+
+# --- Adaptive Epsilon Scheduler ---
+epsilon_scheduler:
+  type: "uncertainty"           # fixed, linear_decay, cosine, uncertainty
+  warmup_steps: 100
+  decay_rate: 0.995
+  uncertainty_scale: 1.0        # Scale factor for uncertainty-based ε
+
+# --- Training Defaults ---
+training:
+  optimizer: "adam"
+  lr: 0.001
+  weight_decay: 0.0
+  batch_size: 128
+  epochs: 50
+  grad_clip: 1.0
+
+# --- Experiment A: Continual Supervised Learning ---
+experiment_a:
+  name: "continual_cifar"
+  dataset_sequence: ["cifar10", "cifar100"]
+  model: "resnet18_small"
+  epochs_per_task: 30
+  lr: 0.001
+  batch_size: 128
+  num_tasks: 5                  # Split CIFAR-10 into 5 binary tasks
+  ewc_lambda: 1000.0            # For EWC baseline
+  drift_epsilon: 0.5
+  drift_lambda: 1.0
+
+# --- Experiment B: Transformer Algorithmic ---
+experiment_b:
+  name: "transformer_algorithmic"
+  tasks: ["copy", "reverse", "sort"]
+  model:
+    d_model: 64
+    nhead: 4
+    num_layers: 2
+    dim_feedforward: 128
+    max_seq_len: 32
+    vocab_size: 16
+  epochs_per_task: 50
+  lr: 0.0005
+  batch_size: 64
+  drift_epsilon: 0.3
+  drift_lambda: 0.5
+
+# --- Experiment C: RL Gridworld ---
+experiment_c:
+  name: "rl_gridworld"
+  grid_size: 8
+  model:
+    hidden_dim: 64
+    num_layers: 2
+  episodes: 2000
+  lr: 0.001
+  gamma: 0.99                  # RL discount factor
+  drift_epsilon: 0.5
+  drift_lambda: 0.5
+  kl_coeff: 0.01               # For KL trust-region baseline
+
+# --- Metrics ---
+metrics:
+  log_interval: 10              # Steps between metric logs
+  eval_interval: 50             # Steps between evaluations
+  save_checkpoints: true
+  checkpoint_interval: 500
+
+# --- Visualization ---
+visualization:
+  dpi: 300
+  figsize: [8, 6]
+  style: "seaborn-v0_8-whitegrid"
+  colorblind_palette: true
+  export_pdf: true
+  font_size: 12
+
+# --- Logging ---
+logging:
+  use_wandb: false
+  project_name: "functional-trust-regions"
+  log_dir: "logs"
+  save_dir: "results"

@@ -146,34 +146,35 @@ FTR provides a principled, architecture-agnostic mechanism for safe self-improve
 ## Figures & Results
 
 
+
 ### Example Figures (all available as PNGs for direct viewing)
 
 #### Reliability Comparison
-![Reliability Comparison](../../src/plots/iteration_8/20260203_220313/reliability_comparison.png)
+![Reliability Comparison](src/plots/iteration_8/20260203_220313/reliability_comparison.png)
 
 #### Latency Comparison
-![Latency Comparison](../../src/plots/iteration_8/20260203_220313/latency_comparison.png)
+![Latency Comparison](src/plots/iteration_8/20260203_220313/latency_comparison.png)
 
 #### Stability Horizon
-![Stability Horizon](../../src/plots/iteration_8/20260203_220313/stability_stability_horizon_comparison.png)
+![Stability Horizon](src/plots/iteration_8/20260203_220313/stability_stability_horizon_comparison.png)
 
 #### Oscillation Bound
-![Oscillation Bound](../../src/plots/iteration_8/20260203_220313/stability_oscillation_bound_comparison.png)
+![Oscillation Bound](src/plots/iteration_8/20260203_220313/stability_oscillation_bound_comparison.png)
 
 #### CKA Similarity
-![CKA Similarity](../../stability_constrained_selfimprovement/results/20260213_203512/figures/split_cifar10_cka_comparison.png)
+![CKA Similarity](stability_constrained_selfimprovement/results/20260213_203512/figures/split_cifar10_cka_comparison.png)
 
 #### Main Results Table
-![Main Results Table](../../stability_constrained_selfimprovement/results/20260213_203512/figures/results_summary_table.png)
+![Main Results Table](stability_constrained_selfimprovement/results/20260213_203512/figures/results_summary_table.png)
 
 #### Functional Drift Comparison
-![Drift Comparison](../../stability_constrained_selfimprovement/results/20260213_203512/figures/split_cifar10_drift_comparison.png)
+![Drift Comparison](stability_constrained_selfimprovement/results/20260213_203512/figures/split_cifar10_drift_comparison.png)
 
 #### Forgetting Curves
-![Forgetting Curves](../../stability_constrained_selfimprovement/results/20260213_203512/figures/split_cifar10_forgetting_curves.png)
+![Forgetting Curves](stability_constrained_selfimprovement/results/20260213_203512/figures/split_cifar10_forgetting_curves.png)
 
 #### Pareto Frontier
-![Pareto Frontier](../../stability_constrained_selfimprovement/results/20260213_203512/figures/split_cifar10_pareto_frontier.png)
+![Pareto Frontier](stability_constrained_selfimprovement/results/20260213_203512/figures/split_cifar10_pareto_frontier.png)
 
 *If any figure does not render, see the codebase for the original or PDF version.*
 

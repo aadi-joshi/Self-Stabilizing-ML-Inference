@@ -1,0 +1,103 @@
+======================================================================
+FTR Full Experiment Suite
+Benchmarks: ['split_cifar10']
+Methods: ['baseline', 'ewc', 'si', 'lwf', 'replay', 'functional_trust', 'ftr_replay']
+Seeds: [42, 137, 256]
+Epochs per task: 15
+Total runs: 21
+Save directory: results/20260214_135338
+======================================================================
+
+[1/21] split_cifar10/baseline/seed=42 (ETA: 0.0min)
+  AA=0.6929, Fgt=0.2554
+
+[2/21] split_cifar10/baseline/seed=137 (ETA: 63.8min)
+  AA=0.6979, Fgt=0.2529
+
+[3/21] split_cifar10/baseline/seed=256 (ETA: 103.4min)
+  AA=0.7097, Fgt=0.2410
+
+  >> baseline: AA=0.7002±0.0070, Fgt=0.2498±0.0063
+
+[4/21] split_cifar10/ewc/seed=42 (ETA: 96.9min)
+  AA=0.6944, Fgt=0.2178
+
+[5/21] split_cifar10/ewc/seed=137 (ETA: 95.8min)
+  AA=0.6899, Fgt=0.2254
+
+[6/21] split_cifar10/ewc/seed=256 (ETA: 90.1min)
+  AA=0.6807, Fgt=0.2176
+
+  >> ewc: AA=0.6883±0.0057, Fgt=0.2202±0.0036
+
+[7/21] split_cifar10/si/seed=42 (ETA: 83.2min)
+  AA=0.7069, Fgt=0.2188
+
+[8/21] split_cifar10/si/seed=137 (ETA: 79.0min)
+  AA=0.7303, Fgt=0.1976
+
+[9/21] split_cifar10/si/seed=256 (ETA: 80.1min)
+  AA=0.7111, Fgt=0.2351
+
+  >> si: AA=0.7161±0.0102, Fgt=0.2172±0.0154
+
+[10/21] split_cifar10/lwf/seed=42 (ETA: 72.3min)
+  AA=0.7743, Fgt=0.0625
+
+[11/21] split_cifar10/lwf/seed=137 (ETA: 67.8min)
+  AA=0.7828, Fgt=0.0336
+
+[12/21] split_cifar10/lwf/seed=256 (ETA: 63.0min)
+  AA=0.7814, Fgt=0.0331
+
+  >> lwf: AA=0.7795±0.0037, Fgt=0.0431±0.0137
+
+[13/21] split_cifar10/replay/seed=42 (ETA: 57.6min)
+  AA=0.7547, Fgt=0.1618
+
+[14/21] split_cifar10/replay/seed=137 (ETA: 49.8min)
+  AA=0.7553, Fgt=0.1659
+
+[15/21] split_cifar10/replay/seed=256 (ETA: 42.4min)
+  AA=0.7361, Fgt=0.1942
+
+  >> replay: AA=0.7487±0.0089, Fgt=0.1740±0.0144
+
+[16/21] split_cifar10/functional_trust/seed=42 (ETA: 35.7min)
+  AA=0.7522, Fgt=0.0595
+
+[17/21] split_cifar10/functional_trust/seed=137 (ETA: 29.0min)
+  AA=0.7732, Fgt=0.0143
+
+[18/21] split_cifar10/functional_trust/seed=256 (ETA: 33.3min)
+  AA=0.7616, Fgt=0.0174
+
+  >> functional_trust: AA=0.7623±0.0086, Fgt=0.0304±0.0206
+
+[19/21] split_cifar10/ftr_replay/seed=42 (ETA: 21.8min)
+  AA=0.7680, Fgt=0.0056
+
+[20/21] split_cifar10/ftr_replay/seed=137 (ETA: 10.8min)
+  AA=0.7670, Fgt=0.0068
+
+[21/21] split_cifar10/ftr_replay/seed=256 (ETA: 0.0min)
+  AA=0.7644, Fgt=0.0116
+
+  >> ftr_replay: AA=0.7665±0.0015, Fgt=0.0080±0.0026
+
+======================================================================
+EXPERIMENT COMPLETE (239.7 minutes)
+======================================================================
+
+split_cifar10:
+Method                            AA ↑        Fgt ↓          BWT
+-----------------------------------------------------------------
+baseline                  0.7002±0.0070 0.2498±0.0063 -0.2498±0.0063
+ewc                       0.6883±0.0057 0.2202±0.0036 -0.2202±0.0036
+si                        0.7161±0.0102 0.2172±0.0154 -0.2172±0.0154
+lwf                       0.7795±0.0037 0.0431±0.0137 -0.0431±0.0137
+replay                    0.7487±0.0089 0.1740±0.0144 -0.1740±0.0144
+functional_trust          0.7623±0.0086 0.0304±0.0206 -0.0304±0.0206
+ftr_replay                0.7665±0.0015 0.0080±0.0026 -0.0080±0.0026
+
+Results saved to: results/20260214_135338

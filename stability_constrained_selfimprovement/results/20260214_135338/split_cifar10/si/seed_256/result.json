@@ -1,0 +1,5981 @@
+{
+  "average_accuracy": 0.7111000000000001,
+  "backward_transfer": -0.23512499999999997,
+  "forward_transfer": 0.0,
+  "forgetting": 0.23512499999999997,
+  "benchmark": "split_cifar10",
+  "method": "si",
+  "seed": 256,
+  "accuracy_matrix": [
+    [
+      0.954,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.7805,
+      0.7965,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.682,
+      0.657,
+      0.8565,
+      0.0,
+      0.0
+    ],
+    [
+      0.529,
+      0.5735,
+      0.642,
+      0.959,
+      0.0
+    ],
+    [
+      0.804,
+      0.622,
+      0.5505,
+      0.649,
+      0.93
+    ]
+  ],
+  "per_step_metrics": [
+    {
+      "step": 10,
+      "task_id": 0,
+      "task_loss": 0.5226733595132828,
+      "accuracy": 0.8046875,
+      "functional_drift": 1.5019170641899109,
+      "cka_similarity": 0.22814281284809113
+    },
+    {
+      "step": 20,
+      "task_id": 0,
+      "task_loss": 0.4314698830246925,
+      "accuracy": 0.7890625,
+      "functional_drift": 4.946201205253601,
+      "cka_similarity": 0.10572488605976105
+    },
+    {
+      "step": 30,
+      "task_id": 0,
+      "task_loss": 0.41060117036104204,
+      "accuracy": 0.859375,
+      "functional_drift": 5.748672962188721,
+      "cka_similarity": 0.14118720591068268
+    },
+    {
+      "step": 40,
+      "task_id": 0,
+      "task_loss": 0.3824115861207247,
+      "accuracy": 0.8671875,
+      "functional_drift": 6.767572402954102,
+      "cka_similarity": 0.09423953294754028
+    },
+    {
+      "step": 50,
+      "task_id": 0,
+      "task_loss": 0.3616572093963623,
+      "accuracy": 0.8828125,
+      "functional_drift": 5.591391563415527,
+      "cka_similarity": 0.09936919063329697
+    },
+    {
+      "step": 60,
+      "task_id": 0,
+      "task_loss": 0.3427699829141299,
+      "accuracy": 0.90625,
+      "functional_drift": 8.813940048217773,
+      "cka_similarity": 0.0653424933552742
+    },
+    {
+      "step": 70,
+      "task_id": 0,
+      "task_loss": 0.327711925974914,
+      "accuracy": 0.8828125,
+      "functional_drift": 12.68784761428833,
+      "cka_similarity": 0.05050329864025116
+    },
+    {
+      "step": 80,
+      "task_id": 0,
+      "task_loss": 0.15788502991199493,
+      "accuracy": 0.9609375,
+      "functional_drift": 7.08808445930481,
+      "cka_similarity": 0.08484315127134323
+    },
+    {
+      "step": 90,
+      "task_id": 0,
+      "task_loss": 0.18855175782333722,
+      "accuracy": 0.9140625,
+      "functional_drift": 9.573952674865723,
+      "cka_similarity": 0.07865511626005173
+    },
+    {
+      "step": 100,
+      "task_id": 0,
+      "task_loss": 0.19645570289520992,
+      "accuracy": 0.9453125,
+      "functional_drift": 11.612011909484863,
+      "cka_similarity": 0.07535544037818909
+    },
+    {
+      "step": 110,
+      "task_id": 0,
+      "task_loss": 0.19196899475589876,
+      "accuracy": 0.9375,
+      "functional_drift": 8.707191944122314,
+      "cka_similarity": 0.06776557862758636
+    },
+    {
+      "step": 120,
+      "task_id": 0,
+      "task_loss": 0.19157379247793338,
+      "accuracy": 0.9140625,
+      "functional_drift": 9.950176000595093,
+      "cka_similarity": 0.07505002617835999
+    },
+    {
+      "step": 130,
+      "task_id": 0,
+      "task_loss": 0.1915246601782593,
+      "accuracy": 0.9375,
+      "functional_drift": 21.687235832214355,
+      "cka_similarity": 0.05412929877638817
+    },
+    {
+      "step": 140,
+      "task_id": 0,
+      "task_loss": 0.19069424662433687,
+      "accuracy": 0.9609375,
+      "functional_drift": 10.460493326187134,
+      "cka_similarity": 0.07092104107141495
+    },
+    {
+      "step": 150,
+      "task_id": 0,
+      "task_loss": 0.1922112943630823,
+      "accuracy": 0.921875,
+      "functional_drift": 9.543709754943848,
+      "cka_similarity": 0.07665344327688217
+    },
+    {
+      "step": 160,
+      "task_id": 0,
+      "task_loss": 0.08857224509119987,
+      "accuracy": 0.96875,
+      "functional_drift": 23.048856735229492,
+      "cka_similarity": 0.05916229262948036
+    },
+    {
+      "step": 170,
+      "task_id": 0,
+      "task_loss": 0.11596332055826981,
+      "accuracy": 0.9609375,
+      "functional_drift": 10.90634298324585,
+      "cka_similarity": 0.06284844130277634
+    },
+    {
+      "step": 180,
+      "task_id": 0,
+      "task_loss": 0.1252205063673583,
+      "accuracy": 0.8984375,
+      "functional_drift": 12.999513864517212,
+      "cka_similarity": 0.070262111723423
+    },
+    {
+      "step": 190,
+      "task_id": 0,
+      "task_loss": 0.13173068966716528,
+      "accuracy": 0.96875,
+      "functional_drift": 13.932899713516235,
+      "cka_similarity": 0.07706516981124878
+    },
+    {
+      "step": 200,
+      "task_id": 0,
+      "task_loss": 0.13344127844486917,
+      "accuracy": 0.953125,
+      "functional_drift": 11.909738540649414,
+      "cka_similarity": 0.06008584424853325
+    },
+    {
+      "step": 210,
+      "task_id": 0,
+      "task_loss": 0.13079024478793144,
+      "accuracy": 0.96875,
+      "functional_drift": 22.853580474853516,
+      "cka_similarity": 0.06013172119855881
+    },
+    {
+      "step": 220,
+      "task_id": 0,
+      "task_loss": 0.1293879574345004,
+      "accuracy": 0.9375,
+      "functional_drift": 19.16473627090454,
+      "cka_similarity": 0.06428159028291702
+    },
+    {
+      "step": 230,
+      "task_id": 0,
+      "task_loss": 0.12846717217730153,
+      "accuracy": 0.9375,
+      "functional_drift": 21.47725820541382,
+      "cka_similarity": 0.05440571904182434
+    },
+    {
+      "step": 240,
+      "task_id": 0,
+      "task_loss": 0.06931770344575246,
+      "accuracy": 0.9609375,
+      "functional_drift": 27.172555446624756,
+      "cka_similarity": 0.0495353601872921
+    },
+    {
+      "step": 250,
+      "task_id": 0,
+      "task_loss": 0.07369797218304414,
+      "accuracy": 0.984375,
+      "functional_drift": 17.995980262756348,
+      "cka_similarity": 0.05894609913229942
+    },
+    {
+      "step": 260,
+      "task_id": 0,
+      "task_loss": 0.07145254864640858,
+      "accuracy": 0.9609375,
+      "functional_drift": 23.31321954727173,
+      "cka_similarity": 0.0642571672797203
+    },
+    {
+      "step": 270,
+      "task_id": 0,
+      "task_loss": 0.07275986423095067,
+      "accuracy": 0.9765625,
+      "functional_drift": 24.491655826568604,
+      "cka_similarity": 0.044913098216056824
+    },
+    {
+      "step": 280,
+      "task_id": 0,
+      "task_loss": 0.07749280913971192,
+      "accuracy": 0.984375,
+      "functional_drift": 22.004194736480713,
+      "cka_similarity": 0.05832114443182945
+    },
+    {
+      "step": 290,
+      "task_id": 0,
+      "task_loss": 0.07399087279753865,
+      "accuracy": 0.9609375,
+      "functional_drift": 25.63144302368164,
+      "cka_similarity": 0.0428583137691021
+    },
+    {
+      "step": 300,
+      "task_id": 0,
+      "task_loss": 0.0747379670067439,
+      "accuracy": 0.9609375,
+      "functional_drift": 27.140108108520508,
+      "cka_similarity": 0.046494338661432266
+    },
+    {
+      "step": 310,
+      "task_id": 0,
+      "task_loss": 0.07621209343818769,
+      "accuracy": 0.9609375,
+      "functional_drift": 25.234076499938965,
+      "cka_similarity": 0.06773747503757477
+    },
+    {
+      "step": 320,
+      "task_id": 0,
+      "task_loss": 0.04090127442032099,
+      "accuracy": 0.9921875,
+      "functional_drift": 29.60599994659424,
+      "cka_similarity": 0.07300299406051636
+    },
+    {
+      "step": 330,
+      "task_id": 0,
+      "task_loss": 0.05332448865686144,
+      "accuracy": 0.9609375,
+      "functional_drift": 38.84574317932129,
+      "cka_similarity": 0.041031885892152786
+    },
+    {
+      "step": 340,
+      "task_id": 0,
+      "task_loss": 0.04915540448079506,
+      "accuracy": 0.9921875,
+      "functional_drift": 29.52085781097412,
+      "cka_similarity": 0.04741750657558441
+    },
+    {
+      "step": 350,
+      "task_id": 0,
+      "task_loss": 0.05093838192303391,
+      "accuracy": 0.9765625,
+      "functional_drift": 28.106537342071533,
+      "cka_similarity": 0.054194558411836624
+    },
+    {
+      "step": 360,
+      "task_id": 0,
+      "task_loss": 0.04813479155894707,
+      "accuracy": 0.984375,
+      "functional_drift": 33.67083549499512,
+      "cka_similarity": 0.051283225417137146
+    },
+    {
+      "step": 370,
+      "task_id": 0,
+      "task_loss": 0.04857953101465547,
+      "accuracy": 0.96875,
+      "functional_drift": 29.983286380767822,
+      "cka_similarity": 0.04697359725832939
+    },
+    {
+      "step": 380,
+      "task_id": 0,
+      "task_loss": 0.04717697920568753,
+      "accuracy": 1.0,
+      "functional_drift": 37.968323707580566,
+      "cka_similarity": 0.05108657106757164
+    },
+    {
+      "step": 390,
+      "task_id": 0,
+      "task_loss": 0.04787919666567767,
+      "accuracy": 0.984375,
+      "functional_drift": 42.34036350250244,
+      "cka_similarity": 0.04118797928094864
+    },
+    {
+      "step": 400,
+      "task_id": 0,
+      "task_loss": 0.019093658588826657,
+      "accuracy": 1.0,
+      "functional_drift": 63.68019676208496,
+      "cka_similarity": 0.042870454490184784
+    },
+    {
+      "step": 410,
+      "task_id": 0,
+      "task_loss": 0.02485230149080356,
+      "accuracy": 1.0,
+      "functional_drift": 35.9662389755249,
+      "cka_similarity": 0.04889579862356186
+    },
+    {
+      "step": 420,
+      "task_id": 0,
+      "task_loss": 0.02595260627567768,
+      "accuracy": 1.0,
+      "functional_drift": 57.28504657745361,
+      "cka_similarity": 0.04239692538976669
+    },
+    {
+      "step": 430,
+      "task_id": 0,
+      "task_loss": 0.02716442931975637,
+      "accuracy": 0.9765625,
+      "functional_drift": 35.73788642883301,
+      "cka_similarity": 0.05011792108416557
+    },
+    {
+      "step": 440,
+      "task_id": 0,
+      "task_loss": 0.02601752086646027,
+      "accuracy": 0.9921875,
+      "functional_drift": 38.98927021026611,
+      "cka_similarity": 0.050790369510650635
+    },
+    {
+      "step": 450,
+      "task_id": 0,
+      "task_loss": 0.025316242636604744,
+      "accuracy": 0.9921875,
+      "functional_drift": 61.081851959228516,
+      "cka_similarity": 0.048235934227705
+    },
+    {
+      "step": 460,
+      "task_id": 0,
+      "task_loss": 0.024176772913107505,
+      "accuracy": 0.9921875,
+      "functional_drift": 64.57257080078125,
+      "cka_similarity": 0.042230620980262756
+    },
+    {
+      "step": 470,
+      "task_id": 0,
+      "task_loss": 0.024507589153945446,
+      "accuracy": 0.9921875,
+      "functional_drift": 41.42647361755371,
+      "cka_similarity": 0.0583057776093483
+    },
+    {
+      "step": 480,
+      "task_id": 0,
+      "task_loss": 0.028278741287067533,
+      "accuracy": 0.96875,
+      "functional_drift": 62.653841972351074,
+      "cka_similarity": 0.04408743977546692
+    },
+    {
+      "step": 490,
+      "task_id": 0,
+      "task_loss": 0.021058653015643358,
+      "accuracy": 0.9921875,
+      "functional_drift": 48.63896083831787,
+      "cka_similarity": 0.04914166033267975
+    },
+    {
+      "step": 500,
+      "task_id": 0,
+      "task_loss": 0.02160402312158392,
+      "accuracy": 1.0,
+      "functional_drift": 61.34522819519043,
+      "cka_similarity": 0.041023217141628265
+    },
+    {
+      "step": 510,
+      "task_id": 0,
+      "task_loss": 0.023978468677442934,
+      "accuracy": 0.9921875,
+      "functional_drift": 60.1015625,
+      "cka_similarity": 0.035526420921087265
+    },
+    {
+      "step": 520,
+      "task_id": 0,
+      "task_loss": 0.02421650575959812,
+      "accuracy": 0.9609375,
+      "functional_drift": 57.54820728302002,
+      "cka_similarity": 0.047277260571718216
+    },
+    {
+      "step": 530,
+      "task_id": 0,
+      "task_loss": 0.02323255202333842,
+      "accuracy": 0.9921875,
+      "functional_drift": 49.043582916259766,
+      "cka_similarity": 0.04486234858632088
+    },
+    {
+      "step": 540,
+      "task_id": 0,
+      "task_loss": 0.022136858537454496,
+      "accuracy": 1.0,
+      "functional_drift": 79.82676124572754,
+      "cka_similarity": 0.03861197456717491
+    },
+    {
+      "step": 550,
+      "task_id": 0,
+      "task_loss": 0.023039414326807384,
+      "accuracy": 0.984375,
+      "functional_drift": 55.883883476257324,
+      "cka_similarity": 0.03878464177250862
+    },
+    {
+      "step": 560,
+      "task_id": 0,
+      "task_loss": 0.015691360824608376,
+      "accuracy": 0.984375,
+      "functional_drift": 68.89780616760254,
+      "cka_similarity": 0.0418972373008728
+    },
+    {
+      "step": 570,
+      "task_id": 0,
+      "task_loss": 0.02532119910670992,
+      "accuracy": 0.96875,
+      "functional_drift": 86.93281364440918,
+      "cka_similarity": 0.03606640547513962
+    },
+    {
+      "step": 580,
+      "task_id": 0,
+      "task_loss": 0.024597231807463146,
+      "accuracy": 1.0,
+      "functional_drift": 53.7969274520874,
+      "cka_similarity": 0.03822459280490875
+    },
+    {
+      "step": 590,
+      "task_id": 0,
+      "task_loss": 0.02523944722614377,
+      "accuracy": 0.984375,
+      "functional_drift": 72.9410171508789,
+      "cka_similarity": 0.04189540818333626
+    },
+    {
+      "step": 600,
+      "task_id": 0,
+      "task_loss": 0.02275395479073074,
+      "accuracy": 1.0,
+      "functional_drift": 55.41402816772461,
+      "cka_similarity": 0.039741694927215576
+    },
+    {
+      "step": 610,
+      "task_id": 0,
+      "task_loss": 0.02092900235009821,
+      "accuracy": 1.0,
+      "functional_drift": 79.00824737548828,
+      "cka_similarity": 0.0450899638235569
+    },
+    {
+      "step": 620,
+      "task_id": 0,
+      "task_loss": 0.02034165379382781,
+      "accuracy": 0.984375,
+      "functional_drift": 49.529788970947266,
+      "cka_similarity": 0.04373195022344589
+    },
+    {
+      "step": 630,
+      "task_id": 0,
+      "task_loss": 0.020254988767593712,
+      "accuracy": 1.0,
+      "functional_drift": 76.23791885375977,
+      "cka_similarity": 0.05122017860412598
+    },
+    {
+      "step": 640,
+      "task_id": 0,
+      "task_loss": 0.007396863307803869,
+      "accuracy": 1.0,
+      "functional_drift": 92.06744194030762,
+      "cka_similarity": 0.04199331998825073
+    },
+    {
+      "step": 650,
+      "task_id": 0,
+      "task_loss": 0.012373904542376598,
+      "accuracy": 1.0,
+      "functional_drift": 88.5428695678711,
+      "cka_similarity": 0.05912934988737106
+    },
+    {
+      "step": 660,
+      "task_id": 0,
+      "task_loss": 0.012082596459159893,
+      "accuracy": 1.0,
+      "functional_drift": 94.52682876586914,
+      "cka_similarity": 0.03603513166308403
+    },
+    {
+      "step": 670,
+      "task_id": 0,
+      "task_loss": 0.012114387495737327,
+      "accuracy": 0.9921875,
+      "functional_drift": 69.5947265625,
+      "cka_similarity": 0.050611671060323715
+    },
+    {
+      "step": 680,
+      "task_id": 0,
+      "task_loss": 0.013237585585253933,
+      "accuracy": 1.0,
+      "functional_drift": 68.61017990112305,
+      "cka_similarity": 0.042321864515542984
+    },
+    {
+      "step": 690,
+      "task_id": 0,
+      "task_loss": 0.014379805325257495,
+      "accuracy": 1.0,
+      "functional_drift": 94.98246383666992,
+      "cka_similarity": 0.0384347178041935
+    },
+    {
+      "step": 700,
+      "task_id": 0,
+      "task_loss": 0.015364950825802652,
+      "accuracy": 0.984375,
+      "functional_drift": 84.72636222839355,
+      "cka_similarity": 0.042397771030664444
+    },
+    {
+      "step": 710,
+      "task_id": 0,
+      "task_loss": 0.015532583916165795,
+      "accuracy": 1.0,
+      "functional_drift": 76.70586013793945,
+      "cka_similarity": 0.044297635555267334
+    },
+    {
+      "step": 720,
+      "task_id": 0,
+      "task_loss": 0.022247432394781046,
+      "accuracy": 1.0,
+      "functional_drift": 102.40278816223145,
+      "cka_similarity": 0.04096924886107445
+    },
+    {
+      "step": 730,
+      "task_id": 0,
+      "task_loss": 0.02062981479531644,
+      "accuracy": 0.984375,
+      "functional_drift": 67.98187637329102,
+      "cka_similarity": 0.037730198353528976
+    },
+    {
+      "step": 740,
+      "task_id": 0,
+      "task_loss": 0.018199706036629605,
+      "accuracy": 0.9921875,
+      "functional_drift": 109.2920970916748,
+      "cka_similarity": 0.04844602942466736
+    },
+    {
+      "step": 750,
+      "task_id": 0,
+      "task_loss": 0.01601850755739575,
+      "accuracy": 1.0,
+      "functional_drift": 99.53629875183105,
+      "cka_similarity": 0.04458939656615257
+    },
+    {
+      "step": 760,
+      "task_id": 0,
+      "task_loss": 0.017191642023413917,
+      "accuracy": 0.9921875,
+      "functional_drift": 89.39533996582031,
+      "cka_similarity": 0.039455387741327286
+    },
+    {
+      "step": 770,
+      "task_id": 0,
+      "task_loss": 0.01688080454852937,
+      "accuracy": 0.984375,
+      "functional_drift": 116.73654174804688,
+      "cka_similarity": 0.04645940288901329
+    },
+    {
+      "step": 780,
+      "task_id": 0,
+      "task_loss": 0.018147930399973648,
+      "accuracy": 0.96875,
+      "functional_drift": 86.02927589416504,
+      "cka_similarity": 0.04428699240088463
+    },
+    {
+      "step": 790,
+      "task_id": 0,
+      "task_loss": 0.019362627774700995,
+      "accuracy": 1.0,
+      "functional_drift": 62.208258628845215,
+      "cka_similarity": 0.045699555426836014
+    },
+    {
+      "step": 800,
+      "task_id": 0,
+      "task_loss": 0.024906594585627318,
+      "accuracy": 0.9921875,
+      "functional_drift": 112.35932731628418,
+      "cka_similarity": 0.05304212495684624
+    },
+    {
+      "step": 810,
+      "task_id": 0,
+      "task_loss": 0.01912090159021318,
+      "accuracy": 1.0,
+      "functional_drift": 61.69620895385742,
+      "cka_similarity": 0.03659375011920929
+    },
+    {
+      "step": 820,
+      "task_id": 0,
+      "task_loss": 0.017096053471323102,
+      "accuracy": 1.0,
+      "functional_drift": 98.8621654510498,
+      "cka_similarity": 0.0465599000453949
+    },
+    {
+      "step": 830,
+      "task_id": 0,
+      "task_loss": 0.014913645622436888,
+      "accuracy": 1.0,
+      "functional_drift": 67.62727355957031,
+      "cka_similarity": 0.042638324201107025
+    },
+    {
+      "step": 840,
+      "task_id": 0,
+      "task_loss": 0.015919779755640774,
+      "accuracy": 0.9609375,
+      "functional_drift": 99.38018035888672,
+      "cka_similarity": 0.04586366191506386
+    },
+    {
+      "step": 850,
+      "task_id": 0,
+      "task_loss": 0.016186195598371946,
+      "accuracy": 0.9921875,
+      "functional_drift": 102.3735580444336,
+      "cka_similarity": 0.04397391527891159
+    },
+    {
+      "step": 860,
+      "task_id": 0,
+      "task_loss": 0.016646761435549707,
+      "accuracy": 0.9921875,
+      "functional_drift": 76.49539566040039,
+      "cka_similarity": 0.03611034154891968
+    },
+    {
+      "step": 870,
+      "task_id": 0,
+      "task_loss": 0.014868546277284622,
+      "accuracy": 0.984375,
+      "functional_drift": 178.8736343383789,
+      "cka_similarity": 0.047512494027614594
+    },
+    {
+      "step": 880,
+      "task_id": 0,
+      "task_loss": 0.010193392570892518,
+      "accuracy": 1.0,
+      "functional_drift": 64.928879737854,
+      "cka_similarity": 0.04495147243142128
+    },
+    {
+      "step": 890,
+      "task_id": 0,
+      "task_loss": 0.0107513111683407,
+      "accuracy": 1.0,
+      "functional_drift": 140.61286163330078,
+      "cka_similarity": 0.04432140290737152
+    },
+    {
+      "step": 900,
+      "task_id": 0,
+      "task_loss": 0.012510673443396245,
+      "accuracy": 1.0,
+      "functional_drift": 81.61992454528809,
+      "cka_similarity": 0.04281718283891678
+    },
+    {
+      "step": 910,
+      "task_id": 0,
+      "task_loss": 0.013738764235579477,
+      "accuracy": 0.9921875,
+      "functional_drift": 106.04605484008789,
+      "cka_similarity": 0.040249574929475784
+    },
+    {
+      "step": 920,
+      "task_id": 0,
+      "task_loss": 0.01565719249900248,
+      "accuracy": 0.9921875,
+      "functional_drift": 120.95447540283203,
+      "cka_similarity": 0.04518972709774971
+    },
+    {
+      "step": 930,
+      "task_id": 0,
+      "task_loss": 0.016615221766396196,
+      "accuracy": 1.0,
+      "functional_drift": 127.90385627746582,
+      "cka_similarity": 0.04339740797877312
+    },
+    {
+      "step": 940,
+      "task_id": 0,
+      "task_loss": 0.016588569022747884,
+      "accuracy": 0.9921875,
+      "functional_drift": 76.80937385559082,
+      "cka_similarity": 0.04949909448623657
+    },
+    {
+      "step": 950,
+      "task_id": 0,
+      "task_loss": 0.007007623207755387,
+      "accuracy": 1.0,
+      "functional_drift": 118.82059860229492,
+      "cka_similarity": 0.043470434844493866
+    },
+    {
+      "step": 960,
+      "task_id": 0,
+      "task_loss": 0.0049847060775694745,
+      "accuracy": 1.0,
+      "functional_drift": 95.96925735473633,
+      "cka_similarity": 0.03750164434313774
+    },
+    {
+      "step": 970,
+      "task_id": 0,
+      "task_loss": 0.006625055922830308,
+      "accuracy": 1.0,
+      "functional_drift": 142.68396759033203,
+      "cka_similarity": 0.044690195471048355
+    },
+    {
+      "step": 980,
+      "task_id": 0,
+      "task_loss": 0.0074653943156590685,
+      "accuracy": 1.0,
+      "functional_drift": 86.40528678894043,
+      "cka_similarity": 0.040869444608688354
+    },
+    {
+      "step": 990,
+      "task_id": 0,
+      "task_loss": 0.008232950008407767,
+      "accuracy": 0.9921875,
+      "functional_drift": 122.10440826416016,
+      "cka_similarity": 0.042534660547971725
+    },
+    {
+      "step": 1000,
+      "task_id": 0,
+      "task_loss": 0.008910239790566266,
+      "accuracy": 0.9921875,
+      "functional_drift": 84.92621994018555,
+      "cka_similarity": 0.046803951263427734
+    },
+    {
+      "step": 1010,
+      "task_id": 0,
+      "task_loss": 0.008854770446158644,
+      "accuracy": 1.0,
+      "functional_drift": 101.52647972106934,
+      "cka_similarity": 0.03526926785707474
+    },
+    {
+      "step": 1020,
+      "task_id": 0,
+      "task_loss": 0.010178320574697055,
+      "accuracy": 0.9921875,
+      "functional_drift": 118.73711585998535,
+      "cka_similarity": 0.0501895435154438
+    },
+    {
+      "step": 1030,
+      "task_id": 0,
+      "task_loss": 0.0020232608852287135,
+      "accuracy": 1.0,
+      "functional_drift": 89.53861808776855,
+      "cka_similarity": 0.03952636569738388
+    },
+    {
+      "step": 1040,
+      "task_id": 0,
+      "task_loss": 0.0067920248346546525,
+      "accuracy": 1.0,
+      "functional_drift": 102.67505645751953,
+      "cka_similarity": 0.04206538572907448
+    },
+    {
+      "step": 1050,
+      "task_id": 0,
+      "task_loss": 0.00691445574225129,
+      "accuracy": 0.9921875,
+      "functional_drift": 93.65920829772949,
+      "cka_similarity": 0.03778008744120598
+    },
+    {
+      "step": 1060,
+      "task_id": 0,
+      "task_loss": 0.008120698483914814,
+      "accuracy": 1.0,
+      "functional_drift": 122.92560577392578,
+      "cka_similarity": 0.033304352313280106
+    },
+    {
+      "step": 1070,
+      "task_id": 0,
+      "task_loss": 0.008950084416726388,
+      "accuracy": 0.984375,
+      "functional_drift": 91.61499786376953,
+      "cka_similarity": 0.04611961543560028
+    },
+    {
+      "step": 1080,
+      "task_id": 0,
+      "task_loss": 0.010458272803829596,
+      "accuracy": 0.9921875,
+      "functional_drift": 127.32218360900879,
+      "cka_similarity": 0.04410332813858986
+    },
+    {
+      "step": 1090,
+      "task_id": 0,
+      "task_loss": 0.010180755729957055,
+      "accuracy": 1.0,
+      "functional_drift": 94.75375175476074,
+      "cka_similarity": 0.04435433819890022
+    },
+    {
+      "step": 1100,
+      "task_id": 0,
+      "task_loss": 0.009570696506783213,
+      "accuracy": 1.0,
+      "functional_drift": 131.34830856323242,
+      "cka_similarity": 0.043845854699611664
+    },
+    {
+      "step": 1110,
+      "task_id": 0,
+      "task_loss": 0.003078304202063009,
+      "accuracy": 1.0,
+      "functional_drift": 98.93509101867676,
+      "cka_similarity": 0.0438116192817688
+    },
+    {
+      "step": 1120,
+      "task_id": 0,
+      "task_loss": 0.00432802748400718,
+      "accuracy": 1.0,
+      "functional_drift": 129.86573028564453,
+      "cka_similarity": 0.043978407979011536
+    },
+    {
+      "step": 1130,
+      "task_id": 0,
+      "task_loss": 0.004460280668960574,
+      "accuracy": 0.9921875,
+      "functional_drift": 101.17305183410645,
+      "cka_similarity": 0.04083256796002388
+    },
+    {
+      "step": 1140,
+      "task_id": 0,
+      "task_loss": 0.004239916818572537,
+      "accuracy": 1.0,
+      "functional_drift": 116.77939224243164,
+      "cka_similarity": 0.041216891258955
+    },
+    {
+      "step": 1150,
+      "task_id": 0,
+      "task_loss": 0.005910312360025604,
+      "accuracy": 0.9921875,
+      "functional_drift": 122.31854438781738,
+      "cka_similarity": 0.03882532939314842
+    },
+    {
+      "step": 1160,
+      "task_id": 0,
+      "task_loss": 0.0061201670177979395,
+      "accuracy": 0.9921875,
+      "functional_drift": 133.90689086914062,
+      "cka_similarity": 0.04601718485355377
+    },
+    {
+      "step": 1170,
+      "task_id": 0,
+      "task_loss": 0.0067910325001321326,
+      "accuracy": 1.0,
+      "functional_drift": 128.3733673095703,
+      "cka_similarity": 0.030369902029633522
+    },
+    {
+      "step": 1180,
+      "task_id": 0,
+      "task_loss": 0.007471068238767141,
+      "accuracy": 0.9921875,
+      "functional_drift": 212.1216583251953,
+      "cka_similarity": 0.03977994993329048
+    },
+    {
+      "step": 1190,
+      "task_id": 1,
+      "task_loss": 2.726621389389038,
+      "accuracy": 0.578125,
+      "functional_drift": 70.8189525604248,
+      "cka_similarity": 0.027838580310344696
+    },
+    {
+      "step": 1200,
+      "task_id": 1,
+      "task_loss": 1.7743610938390095,
+      "accuracy": 0.65625,
+      "functional_drift": 23.533175468444824,
+      "cka_similarity": 0.08646116405725479
+    },
+    {
+      "step": 1210,
+      "task_id": 1,
+      "task_loss": 1.335369873046875,
+      "accuracy": 0.71875,
+      "functional_drift": 9.291831731796265,
+      "cka_similarity": 0.34337741136550903
+    },
+    {
+      "step": 1220,
+      "task_id": 1,
+      "task_loss": 1.1118203716618673,
+      "accuracy": 0.7265625,
+      "functional_drift": 3.646859884262085,
+      "cka_similarity": 0.24471783638000488
+    },
+    {
+      "step": 1230,
+      "task_id": 1,
+      "task_loss": 0.9850264264477624,
+      "accuracy": 0.75,
+      "functional_drift": 5.6034135818481445,
+      "cka_similarity": 0.18383468687534332
+    },
+    {
+      "step": 1240,
+      "task_id": 1,
+      "task_loss": 0.9022151963277296,
+      "accuracy": 0.6953125,
+      "functional_drift": 2.6450982093811035,
+      "cka_similarity": 0.18660448491573334
+    },
+    {
+      "step": 1250,
+      "task_id": 1,
+      "task_loss": 0.8368178853621849,
+      "accuracy": 0.7265625,
+      "functional_drift": 4.705617785453796,
+      "cka_similarity": 0.17040970921516418
+    },
+    {
+      "step": 1260,
+      "task_id": 1,
+      "task_loss": 0.7893733100096385,
+      "accuracy": 0.78125,
+      "functional_drift": 4.466485977172852,
+      "cka_similarity": 0.1735546886920929
+    },
+    {
+      "step": 1270,
+      "task_id": 1,
+      "task_loss": 0.4275754888852437,
+      "accuracy": 0.875,
+      "functional_drift": 4.551936745643616,
+      "cka_similarity": 0.18202832341194153
+    },
+    {
+      "step": 1280,
+      "task_id": 1,
+      "task_loss": 0.41500750556588173,
+      "accuracy": 0.8125,
+      "functional_drift": 3.2708577513694763,
+      "cka_similarity": 0.18295727670192719
+    },
+    {
+      "step": 1290,
+      "task_id": 1,
+      "task_loss": 0.4086831853939937,
+      "accuracy": 0.8515625,
+      "functional_drift": 5.355766534805298,
+      "cka_similarity": 0.1574169546365738
+    },
+    {
+      "step": 1300,
+      "task_id": 1,
+      "task_loss": 0.3924717820352978,
+      "accuracy": 0.8828125,
+      "functional_drift": 6.736264944076538,
+      "cka_similarity": 0.12432742863893509
+    },
+    {
+      "step": 1310,
+      "task_id": 1,
+      "task_loss": 0.39038990243621496,
+      "accuracy": 0.8125,
+      "functional_drift": 5.1733410358428955,
+      "cka_similarity": 0.11298427730798721
+    },
+    {
+      "step": 1320,
+      "task_id": 1,
+      "task_loss": 0.38961718550750185,
+      "accuracy": 0.828125,
+      "functional_drift": 5.763789534568787,
+      "cka_similarity": 0.12535281479358673
+    },
+    {
+      "step": 1330,
+      "task_id": 1,
+      "task_loss": 0.38788240651289624,
+      "accuracy": 0.84375,
+      "functional_drift": 6.308291792869568,
+      "cka_similarity": 0.1297088861465454
+    },
+    {
+      "step": 1340,
+      "task_id": 1,
+      "task_loss": 0.39167185637511703,
+      "accuracy": 0.796875,
+      "functional_drift": 4.589491009712219,
+      "cka_similarity": 0.12783598899841309
+    },
+    {
+      "step": 1350,
+      "task_id": 1,
+      "task_loss": 0.28912957438400816,
+      "accuracy": 0.890625,
+      "functional_drift": 4.580793857574463,
+      "cka_similarity": 0.15459229052066803
+    },
+    {
+      "step": 1360,
+      "task_id": 1,
+      "task_loss": 0.2796962497865452,
+      "accuracy": 0.890625,
+      "functional_drift": 5.632718563079834,
+      "cka_similarity": 0.1066913828253746
+    },
+    {
+      "step": 1370,
+      "task_id": 1,
+      "task_loss": 0.2734853956434462,
+      "accuracy": 0.890625,
+      "functional_drift": 6.684573411941528,
+      "cka_similarity": 0.10925334692001343
+    },
+    {
+      "step": 1380,
+      "task_id": 1,
+      "task_loss": 0.2779018427874591,
+      "accuracy": 0.859375,
+      "functional_drift": 6.7622740268707275,
+      "cka_similarity": 0.09945866465568542
+    },
+    {
+      "step": 1390,
+      "task_id": 1,
+      "task_loss": 0.2822869543699508,
+      "accuracy": 0.8671875,
+      "functional_drift": 7.05768883228302,
+      "cka_similarity": 0.10561791807413101
+    },
+    {
+      "step": 1400,
+      "task_id": 1,
+      "task_loss": 0.2875685197742362,
+      "accuracy": 0.8359375,
+      "functional_drift": 9.150774955749512,
+      "cka_similarity": 0.1021898165345192
+    },
+    {
+      "step": 1410,
+      "task_id": 1,
+      "task_loss": 0.2897559277602096,
+      "accuracy": 0.8671875,
+      "functional_drift": 7.728967070579529,
+      "cka_similarity": 0.10714821517467499
+    },
+    {
+      "step": 1420,
+      "task_id": 1,
+      "task_loss": 0.29279152120088603,
+      "accuracy": 0.859375,
+      "functional_drift": 5.217203140258789,
+      "cka_similarity": 0.1664656400680542
+    },
+    {
+      "step": 1430,
+      "task_id": 1,
+      "task_loss": 0.20552361570298672,
+      "accuracy": 0.921875,
+      "functional_drift": 8.1361403465271,
+      "cka_similarity": 0.11344246566295624
+    },
+    {
+      "step": 1440,
+      "task_id": 1,
+      "task_loss": 0.19651242759492663,
+      "accuracy": 0.9375,
+      "functional_drift": 10.706703424453735,
+      "cka_similarity": 0.13032309710979462
+    },
+    {
+      "step": 1450,
+      "task_id": 1,
+      "task_loss": 0.2028796018234321,
+      "accuracy": 0.90625,
+      "functional_drift": 13.265007972717285,
+      "cka_similarity": 0.09267258644104004
+    },
+    {
+      "step": 1460,
+      "task_id": 1,
+      "task_loss": 0.20126186664167203,
+      "accuracy": 0.9375,
+      "functional_drift": 11.356812953948975,
+      "cka_similarity": 0.08988554030656815
+    },
+    {
+      "step": 1470,
+      "task_id": 1,
+      "task_loss": 0.20007610693573952,
+      "accuracy": 0.9375,
+      "functional_drift": 15.491708993911743,
+      "cka_similarity": 0.06360701471567154
+    },
+    {
+      "step": 1480,
+      "task_id": 1,
+      "task_loss": 0.20327684052031617,
+      "accuracy": 0.9140625,
+      "functional_drift": 12.73842716217041,
+      "cka_similarity": 0.06576179713010788
+    },
+    {
+      "step": 1490,
+      "task_id": 1,
+      "task_loss": 0.20760119048988118,
+      "accuracy": 0.921875,
+      "functional_drift": 10.563669919967651,
+      "cka_similarity": 0.07414425909519196
+    },
+    {
+      "step": 1500,
+      "task_id": 1,
+      "task_loss": 0.2071246115060953,
+      "accuracy": 0.9453125,
+      "functional_drift": 13.937983751296997,
+      "cka_similarity": 0.08610643446445465
+    },
+    {
+      "step": 1510,
+      "task_id": 1,
+      "task_loss": 0.13322180178430346,
+      "accuracy": 0.9609375,
+      "functional_drift": 16.050087451934814,
+      "cka_similarity": 0.06293152272701263
+    },
+    {
+      "step": 1520,
+      "task_id": 1,
+      "task_loss": 0.1287953069335536,
+      "accuracy": 0.96875,
+      "functional_drift": 14.061086177825928,
+      "cka_similarity": 0.07731471210718155
+    },
+    {
+      "step": 1530,
+      "task_id": 1,
+      "task_loss": 0.12191797356153357,
+      "accuracy": 0.9296875,
+      "functional_drift": 21.91307258605957,
+      "cka_similarity": 0.08459474891424179
+    },
+    {
+      "step": 1540,
+      "task_id": 1,
+      "task_loss": 0.12240242308531052,
+      "accuracy": 0.953125,
+      "functional_drift": 24.072062969207764,
+      "cka_similarity": 0.05442911759018898
+    },
+    {
+      "step": 1550,
+      "task_id": 1,
+      "task_loss": 0.12471051362096047,
+      "accuracy": 0.984375,
+      "functional_drift": 19.299368381500244,
+      "cka_similarity": 0.04136430099606514
+    },
+    {
+      "step": 1560,
+      "task_id": 1,
+      "task_loss": 0.12766791349750453,
+      "accuracy": 0.9453125,
+      "functional_drift": 19.25020694732666,
+      "cka_similarity": 0.053732894361019135
+    },
+    {
+      "step": 1570,
+      "task_id": 1,
+      "task_loss": 0.12983992523041324,
+      "accuracy": 0.9296875,
+      "functional_drift": 30.213913440704346,
+      "cka_similarity": 0.05845637246966362
+    },
+    {
+      "step": 1580,
+      "task_id": 1,
+      "task_loss": 0.13430591191672073,
+      "accuracy": 0.9375,
+      "functional_drift": 23.290652751922607,
+      "cka_similarity": 0.05301224812865257
+    },
+    {
+      "step": 1590,
+      "task_id": 1,
+      "task_loss": 0.0675980594009161,
+      "accuracy": 0.9765625,
+      "functional_drift": 22.609249114990234,
+      "cka_similarity": 0.04938928782939911
+    },
+    {
+      "step": 1600,
+      "task_id": 1,
+      "task_loss": 0.07011000663042069,
+      "accuracy": 0.984375,
+      "functional_drift": 32.046499252319336,
+      "cka_similarity": 0.043476544320583344
+    },
+    {
+      "step": 1610,
+      "task_id": 1,
+      "task_loss": 0.07277771706382434,
+      "accuracy": 0.96875,
+      "functional_drift": 29.88444995880127,
+      "cka_similarity": 0.0476970300078392
+    },
+    {
+      "step": 1620,
+      "task_id": 1,
+      "task_loss": 0.07554914131760597,
+      "accuracy": 0.9609375,
+      "functional_drift": 23.7267484664917,
+      "cka_similarity": 0.039105094969272614
+    },
+    {
+      "step": 1630,
+      "task_id": 1,
+      "task_loss": 0.0775587323307991,
+      "accuracy": 0.9765625,
+      "functional_drift": 27.528860092163086,
+      "cka_similarity": 0.07015504688024521
+    },
+    {
+      "step": 1640,
+      "task_id": 1,
+      "task_loss": 0.08073234247664611,
+      "accuracy": 0.953125,
+      "functional_drift": 24.681003093719482,
+      "cka_similarity": 0.06536555290222168
+    },
+    {
+      "step": 1650,
+      "task_id": 1,
+      "task_loss": 0.08354235397917883,
+      "accuracy": 0.9609375,
+      "functional_drift": 25.900050163269043,
+      "cka_similarity": 0.04100966081023216
+    },
+    {
+      "step": 1660,
+      "task_id": 1,
+      "task_loss": 0.02856440842151642,
+      "accuracy": 0.9921875,
+      "functional_drift": 37.128231048583984,
+      "cka_similarity": 0.047342486679553986
+    },
+    {
+      "step": 1670,
+      "task_id": 1,
+      "task_loss": 0.051471027799628,
+      "accuracy": 0.9609375,
+      "functional_drift": 30.49153709411621,
+      "cka_similarity": 0.039949532598257065
+    },
+    {
+      "step": 1680,
+      "task_id": 1,
+      "task_loss": 0.055298859608315286,
+      "accuracy": 0.9375,
+      "functional_drift": 35.2494740486145,
+      "cka_similarity": 0.04853416606783867
+    },
+    {
+      "step": 1690,
+      "task_id": 1,
+      "task_loss": 0.054543923646692305,
+      "accuracy": 0.9609375,
+      "functional_drift": 35.4535026550293,
+      "cka_similarity": 0.040026213973760605
+    },
+    {
+      "step": 1700,
+      "task_id": 1,
+      "task_loss": 0.057956167610316744,
+      "accuracy": 0.9453125,
+      "functional_drift": 45.517109870910645,
+      "cka_similarity": 0.048753105103969574
+    },
+    {
+      "step": 1710,
+      "task_id": 1,
+      "task_loss": 0.06657400665183862,
+      "accuracy": 0.96875,
+      "functional_drift": 30.157403469085693,
+      "cka_similarity": 0.028748244047164917
+    },
+    {
+      "step": 1720,
+      "task_id": 1,
+      "task_loss": 0.06896091884643328,
+      "accuracy": 0.96875,
+      "functional_drift": 28.19169569015503,
+      "cka_similarity": 0.024814510717988014
+    },
+    {
+      "step": 1730,
+      "task_id": 1,
+      "task_loss": 0.07408333693066953,
+      "accuracy": 0.9921875,
+      "functional_drift": 39.92250347137451,
+      "cka_similarity": 0.04924307391047478
+    },
+    {
+      "step": 1740,
+      "task_id": 1,
+      "task_loss": 0.08598897233605385,
+      "accuracy": 0.96875,
+      "functional_drift": 26.495559215545654,
+      "cka_similarity": 0.04092719778418541
+    },
+    {
+      "step": 1750,
+      "task_id": 1,
+      "task_loss": 0.06642973298827808,
+      "accuracy": 0.984375,
+      "functional_drift": 31.717133045196533,
+      "cka_similarity": 0.035469286143779755
+    },
+    {
+      "step": 1760,
+      "task_id": 1,
+      "task_loss": 0.05951285243711688,
+      "accuracy": 0.9765625,
+      "functional_drift": 37.86387062072754,
+      "cka_similarity": 0.03408178314566612
+    },
+    {
+      "step": 1770,
+      "task_id": 1,
+      "task_loss": 0.057603995548561215,
+      "accuracy": 0.9921875,
+      "functional_drift": 37.63215255737305,
+      "cka_similarity": 0.04013931751251221
+    },
+    {
+      "step": 1780,
+      "task_id": 1,
+      "task_loss": 0.05725422967225313,
+      "accuracy": 0.984375,
+      "functional_drift": 32.735477447509766,
+      "cka_similarity": 0.03281860426068306
+    },
+    {
+      "step": 1790,
+      "task_id": 1,
+      "task_loss": 0.05979667410541039,
+      "accuracy": 1.0,
+      "functional_drift": 36.99061107635498,
+      "cka_similarity": 0.043398067355155945
+    },
+    {
+      "step": 1800,
+      "task_id": 1,
+      "task_loss": 0.06169483363027534,
+      "accuracy": 0.9453125,
+      "functional_drift": 39.54732799530029,
+      "cka_similarity": 0.043280236423015594
+    },
+    {
+      "step": 1810,
+      "task_id": 1,
+      "task_loss": 0.0627468162888868,
+      "accuracy": 0.9765625,
+      "functional_drift": 31.658156871795654,
+      "cka_similarity": 0.03966919332742691
+    },
+    {
+      "step": 1820,
+      "task_id": 1,
+      "task_loss": 0.021044555120170116,
+      "accuracy": 1.0,
+      "functional_drift": 37.819908142089844,
+      "cka_similarity": 0.040162790566682816
+    },
+    {
+      "step": 1830,
+      "task_id": 1,
+      "task_loss": 0.04416620695533661,
+      "accuracy": 0.96875,
+      "functional_drift": 33.23909616470337,
+      "cka_similarity": 0.046030040830373764
+    },
+    {
+      "step": 1840,
+      "task_id": 1,
+      "task_loss": 0.043093718628844487,
+      "accuracy": 0.9921875,
+      "functional_drift": 53.17360305786133,
+      "cka_similarity": 0.0470251739025116
+    },
+    {
+      "step": 1850,
+      "task_id": 1,
+      "task_loss": 0.052488433281806385,
+      "accuracy": 0.984375,
+      "functional_drift": 36.480873107910156,
+      "cka_similarity": 0.026713132858276367
+    },
+    {
+      "step": 1860,
+      "task_id": 1,
+      "task_loss": 0.05584300497850014,
+      "accuracy": 0.9453125,
+      "functional_drift": 39.026567459106445,
+      "cka_similarity": 0.03237317502498627
+    },
+    {
+      "step": 1870,
+      "task_id": 1,
+      "task_loss": 0.05490673331649236,
+      "accuracy": 0.9921875,
+      "functional_drift": 38.8608980178833,
+      "cka_similarity": 0.0439850278198719
+    },
+    {
+      "step": 1880,
+      "task_id": 1,
+      "task_loss": 0.0543147133190244,
+      "accuracy": 0.984375,
+      "functional_drift": 32.32606554031372,
+      "cka_similarity": 0.03703005611896515
+    },
+    {
+      "step": 1890,
+      "task_id": 1,
+      "task_loss": 0.05389403417859584,
+      "accuracy": 0.984375,
+      "functional_drift": 45.94002723693848,
+      "cka_similarity": 0.038982685655355453
+    },
+    {
+      "step": 1900,
+      "task_id": 1,
+      "task_loss": 0.048480826430022717,
+      "accuracy": 0.984375,
+      "functional_drift": 43.09529972076416,
+      "cka_similarity": 0.030132899060845375
+    },
+    {
+      "step": 1910,
+      "task_id": 1,
+      "task_loss": 0.04458129545673728,
+      "accuracy": 1.0,
+      "functional_drift": 34.897398948669434,
+      "cka_similarity": 0.03110145591199398
+    },
+    {
+      "step": 1920,
+      "task_id": 1,
+      "task_loss": 0.03471797630966952,
+      "accuracy": 1.0,
+      "functional_drift": 42.0401668548584,
+      "cka_similarity": 0.046633049845695496
+    },
+    {
+      "step": 1930,
+      "task_id": 1,
+      "task_loss": 0.03403539859744556,
+      "accuracy": 1.0,
+      "functional_drift": 48.25821399688721,
+      "cka_similarity": 0.035729002207517624
+    },
+    {
+      "step": 1940,
+      "task_id": 1,
+      "task_loss": 0.035170957509597596,
+      "accuracy": 0.9921875,
+      "functional_drift": 44.75768756866455,
+      "cka_similarity": 0.03300923481583595
+    },
+    {
+      "step": 1950,
+      "task_id": 1,
+      "task_loss": 0.0388706398403479,
+      "accuracy": 0.9609375,
+      "functional_drift": 52.46288776397705,
+      "cka_similarity": 0.051489464938640594
+    },
+    {
+      "step": 1960,
+      "task_id": 1,
+      "task_loss": 0.04460232779092621,
+      "accuracy": 0.9609375,
+      "functional_drift": 30.628801345825195,
+      "cka_similarity": 0.04771055653691292
+    },
+    {
+      "step": 1970,
+      "task_id": 1,
+      "task_loss": 0.047242333521009296,
+      "accuracy": 0.9609375,
+      "functional_drift": 37.61066246032715,
+      "cka_similarity": 0.032165732234716415
+    },
+    {
+      "step": 1980,
+      "task_id": 1,
+      "task_loss": 0.034963208995759484,
+      "accuracy": 0.96875,
+      "functional_drift": 55.06861972808838,
+      "cka_similarity": 0.04439811408519745
+    },
+    {
+      "step": 1990,
+      "task_id": 1,
+      "task_loss": 0.0402313208207488,
+      "accuracy": 1.0,
+      "functional_drift": 47.835604667663574,
+      "cka_similarity": 0.03241187706589699
+    },
+    {
+      "step": 2000,
+      "task_id": 1,
+      "task_loss": 0.03813693974167109,
+      "accuracy": 0.984375,
+      "functional_drift": 43.6486759185791,
+      "cka_similarity": 0.039831336587667465
+    },
+    {
+      "step": 2010,
+      "task_id": 1,
+      "task_loss": 0.03658929012183632,
+      "accuracy": 0.9921875,
+      "functional_drift": 36.15594482421875,
+      "cka_similarity": 0.036051664501428604
+    },
+    {
+      "step": 2020,
+      "task_id": 1,
+      "task_loss": 0.041466546948585245,
+      "accuracy": 0.9921875,
+      "functional_drift": 42.15735912322998,
+      "cka_similarity": 0.03596464544534683
+    },
+    {
+      "step": 2030,
+      "task_id": 1,
+      "task_loss": 0.043101227876137606,
+      "accuracy": 1.0,
+      "functional_drift": 52.932183265686035,
+      "cka_similarity": 0.030891453847289085
+    },
+    {
+      "step": 2040,
+      "task_id": 1,
+      "task_loss": 0.04378969447257427,
+      "accuracy": 0.9609375,
+      "functional_drift": 47.90461730957031,
+      "cka_similarity": 0.06058615818619728
+    },
+    {
+      "step": 2050,
+      "task_id": 1,
+      "task_loss": 0.047830877117812635,
+      "accuracy": 0.96875,
+      "functional_drift": 37.00341796875,
+      "cka_similarity": 0.0609838142991066
+    },
+    {
+      "step": 2060,
+      "task_id": 1,
+      "task_loss": 0.037827099518229566,
+      "accuracy": 0.984375,
+      "functional_drift": 38.68589401245117,
+      "cka_similarity": 0.04049219563603401
+    },
+    {
+      "step": 2070,
+      "task_id": 1,
+      "task_loss": 0.036099627788644284,
+      "accuracy": 0.953125,
+      "functional_drift": 47.11305522918701,
+      "cka_similarity": 0.03686508908867836
+    },
+    {
+      "step": 2080,
+      "task_id": 1,
+      "task_loss": 0.03149933896314066,
+      "accuracy": 1.0,
+      "functional_drift": 44.23436641693115,
+      "cka_similarity": 0.03917333856225014
+    },
+    {
+      "step": 2090,
+      "task_id": 1,
+      "task_loss": 0.03641726163267675,
+      "accuracy": 0.9765625,
+      "functional_drift": 49.9308967590332,
+      "cka_similarity": 0.03233359381556511
+    },
+    {
+      "step": 2100,
+      "task_id": 1,
+      "task_loss": 0.03693633618683595,
+      "accuracy": 0.9765625,
+      "functional_drift": 49.00102710723877,
+      "cka_similarity": 0.03331087529659271
+    },
+    {
+      "step": 2110,
+      "task_id": 1,
+      "task_loss": 0.03837191688528817,
+      "accuracy": 0.9921875,
+      "functional_drift": 51.452083587646484,
+      "cka_similarity": 0.036454152315855026
+    },
+    {
+      "step": 2120,
+      "task_id": 1,
+      "task_loss": 0.03741452785801481,
+      "accuracy": 0.9765625,
+      "functional_drift": 47.46212291717529,
+      "cka_similarity": 0.04439803212881088
+    },
+    {
+      "step": 2130,
+      "task_id": 1,
+      "task_loss": 0.038291824926426146,
+      "accuracy": 0.9921875,
+      "functional_drift": 47.34504318237305,
+      "cka_similarity": 0.031489793211221695
+    },
+    {
+      "step": 2140,
+      "task_id": 1,
+      "task_loss": 0.018400360164897784,
+      "accuracy": 0.984375,
+      "functional_drift": 42.00709342956543,
+      "cka_similarity": 0.044690150767564774
+    },
+    {
+      "step": 2150,
+      "task_id": 1,
+      "task_loss": 0.02404746796716662,
+      "accuracy": 0.9921875,
+      "functional_drift": 58.26100826263428,
+      "cka_similarity": 0.032966405153274536
+    },
+    {
+      "step": 2160,
+      "task_id": 1,
+      "task_loss": 0.027158621664124506,
+      "accuracy": 0.984375,
+      "functional_drift": 59.233970642089844,
+      "cka_similarity": 0.028313694521784782
+    },
+    {
+      "step": 2170,
+      "task_id": 1,
+      "task_loss": 0.030918454071758566,
+      "accuracy": 0.984375,
+      "functional_drift": 46.81591510772705,
+      "cka_similarity": 0.03549876809120178
+    },
+    {
+      "step": 2180,
+      "task_id": 1,
+      "task_loss": 0.03446233397389346,
+      "accuracy": 0.984375,
+      "functional_drift": 44.70825004577637,
+      "cka_similarity": 0.04069569334387779
+    },
+    {
+      "step": 2190,
+      "task_id": 1,
+      "task_loss": 0.03571267476664823,
+      "accuracy": 0.984375,
+      "functional_drift": 48.10952186584473,
+      "cka_similarity": 0.03370256349444389
+    },
+    {
+      "step": 2200,
+      "task_id": 1,
+      "task_loss": 0.03743681137853149,
+      "accuracy": 0.9921875,
+      "functional_drift": 48.617435455322266,
+      "cka_similarity": 0.03861672431230545
+    },
+    {
+      "step": 2210,
+      "task_id": 1,
+      "task_loss": 0.03812411133586973,
+      "accuracy": 0.984375,
+      "functional_drift": 39.896904945373535,
+      "cka_similarity": 0.03530929237604141
+    },
+    {
+      "step": 2220,
+      "task_id": 1,
+      "task_loss": 0.02282281860243529,
+      "accuracy": 1.0,
+      "functional_drift": 41.490614891052246,
+      "cka_similarity": 0.027520563453435898
+    },
+    {
+      "step": 2230,
+      "task_id": 1,
+      "task_loss": 0.027708438483791217,
+      "accuracy": 0.984375,
+      "functional_drift": 47.7897891998291,
+      "cka_similarity": 0.030939025804400444
+    },
+    {
+      "step": 2240,
+      "task_id": 1,
+      "task_loss": 0.03115251301122563,
+      "accuracy": 0.96875,
+      "functional_drift": 85.8519058227539,
+      "cka_similarity": 0.05374230816960335
+    },
+    {
+      "step": 2250,
+      "task_id": 1,
+      "task_loss": 0.03613804694951365,
+      "accuracy": 0.984375,
+      "functional_drift": 50.12980651855469,
+      "cka_similarity": 0.030605128034949303
+    },
+    {
+      "step": 2260,
+      "task_id": 1,
+      "task_loss": 0.037684560229536146,
+      "accuracy": 0.984375,
+      "functional_drift": 42.051313400268555,
+      "cka_similarity": 0.029844749718904495
+    },
+    {
+      "step": 2270,
+      "task_id": 1,
+      "task_loss": 0.03514089825531018,
+      "accuracy": 0.9921875,
+      "functional_drift": 46.75838851928711,
+      "cka_similarity": 0.0272940956056118
+    },
+    {
+      "step": 2280,
+      "task_id": 1,
+      "task_loss": 0.03620762683396392,
+      "accuracy": 0.9609375,
+      "functional_drift": 47.915024757385254,
+      "cka_similarity": 0.031111521646380424
+    },
+    {
+      "step": 2290,
+      "task_id": 1,
+      "task_loss": 0.038300934784974046,
+      "accuracy": 0.984375,
+      "functional_drift": 57.78001689910889,
+      "cka_similarity": 0.03263600915670395
+    },
+    {
+      "step": 2300,
+      "task_id": 1,
+      "task_loss": 0.029171169735491276,
+      "accuracy": 1.0,
+      "functional_drift": 48.65821170806885,
+      "cka_similarity": 0.030436186119914055
+    },
+    {
+      "step": 2310,
+      "task_id": 1,
+      "task_loss": 0.02880628058980954,
+      "accuracy": 0.984375,
+      "functional_drift": 46.631364822387695,
+      "cka_similarity": 0.03393479436635971
+    },
+    {
+      "step": 2320,
+      "task_id": 1,
+      "task_loss": 0.028925208374857903,
+      "accuracy": 0.9921875,
+      "functional_drift": 49.57081413269043,
+      "cka_similarity": 0.03871706873178482
+    },
+    {
+      "step": 2330,
+      "task_id": 1,
+      "task_loss": 0.03199452562974049,
+      "accuracy": 0.96875,
+      "functional_drift": 42.879170417785645,
+      "cka_similarity": 0.025359196588397026
+    },
+    {
+      "step": 2340,
+      "task_id": 1,
+      "task_loss": 0.03418677554902982,
+      "accuracy": 0.9921875,
+      "functional_drift": 52.597439765930176,
+      "cka_similarity": 0.03449593856930733
+    },
+    {
+      "step": 2350,
+      "task_id": 1,
+      "task_loss": 0.03503946287525912,
+      "accuracy": 0.9921875,
+      "functional_drift": 53.66187858581543,
+      "cka_similarity": 0.0526515357196331
+    },
+    {
+      "step": 2360,
+      "task_id": 1,
+      "task_loss": 0.035909829769229545,
+      "accuracy": 0.9921875,
+      "functional_drift": 57.82621097564697,
+      "cka_similarity": 0.02801758609712124
+    },
+    {
+      "step": 2370,
+      "task_id": 1,
+      "task_loss": 0.03864305876666987,
+      "accuracy": 0.9375,
+      "functional_drift": 56.207743644714355,
+      "cka_similarity": 0.032892629504203796
+    },
+    {
+      "step": 2380,
+      "task_id": 2,
+      "task_loss": 1.2296281695365905,
+      "accuracy": 0.796875,
+      "functional_drift": 24.410961151123047,
+      "cka_similarity": 0.043709415942430496
+    },
+    {
+      "step": 2390,
+      "task_id": 2,
+      "task_loss": 1.0316144555807114,
+      "accuracy": 0.7578125,
+      "functional_drift": 13.476900815963745,
+      "cka_similarity": 0.07726702094078064
+    },
+    {
+      "step": 2400,
+      "task_id": 2,
+      "task_loss": 0.8964977155129115,
+      "accuracy": 0.8046875,
+      "functional_drift": 5.861759185791016,
+      "cka_similarity": 0.11407766491174698
+    },
+    {
+      "step": 2410,
+      "task_id": 2,
+      "task_loss": 0.7835557281970977,
+      "accuracy": 0.8515625,
+      "functional_drift": 4.905073881149292,
+      "cka_similarity": 0.1521778553724289
+    },
+    {
+      "step": 2420,
+      "task_id": 2,
+      "task_loss": 0.7058691048622131,
+      "accuracy": 0.796875,
+      "functional_drift": 4.474441349506378,
+      "cka_similarity": 0.27018335461616516
+    },
+    {
+      "step": 2430,
+      "task_id": 2,
+      "task_loss": 0.6537934482097626,
+      "accuracy": 0.859375,
+      "functional_drift": 4.465015888214111,
+      "cka_similarity": 0.20385703444480896
+    },
+    {
+      "step": 2440,
+      "task_id": 2,
+      "task_loss": 0.6128534078598022,
+      "accuracy": 0.84375,
+      "functional_drift": 2.503688156604767,
+      "cka_similarity": 0.2382233738899231
+    },
+    {
+      "step": 2450,
+      "task_id": 2,
+      "task_loss": 0.22286081314086914,
+      "accuracy": 0.9375,
+      "functional_drift": 5.606839418411255,
+      "cka_similarity": 0.22023221850395203
+    },
+    {
+      "step": 2460,
+      "task_id": 2,
+      "task_loss": 0.2542662972753698,
+      "accuracy": 0.90625,
+      "functional_drift": 5.045589208602905,
+      "cka_similarity": 0.17123021185398102
+    },
+    {
+      "step": 2470,
+      "task_id": 2,
+      "task_loss": 0.25254061605249134,
+      "accuracy": 0.9296875,
+      "functional_drift": 3.3539413809776306,
+      "cka_similarity": 0.22848810255527496
+    },
+    {
+      "step": 2480,
+      "task_id": 2,
+      "task_loss": 0.24934354857090982,
+      "accuracy": 0.859375,
+      "functional_drift": 4.411672353744507,
+      "cka_similarity": 0.17098954319953918
+    },
+    {
+      "step": 2490,
+      "task_id": 2,
+      "task_loss": 0.2487509192489996,
+      "accuracy": 0.9296875,
+      "functional_drift": 9.94106650352478,
+      "cka_similarity": 0.17415401339530945
+    },
+    {
+      "step": 2500,
+      "task_id": 2,
+      "task_loss": 0.2437437936371448,
+      "accuracy": 0.8671875,
+      "functional_drift": 8.565734148025513,
+      "cka_similarity": 0.17573939263820648
+    },
+    {
+      "step": 2510,
+      "task_id": 2,
+      "task_loss": 0.24722611879716155,
+      "accuracy": 0.8828125,
+      "functional_drift": 4.228036820888519,
+      "cka_similarity": 0.183944970369339
+    },
+    {
+      "step": 2520,
+      "task_id": 2,
+      "task_loss": 0.25085726590223717,
+      "accuracy": 0.9296875,
+      "functional_drift": 6.214942932128906,
+      "cka_similarity": 0.17821234464645386
+    },
+    {
+      "step": 2530,
+      "task_id": 2,
+      "task_loss": 0.15122010558843613,
+      "accuracy": 0.9453125,
+      "functional_drift": 4.386849045753479,
+      "cka_similarity": 0.18755429983139038
+    },
+    {
+      "step": 2540,
+      "task_id": 2,
+      "task_loss": 0.15213841013610363,
+      "accuracy": 0.9140625,
+      "functional_drift": 8.662075161933899,
+      "cka_similarity": 0.18178972601890564
+    },
+    {
+      "step": 2550,
+      "task_id": 2,
+      "task_loss": 0.14803568172183904,
+      "accuracy": 0.953125,
+      "functional_drift": 8.792691469192505,
+      "cka_similarity": 0.15608002245426178
+    },
+    {
+      "step": 2560,
+      "task_id": 2,
+      "task_loss": 0.14608075539581478,
+      "accuracy": 0.9609375,
+      "functional_drift": 11.595386266708374,
+      "cka_similarity": 0.1322169005870819
+    },
+    {
+      "step": 2570,
+      "task_id": 2,
+      "task_loss": 0.1520875562869367,
+      "accuracy": 0.9375,
+      "functional_drift": 7.755917906761169,
+      "cka_similarity": 0.13268783688545227
+    },
+    {
+      "step": 2580,
+      "task_id": 2,
+      "task_loss": 0.15275099515341795,
+      "accuracy": 0.9453125,
+      "functional_drift": 9.435374736785889,
+      "cka_similarity": 0.12092682719230652
+    },
+    {
+      "step": 2590,
+      "task_id": 2,
+      "task_loss": 0.1540594636913269,
+      "accuracy": 0.9140625,
+      "functional_drift": 9.53038763999939,
+      "cka_similarity": 0.10395114123821259
+    },
+    {
+      "step": 2600,
+      "task_id": 2,
+      "task_loss": 0.15811462752107117,
+      "accuracy": 0.9296875,
+      "functional_drift": 8.665806770324707,
+      "cka_similarity": 0.11600672453641891
+    },
+    {
+      "step": 2610,
+      "task_id": 2,
+      "task_loss": 0.0861251267294089,
+      "accuracy": 0.96875,
+      "functional_drift": 9.637447357177734,
+      "cka_similarity": 0.1155104786157608
+    },
+    {
+      "step": 2620,
+      "task_id": 2,
+      "task_loss": 0.07974415845595874,
+      "accuracy": 0.9609375,
+      "functional_drift": 10.297234535217285,
+      "cka_similarity": 0.11723186820745468
+    },
+    {
+      "step": 2630,
+      "task_id": 2,
+      "task_loss": 0.07419345236342886,
+      "accuracy": 0.9921875,
+      "functional_drift": 13.725209712982178,
+      "cka_similarity": 0.09643750637769699
+    },
+    {
+      "step": 2640,
+      "task_id": 2,
+      "task_loss": 0.07742698434175867,
+      "accuracy": 0.953125,
+      "functional_drift": 14.859280586242676,
+      "cka_similarity": 0.07838629186153412
+    },
+    {
+      "step": 2650,
+      "task_id": 2,
+      "task_loss": 0.07810120397182398,
+      "accuracy": 0.9609375,
+      "functional_drift": 16.89909529685974,
+      "cka_similarity": 0.07525788247585297
+    },
+    {
+      "step": 2660,
+      "task_id": 2,
+      "task_loss": 0.08181076412493328,
+      "accuracy": 0.9375,
+      "functional_drift": 14.090454816818237,
+      "cka_similarity": 0.08780190348625183
+    },
+    {
+      "step": 2670,
+      "task_id": 2,
+      "task_loss": 0.08651916458020134,
+      "accuracy": 0.9609375,
+      "functional_drift": 15.700109481811523,
+      "cka_similarity": 0.09222783893346786
+    },
+    {
+      "step": 2680,
+      "task_id": 2,
+      "task_loss": 0.09118651302709971,
+      "accuracy": 0.9765625,
+      "functional_drift": 13.081052303314209,
+      "cka_similarity": 0.11923768371343613
+    },
+    {
+      "step": 2690,
+      "task_id": 2,
+      "task_loss": 0.05795908998697996,
+      "accuracy": 1.0,
+      "functional_drift": 16.544023275375366,
+      "cka_similarity": 0.07074146717786789
+    },
+    {
+      "step": 2700,
+      "task_id": 2,
+      "task_loss": 0.05556211221430983,
+      "accuracy": 0.9609375,
+      "functional_drift": 27.27495002746582,
+      "cka_similarity": 0.07681022584438324
+    },
+    {
+      "step": 2710,
+      "task_id": 2,
+      "task_loss": 0.05806106608361006,
+      "accuracy": 1.0,
+      "functional_drift": 19.323217391967773,
+      "cka_similarity": 0.1072312518954277
+    },
+    {
+      "step": 2720,
+      "task_id": 2,
+      "task_loss": 0.058876278536284674,
+      "accuracy": 0.96875,
+      "functional_drift": 22.612618923187256,
+      "cka_similarity": 0.07666642963886261
+    },
+    {
+      "step": 2730,
+      "task_id": 2,
+      "task_loss": 0.057997076687487686,
+      "accuracy": 0.9921875,
+      "functional_drift": 22.438581466674805,
+      "cka_similarity": 0.05410780757665634
+    },
+    {
+      "step": 2740,
+      "task_id": 2,
+      "task_loss": 0.05753331886673415,
+      "accuracy": 0.9921875,
+      "functional_drift": 19.90095090866089,
+      "cka_similarity": 0.08248066157102585
+    },
+    {
+      "step": 2750,
+      "task_id": 2,
+      "task_loss": 0.0591914844699204,
+      "accuracy": 0.953125,
+      "functional_drift": 24.10060167312622,
+      "cka_similarity": 0.1050235852599144
+    },
+    {
+      "step": 2760,
+      "task_id": 2,
+      "task_loss": 0.06272936551957517,
+      "accuracy": 0.9609375,
+      "functional_drift": 20.87283754348755,
+      "cka_similarity": 0.06942638009786606
+    },
+    {
+      "step": 2770,
+      "task_id": 2,
+      "task_loss": 0.028246348723769188,
+      "accuracy": 1.0,
+      "functional_drift": 19.2016544342041,
+      "cka_similarity": 0.11377955973148346
+    },
+    {
+      "step": 2780,
+      "task_id": 2,
+      "task_loss": 0.034908896684646605,
+      "accuracy": 0.984375,
+      "functional_drift": 24.3144588470459,
+      "cka_similarity": 0.06789835542440414
+    },
+    {
+      "step": 2790,
+      "task_id": 2,
+      "task_loss": 0.04210657350718975,
+      "accuracy": 0.984375,
+      "functional_drift": 23.417702198028564,
+      "cka_similarity": 0.09498195350170135
+    },
+    {
+      "step": 2800,
+      "task_id": 2,
+      "task_loss": 0.043274549980248725,
+      "accuracy": 0.9921875,
+      "functional_drift": 35.0756254196167,
+      "cka_similarity": 0.06667736917734146
+    },
+    {
+      "step": 2810,
+      "task_id": 2,
+      "task_loss": 0.04580199768145879,
+      "accuracy": 0.984375,
+      "functional_drift": 23.029951095581055,
+      "cka_similarity": 0.07611559331417084
+    },
+    {
+      "step": 2820,
+      "task_id": 2,
+      "task_loss": 0.04711156243627722,
+      "accuracy": 0.96875,
+      "functional_drift": 26.464335918426514,
+      "cka_similarity": 0.06621796637773514
+    },
+    {
+      "step": 2830,
+      "task_id": 2,
+      "task_loss": 0.050175136958177276,
+      "accuracy": 0.9765625,
+      "functional_drift": 25.893220901489258,
+      "cka_similarity": 0.06944161653518677
+    },
+    {
+      "step": 2840,
+      "task_id": 2,
+      "task_loss": 0.049980449229478835,
+      "accuracy": 0.9765625,
+      "functional_drift": 21.255908489227295,
+      "cka_similarity": 0.10055896639823914
+    },
+    {
+      "step": 2850,
+      "task_id": 2,
+      "task_loss": 0.024825068811575573,
+      "accuracy": 0.9921875,
+      "functional_drift": 27.920942783355713,
+      "cka_similarity": 0.09115820378065109
+    },
+    {
+      "step": 2860,
+      "task_id": 2,
+      "task_loss": 0.033788671251386404,
+      "accuracy": 1.0,
+      "functional_drift": 28.643202781677246,
+      "cka_similarity": 0.06174154952168465
+    },
+    {
+      "step": 2870,
+      "task_id": 2,
+      "task_loss": 0.03635070179230892,
+      "accuracy": 0.984375,
+      "functional_drift": 24.742263793945312,
+      "cka_similarity": 0.07041777670383453
+    },
+    {
+      "step": 2880,
+      "task_id": 2,
+      "task_loss": 0.04045321507793334,
+      "accuracy": 0.984375,
+      "functional_drift": 32.337753772735596,
+      "cka_similarity": 0.05998726561665535
+    },
+    {
+      "step": 2890,
+      "task_id": 2,
+      "task_loss": 0.04412219252275384,
+      "accuracy": 0.9609375,
+      "functional_drift": 30.40173864364624,
+      "cka_similarity": 0.07168895751237869
+    },
+    {
+      "step": 2900,
+      "task_id": 2,
+      "task_loss": 0.04459533900288599,
+      "accuracy": 0.96875,
+      "functional_drift": 21.99148654937744,
+      "cka_similarity": 0.05735316500067711
+    },
+    {
+      "step": 2910,
+      "task_id": 2,
+      "task_loss": 0.04458742343227972,
+      "accuracy": 0.96875,
+      "functional_drift": 26.98835802078247,
+      "cka_similarity": 0.06265192478895187
+    },
+    {
+      "step": 2920,
+      "task_id": 2,
+      "task_loss": 0.04605518320673391,
+      "accuracy": 0.9921875,
+      "functional_drift": 21.323534965515137,
+      "cka_similarity": 0.08428288251161575
+    },
+    {
+      "step": 2930,
+      "task_id": 2,
+      "task_loss": 0.02138450475675719,
+      "accuracy": 1.0,
+      "functional_drift": 31.576074600219727,
+      "cka_similarity": 0.08802386373281479
+    },
+    {
+      "step": 2940,
+      "task_id": 2,
+      "task_loss": 0.026801430675036767,
+      "accuracy": 0.984375,
+      "functional_drift": 24.405527114868164,
+      "cka_similarity": 0.06403736025094986
+    },
+    {
+      "step": 2950,
+      "task_id": 2,
+      "task_loss": 0.032546167020444515,
+      "accuracy": 0.9921875,
+      "functional_drift": 21.503676891326904,
+      "cka_similarity": 0.05688225105404854
+    },
+    {
+      "step": 2960,
+      "task_id": 2,
+      "task_loss": 0.03781244531273842,
+      "accuracy": 0.9609375,
+      "functional_drift": 30.925861358642578,
+      "cka_similarity": 0.07472899556159973
+    },
+    {
+      "step": 2970,
+      "task_id": 2,
+      "task_loss": 0.037645439518258925,
+      "accuracy": 0.9921875,
+      "functional_drift": 28.452597618103027,
+      "cka_similarity": 0.07121109962463379
+    },
+    {
+      "step": 2980,
+      "task_id": 2,
+      "task_loss": 0.03953885682450052,
+      "accuracy": 0.984375,
+      "functional_drift": 40.13615894317627,
+      "cka_similarity": 0.043887313455343246
+    },
+    {
+      "step": 2990,
+      "task_id": 2,
+      "task_loss": 0.0419047414255676,
+      "accuracy": 0.96875,
+      "functional_drift": 26.358870029449463,
+      "cka_similarity": 0.07095306366682053
+    },
+    {
+      "step": 3000,
+      "task_id": 2,
+      "task_loss": 0.0417860775895707,
+      "accuracy": 0.9921875,
+      "functional_drift": 26.688395977020264,
+      "cka_similarity": 0.07179220765829086
+    },
+    {
+      "step": 3010,
+      "task_id": 2,
+      "task_loss": 0.042923910077661276,
+      "accuracy": 0.953125,
+      "functional_drift": 29.175918102264404,
+      "cka_similarity": 0.06192468851804733
+    },
+    {
+      "step": 3020,
+      "task_id": 2,
+      "task_loss": 0.03377693286165595,
+      "accuracy": 1.0,
+      "functional_drift": 26.088842391967773,
+      "cka_similarity": 0.04985581710934639
+    },
+    {
+      "step": 3030,
+      "task_id": 2,
+      "task_loss": 0.03341535568636443,
+      "accuracy": 0.9921875,
+      "functional_drift": 42.064799308776855,
+      "cka_similarity": 0.07083238661289215
+    },
+    {
+      "step": 3040,
+      "task_id": 2,
+      "task_loss": 0.033249610961463893,
+      "accuracy": 0.9921875,
+      "functional_drift": 34.91449451446533,
+      "cka_similarity": 0.05050746724009514
+    },
+    {
+      "step": 3050,
+      "task_id": 2,
+      "task_loss": 0.035818766395095736,
+      "accuracy": 0.96875,
+      "functional_drift": 36.57707118988037,
+      "cka_similarity": 0.07464607805013657
+    },
+    {
+      "step": 3060,
+      "task_id": 2,
+      "task_loss": 0.03557496863128296,
+      "accuracy": 0.9765625,
+      "functional_drift": 31.91194725036621,
+      "cka_similarity": 0.055573344230651855
+    },
+    {
+      "step": 3070,
+      "task_id": 2,
+      "task_loss": 0.0352615081184708,
+      "accuracy": 0.984375,
+      "functional_drift": 29.46240472793579,
+      "cka_similarity": 0.0799022987484932
+    },
+    {
+      "step": 3080,
+      "task_id": 2,
+      "task_loss": 0.035879063002096534,
+      "accuracy": 0.9765625,
+      "functional_drift": 34.59969711303711,
+      "cka_similarity": 0.06427440047264099
+    },
+    {
+      "step": 3090,
+      "task_id": 2,
+      "task_loss": 0.03790464704959757,
+      "accuracy": 0.984375,
+      "functional_drift": 39.031697273254395,
+      "cka_similarity": 0.07349270582199097
+    },
+    {
+      "step": 3100,
+      "task_id": 2,
+      "task_loss": 0.03232622547320237,
+      "accuracy": 1.0,
+      "functional_drift": 31.68474578857422,
+      "cka_similarity": 0.08768878877162933
+    },
+    {
+      "step": 3110,
+      "task_id": 2,
+      "task_loss": 0.036856258279997216,
+      "accuracy": 0.9921875,
+      "functional_drift": 21.958003520965576,
+      "cka_similarity": 0.0760132372379303
+    },
+    {
+      "step": 3120,
+      "task_id": 2,
+      "task_loss": 0.03579177019090798,
+      "accuracy": 0.9765625,
+      "functional_drift": 31.941758155822754,
+      "cka_similarity": 0.0875118225812912
+    },
+    {
+      "step": 3130,
+      "task_id": 2,
+      "task_loss": 0.03397382962593467,
+      "accuracy": 0.984375,
+      "functional_drift": 34.65875816345215,
+      "cka_similarity": 0.0753755122423172
+    },
+    {
+      "step": 3140,
+      "task_id": 2,
+      "task_loss": 0.03605628903497452,
+      "accuracy": 0.96875,
+      "functional_drift": 30.81516981124878,
+      "cka_similarity": 0.0756254643201828
+    },
+    {
+      "step": 3150,
+      "task_id": 2,
+      "task_loss": 0.03821546519242659,
+      "accuracy": 0.9609375,
+      "functional_drift": 26.496642589569092,
+      "cka_similarity": 0.060052450746297836
+    },
+    {
+      "step": 3160,
+      "task_id": 2,
+      "task_loss": 0.04235937690680634,
+      "accuracy": 0.9375,
+      "functional_drift": 25.557671070098877,
+      "cka_similarity": 0.08042578399181366
+    },
+    {
+      "step": 3170,
+      "task_id": 2,
+      "task_loss": 0.022898534964770078,
+      "accuracy": 0.984375,
+      "functional_drift": 36.027814865112305,
+      "cka_similarity": 0.055668607354164124
+    },
+    {
+      "step": 3180,
+      "task_id": 2,
+      "task_loss": 0.025394426379352807,
+      "accuracy": 1.0,
+      "functional_drift": 34.83071327209473,
+      "cka_similarity": 0.061594460159540176
+    },
+    {
+      "step": 3190,
+      "task_id": 2,
+      "task_loss": 0.02875085302318136,
+      "accuracy": 0.9765625,
+      "functional_drift": 25.340009689331055,
+      "cka_similarity": 0.06140028312802315
+    },
+    {
+      "step": 3200,
+      "task_id": 2,
+      "task_loss": 0.029107428784482182,
+      "accuracy": 0.9765625,
+      "functional_drift": 26.255203247070312,
+      "cka_similarity": 0.08102551102638245
+    },
+    {
+      "step": 3210,
+      "task_id": 2,
+      "task_loss": 0.02920017411932349,
+      "accuracy": 0.9921875,
+      "functional_drift": 33.476999282836914,
+      "cka_similarity": 0.05954856425523758
+    },
+    {
+      "step": 3220,
+      "task_id": 2,
+      "task_loss": 0.03127860059030354,
+      "accuracy": 0.984375,
+      "functional_drift": 33.263397216796875,
+      "cka_similarity": 0.06243760511279106
+    },
+    {
+      "step": 3230,
+      "task_id": 2,
+      "task_loss": 0.03163652863087399,
+      "accuracy": 0.9921875,
+      "functional_drift": 27.153533935546875,
+      "cka_similarity": 0.04830705747008324
+    },
+    {
+      "step": 3240,
+      "task_id": 2,
+      "task_loss": 0.04440682381391525,
+      "accuracy": 0.96875,
+      "functional_drift": 30.3265380859375,
+      "cka_similarity": 0.04699331894516945
+    },
+    {
+      "step": 3250,
+      "task_id": 2,
+      "task_loss": 0.025685871358622204,
+      "accuracy": 0.9921875,
+      "functional_drift": 36.72224807739258,
+      "cka_similarity": 0.05345402657985687
+    },
+    {
+      "step": 3260,
+      "task_id": 2,
+      "task_loss": 0.029445430042133444,
+      "accuracy": 0.9765625,
+      "functional_drift": 27.84693145751953,
+      "cka_similarity": 0.05843253433704376
+    },
+    {
+      "step": 3270,
+      "task_id": 2,
+      "task_loss": 0.03149073814312296,
+      "accuracy": 0.9921875,
+      "functional_drift": 37.907365798950195,
+      "cka_similarity": 0.07119172066450119
+    },
+    {
+      "step": 3280,
+      "task_id": 2,
+      "task_loss": 0.03380938637547377,
+      "accuracy": 1.0,
+      "functional_drift": 50.316426277160645,
+      "cka_similarity": 0.07181812077760696
+    },
+    {
+      "step": 3290,
+      "task_id": 2,
+      "task_loss": 0.034868065103450245,
+      "accuracy": 0.984375,
+      "functional_drift": 33.166635513305664,
+      "cka_similarity": 0.0579332560300827
+    },
+    {
+      "step": 3300,
+      "task_id": 2,
+      "task_loss": 0.03545932155713195,
+      "accuracy": 0.9921875,
+      "functional_drift": 28.56171989440918,
+      "cka_similarity": 0.039059266448020935
+    },
+    {
+      "step": 3310,
+      "task_id": 2,
+      "task_loss": 0.03817237513533361,
+      "accuracy": 0.96875,
+      "functional_drift": 28.523012161254883,
+      "cka_similarity": 0.04288565367460251
+    },
+    {
+      "step": 3320,
+      "task_id": 2,
+      "task_loss": 0.02720990963280201,
+      "accuracy": 0.984375,
+      "functional_drift": 27.37771463394165,
+      "cka_similarity": 0.04739009216427803
+    },
+    {
+      "step": 3330,
+      "task_id": 2,
+      "task_loss": 0.0371678420342505,
+      "accuracy": 0.9765625,
+      "functional_drift": 30.801016807556152,
+      "cka_similarity": 0.05951918661594391
+    },
+    {
+      "step": 3340,
+      "task_id": 2,
+      "task_loss": 0.03800965240225196,
+      "accuracy": 0.984375,
+      "functional_drift": 26.678754806518555,
+      "cka_similarity": 0.05009502172470093
+    },
+    {
+      "step": 3350,
+      "task_id": 2,
+      "task_loss": 0.03569840622367337,
+      "accuracy": 1.0,
+      "functional_drift": 24.416175365447998,
+      "cka_similarity": 0.0467715822160244
+    },
+    {
+      "step": 3360,
+      "task_id": 2,
+      "task_loss": 0.0335178268807275,
+      "accuracy": 0.9921875,
+      "functional_drift": 30.880744457244873,
+      "cka_similarity": 0.038827694952487946
+    },
+    {
+      "step": 3370,
+      "task_id": 2,
+      "task_loss": 0.0345094741608661,
+      "accuracy": 0.9921875,
+      "functional_drift": 34.9719820022583,
+      "cka_similarity": 0.06488820165395737
+    },
+    {
+      "step": 3380,
+      "task_id": 2,
+      "task_loss": 0.03636977112581653,
+      "accuracy": 0.9609375,
+      "functional_drift": 33.86842393875122,
+      "cka_similarity": 0.04825682193040848
+    },
+    {
+      "step": 3390,
+      "task_id": 2,
+      "task_loss": 0.03954199017930983,
+      "accuracy": 0.953125,
+      "functional_drift": 26.91140079498291,
+      "cka_similarity": 0.051845334470272064
+    },
+    {
+      "step": 3400,
+      "task_id": 2,
+      "task_loss": 0.020363333945473034,
+      "accuracy": 1.0,
+      "functional_drift": 34.748430252075195,
+      "cka_similarity": 0.048945844173431396
+    },
+    {
+      "step": 3410,
+      "task_id": 2,
+      "task_loss": 0.029191319902355854,
+      "accuracy": 0.984375,
+      "functional_drift": 30.650259494781494,
+      "cka_similarity": 0.0659729540348053
+    },
+    {
+      "step": 3420,
+      "task_id": 2,
+      "task_loss": 0.026540679290242817,
+      "accuracy": 1.0,
+      "functional_drift": 36.6652946472168,
+      "cka_similarity": 0.06552978605031967
+    },
+    {
+      "step": 3430,
+      "task_id": 2,
+      "task_loss": 0.02874727835032073,
+      "accuracy": 0.984375,
+      "functional_drift": 33.83184051513672,
+      "cka_similarity": 0.055154964327812195
+    },
+    {
+      "step": 3440,
+      "task_id": 2,
+      "task_loss": 0.030388985706363305,
+      "accuracy": 0.96875,
+      "functional_drift": 35.29184055328369,
+      "cka_similarity": 0.0749511569738388
+    },
+    {
+      "step": 3450,
+      "task_id": 2,
+      "task_loss": 0.030051498050045856,
+      "accuracy": 0.9921875,
+      "functional_drift": 35.19690132141113,
+      "cka_similarity": 0.04460112005472183
+    },
+    {
+      "step": 3460,
+      "task_id": 2,
+      "task_loss": 0.031107935204451518,
+      "accuracy": 0.984375,
+      "functional_drift": 37.2012939453125,
+      "cka_similarity": 0.04955068230628967
+    },
+    {
+      "step": 3470,
+      "task_id": 2,
+      "task_loss": 0.03193894235978592,
+      "accuracy": 0.9765625,
+      "functional_drift": 32.98478078842163,
+      "cka_similarity": 0.0427066944539547
+    },
+    {
+      "step": 3480,
+      "task_id": 2,
+      "task_loss": 0.029747580061666667,
+      "accuracy": 1.0,
+      "functional_drift": 32.01594591140747,
+      "cka_similarity": 0.06459297239780426
+    },
+    {
+      "step": 3490,
+      "task_id": 2,
+      "task_loss": 0.017373057614479746,
+      "accuracy": 0.9921875,
+      "functional_drift": 46.96989631652832,
+      "cka_similarity": 0.04456009715795517
+    },
+    {
+      "step": 3500,
+      "task_id": 2,
+      "task_loss": 0.02425412371909867,
+      "accuracy": 1.0,
+      "functional_drift": 31.916718006134033,
+      "cka_similarity": 0.0753471627831459
+    },
+    {
+      "step": 3510,
+      "task_id": 2,
+      "task_loss": 0.025499441085711998,
+      "accuracy": 0.96875,
+      "functional_drift": 34.3255558013916,
+      "cka_similarity": 0.03940267860889435
+    },
+    {
+      "step": 3520,
+      "task_id": 2,
+      "task_loss": 0.02571526322175156,
+      "accuracy": 0.9921875,
+      "functional_drift": 31.92236852645874,
+      "cka_similarity": 0.05088081210851669
+    },
+    {
+      "step": 3530,
+      "task_id": 2,
+      "task_loss": 0.026933866561631912,
+      "accuracy": 1.0,
+      "functional_drift": 29.763002395629883,
+      "cka_similarity": 0.06111064553260803
+    },
+    {
+      "step": 3540,
+      "task_id": 2,
+      "task_loss": 0.02632336393435253,
+      "accuracy": 0.9921875,
+      "functional_drift": 29.06978702545166,
+      "cka_similarity": 0.04297898709774017
+    },
+    {
+      "step": 3550,
+      "task_id": 2,
+      "task_loss": 0.027300000914397674,
+      "accuracy": 0.984375,
+      "functional_drift": 38.00152778625488,
+      "cka_similarity": 0.045721638947725296
+    },
+    {
+      "step": 3560,
+      "task_id": 3,
+      "task_loss": 2.9753864765167237,
+      "accuracy": 0.6015625,
+      "functional_drift": 19.916097164154053,
+      "cka_similarity": 0.06871223449707031
+    },
+    {
+      "step": 3570,
+      "task_id": 3,
+      "task_loss": 1.8190935969352722,
+      "accuracy": 0.75,
+      "functional_drift": 10.830834150314331,
+      "cka_similarity": 0.17986051738262177
+    },
+    {
+      "step": 3580,
+      "task_id": 3,
+      "task_loss": 1.3023185193538667,
+      "accuracy": 0.828125,
+      "functional_drift": 13.80634069442749,
+      "cka_similarity": 0.2947365939617157
+    },
+    {
+      "step": 3590,
+      "task_id": 3,
+      "task_loss": 1.0392068024192538,
+      "accuracy": 0.8203125,
+      "functional_drift": 5.090333580970764,
+      "cka_similarity": 0.34066343307495117
+    },
+    {
+      "step": 3600,
+      "task_id": 3,
+      "task_loss": 0.8704904943704606,
+      "accuracy": 0.9296875,
+      "functional_drift": 4.971949338912964,
+      "cka_similarity": 0.34127917885780334
+    },
+    {
+      "step": 3610,
+      "task_id": 3,
+      "task_loss": 0.7562185796824369,
+      "accuracy": 0.8828125,
+      "functional_drift": 5.061089396476746,
+      "cka_similarity": 0.2740412652492523
+    },
+    {
+      "step": 3620,
+      "task_id": 3,
+      "task_loss": 0.6793661454549202,
+      "accuracy": 0.921875,
+      "functional_drift": 5.817152976989746,
+      "cka_similarity": 0.2949827015399933
+    },
+    {
+      "step": 3630,
+      "task_id": 3,
+      "task_loss": 0.6134094039599101,
+      "accuracy": 0.9453125,
+      "functional_drift": 7.102467894554138,
+      "cka_similarity": 0.29593321681022644
+    },
+    {
+      "step": 3640,
+      "task_id": 3,
+      "task_loss": 0.1145879216492176,
+      "accuracy": 0.921875,
+      "functional_drift": 8.258220434188843,
+      "cka_similarity": 0.2620413303375244
+    },
+    {
+      "step": 3650,
+      "task_id": 3,
+      "task_loss": 0.11530672339722514,
+      "accuracy": 0.9140625,
+      "functional_drift": 9.653902769088745,
+      "cka_similarity": 0.3070390820503235
+    },
+    {
+      "step": 3660,
+      "task_id": 3,
+      "task_loss": 0.11162144834032425,
+      "accuracy": 0.9296875,
+      "functional_drift": 6.7456159591674805,
+      "cka_similarity": 0.327747106552124
+    },
+    {
+      "step": 3670,
+      "task_id": 3,
+      "task_loss": 0.11905652864111795,
+      "accuracy": 0.9375,
+      "functional_drift": 11.753032922744751,
+      "cka_similarity": 0.2600608468055725
+    },
+    {
+      "step": 3680,
+      "task_id": 3,
+      "task_loss": 0.12001287516044534,
+      "accuracy": 0.9609375,
+      "functional_drift": 6.767576694488525,
+      "cka_similarity": 0.28901854157447815
+    },
+    {
+      "step": 3690,
+      "task_id": 3,
+      "task_loss": 0.11641216317989997,
+      "accuracy": 0.9296875,
+      "functional_drift": 13.698636531829834,
+      "cka_similarity": 0.2833690345287323
+    },
+    {
+      "step": 3700,
+      "task_id": 3,
+      "task_loss": 0.11636774241924286,
+      "accuracy": 0.9453125,
+      "functional_drift": 7.797366619110107,
+      "cka_similarity": 0.21127364039421082
+    },
+    {
+      "step": 3710,
+      "task_id": 3,
+      "task_loss": 0.11718079962424542,
+      "accuracy": 0.9296875,
+      "functional_drift": 8.700271725654602,
+      "cka_similarity": 0.2048778533935547
+    },
+    {
+      "step": 3720,
+      "task_id": 3,
+      "task_loss": 0.06925277199063982,
+      "accuracy": 0.9765625,
+      "functional_drift": 8.952831864356995,
+      "cka_similarity": 0.24150516092777252
+    },
+    {
+      "step": 3730,
+      "task_id": 3,
+      "task_loss": 0.0825825522051138,
+      "accuracy": 0.9375,
+      "functional_drift": 7.8236730098724365,
+      "cka_similarity": 0.2136221081018448
+    },
+    {
+      "step": 3740,
+      "task_id": 3,
+      "task_loss": 0.06811231754168316,
+      "accuracy": 0.9921875,
+      "functional_drift": 8.43308174610138,
+      "cka_similarity": 0.2457486391067505
+    },
+    {
+      "step": 3750,
+      "task_id": 3,
+      "task_loss": 0.06307237600353924,
+      "accuracy": 0.984375,
+      "functional_drift": 9.638010263442993,
+      "cka_similarity": 0.21055985987186432
+    },
+    {
+      "step": 3760,
+      "task_id": 3,
+      "task_loss": 0.05830644253403582,
+      "accuracy": 0.984375,
+      "functional_drift": 10.017308712005615,
+      "cka_similarity": 0.20483675599098206
+    },
+    {
+      "step": 3770,
+      "task_id": 3,
+      "task_loss": 0.05725114969046492,
+      "accuracy": 0.9921875,
+      "functional_drift": 11.264715909957886,
+      "cka_similarity": 0.1860092580318451
+    },
+    {
+      "step": 3780,
+      "task_id": 3,
+      "task_loss": 0.061120717438744074,
+      "accuracy": 0.984375,
+      "functional_drift": 12.084471702575684,
+      "cka_similarity": 0.17172005772590637
+    },
+    {
+      "step": 3790,
+      "task_id": 3,
+      "task_loss": 0.06181151673875072,
+      "accuracy": 0.9765625,
+      "functional_drift": 17.6712327003479,
+      "cka_similarity": 0.1678188592195511
+    },
+    {
+      "step": 3800,
+      "task_id": 3,
+      "task_loss": 0.03642603778280318,
+      "accuracy": 0.984375,
+      "functional_drift": 16.58171510696411,
+      "cka_similarity": 0.11727159470319748
+    },
+    {
+      "step": 3810,
+      "task_id": 3,
+      "task_loss": 0.03061385095740358,
+      "accuracy": 0.9921875,
+      "functional_drift": 16.45243549346924,
+      "cka_similarity": 0.1460743546485901
+    },
+    {
+      "step": 3820,
+      "task_id": 3,
+      "task_loss": 0.03059672620812697,
+      "accuracy": 0.9921875,
+      "functional_drift": 16.129754781723022,
+      "cka_similarity": 0.12298941612243652
+    },
+    {
+      "step": 3830,
+      "task_id": 3,
+      "task_loss": 0.03305351712103737,
+      "accuracy": 0.984375,
+      "functional_drift": 18.206867933273315,
+      "cka_similarity": 0.14514102041721344
+    },
+    {
+      "step": 3840,
+      "task_id": 3,
+      "task_loss": 0.03337845926095421,
+      "accuracy": 0.9921875,
+      "functional_drift": 17.626155376434326,
+      "cka_similarity": 0.12104015052318573
+    },
+    {
+      "step": 3850,
+      "task_id": 3,
+      "task_loss": 0.0350872323334474,
+      "accuracy": 0.9609375,
+      "functional_drift": 17.56516170501709,
+      "cka_similarity": 0.11738599836826324
+    },
+    {
+      "step": 3860,
+      "task_id": 3,
+      "task_loss": 0.0382746914812528,
+      "accuracy": 0.96875,
+      "functional_drift": 19.226139068603516,
+      "cka_similarity": 0.09278769791126251
+    },
+    {
+      "step": 3870,
+      "task_id": 3,
+      "task_loss": 0.04161356180571975,
+      "accuracy": 0.984375,
+      "functional_drift": 17.93004083633423,
+      "cka_similarity": 0.11211388558149338
+    },
+    {
+      "step": 3880,
+      "task_id": 3,
+      "task_loss": 0.03577577043324709,
+      "accuracy": 0.9609375,
+      "functional_drift": 40.1959924697876,
+      "cka_similarity": 0.08565742522478104
+    },
+    {
+      "step": 3890,
+      "task_id": 3,
+      "task_loss": 0.03585515774198269,
+      "accuracy": 0.984375,
+      "functional_drift": 23.331432819366455,
+      "cka_similarity": 0.08354406803846359
+    },
+    {
+      "step": 3900,
+      "task_id": 3,
+      "task_loss": 0.0344981062707716,
+      "accuracy": 0.9921875,
+      "functional_drift": 31.28569269180298,
+      "cka_similarity": 0.11721378564834595
+    },
+    {
+      "step": 3910,
+      "task_id": 3,
+      "task_loss": 0.03833599847096663,
+      "accuracy": 0.9921875,
+      "functional_drift": 17.40315294265747,
+      "cka_similarity": 0.1134219765663147
+    },
+    {
+      "step": 3920,
+      "task_id": 3,
+      "task_loss": 0.03622444135574054,
+      "accuracy": 0.9765625,
+      "functional_drift": 16.85494613647461,
+      "cka_similarity": 0.09553514420986176
+    },
+    {
+      "step": 3930,
+      "task_id": 3,
+      "task_loss": 0.03346959006246495,
+      "accuracy": 0.984375,
+      "functional_drift": 19.779345512390137,
+      "cka_similarity": 0.0953797772526741
+    },
+    {
+      "step": 3940,
+      "task_id": 3,
+      "task_loss": 0.03435024437224628,
+      "accuracy": 0.96875,
+      "functional_drift": 19.621868133544922,
+      "cka_similarity": 0.12316621840000153
+    },
+    {
+      "step": 3950,
+      "task_id": 3,
+      "task_loss": 0.03330336959407771,
+      "accuracy": 1.0,
+      "functional_drift": 24.028172969818115,
+      "cka_similarity": 0.09545812755823135
+    },
+    {
+      "step": 3960,
+      "task_id": 3,
+      "task_loss": 0.0254420954734087,
+      "accuracy": 0.984375,
+      "functional_drift": 20.53157949447632,
+      "cka_similarity": 0.0736609697341919
+    },
+    {
+      "step": 3970,
+      "task_id": 3,
+      "task_loss": 0.0230437453603372,
+      "accuracy": 1.0,
+      "functional_drift": 21.25008726119995,
+      "cka_similarity": 0.07873304188251495
+    },
+    {
+      "step": 3980,
+      "task_id": 3,
+      "task_loss": 0.023757378524169325,
+      "accuracy": 1.0,
+      "functional_drift": 25.99051809310913,
+      "cka_similarity": 0.07958570122718811
+    },
+    {
+      "step": 3990,
+      "task_id": 3,
+      "task_loss": 0.023743021476548165,
+      "accuracy": 1.0,
+      "functional_drift": 26.391573429107666,
+      "cka_similarity": 0.09400967508554459
+    },
+    {
+      "step": 4000,
+      "task_id": 3,
+      "task_loss": 0.026534723923541604,
+      "accuracy": 0.9765625,
+      "functional_drift": 22.442773818969727,
+      "cka_similarity": 0.09543433040380478
+    },
+    {
+      "step": 4010,
+      "task_id": 3,
+      "task_loss": 0.02537153543671593,
+      "accuracy": 1.0,
+      "functional_drift": 24.69465732574463,
+      "cka_similarity": 0.08990217745304108
+    },
+    {
+      "step": 4020,
+      "task_id": 3,
+      "task_loss": 0.027497462705442947,
+      "accuracy": 0.984375,
+      "functional_drift": 22.135602474212646,
+      "cka_similarity": 0.07676345854997635
+    },
+    {
+      "step": 4030,
+      "task_id": 3,
+      "task_loss": 0.005032399669289589,
+      "accuracy": 1.0,
+      "functional_drift": 20.75210952758789,
+      "cka_similarity": 0.08421886712312698
+    },
+    {
+      "step": 4040,
+      "task_id": 3,
+      "task_loss": 0.021075809840112925,
+      "accuracy": 1.0,
+      "functional_drift": 25.327635765075684,
+      "cka_similarity": 0.09107661992311478
+    },
+    {
+      "step": 4050,
+      "task_id": 3,
+      "task_loss": 0.02364927279718575,
+      "accuracy": 0.9921875,
+      "functional_drift": 26.494239807128906,
+      "cka_similarity": 0.0866650938987732
+    },
+    {
+      "step": 4060,
+      "task_id": 3,
+      "task_loss": 0.021484416338705247,
+      "accuracy": 0.9921875,
+      "functional_drift": 24.255788803100586,
+      "cka_similarity": 0.06728316098451614
+    },
+    {
+      "step": 4070,
+      "task_id": 3,
+      "task_loss": 0.024481546270047744,
+      "accuracy": 0.9921875,
+      "functional_drift": 32.295443534851074,
+      "cka_similarity": 0.06731899082660675
+    },
+    {
+      "step": 4080,
+      "task_id": 3,
+      "task_loss": 0.02710082122654307,
+      "accuracy": 0.984375,
+      "functional_drift": 20.052921295166016,
+      "cka_similarity": 0.0903032124042511
+    },
+    {
+      "step": 4090,
+      "task_id": 3,
+      "task_loss": 0.028261881367471375,
+      "accuracy": 1.0,
+      "functional_drift": 36.1878023147583,
+      "cka_similarity": 0.16732561588287354
+    },
+    {
+      "step": 4100,
+      "task_id": 3,
+      "task_loss": 0.02900198607666182,
+      "accuracy": 0.9765625,
+      "functional_drift": 25.24474334716797,
+      "cka_similarity": 0.08577622473239899
+    },
+    {
+      "step": 4110,
+      "task_id": 3,
+      "task_loss": 0.007019798853434622,
+      "accuracy": 1.0,
+      "functional_drift": 25.199002265930176,
+      "cka_similarity": 0.08205362409353256
+    },
+    {
+      "step": 4120,
+      "task_id": 3,
+      "task_loss": 0.02139046568966781,
+      "accuracy": 0.984375,
+      "functional_drift": 25.75209617614746,
+      "cka_similarity": 0.08147920668125153
+    },
+    {
+      "step": 4130,
+      "task_id": 3,
+      "task_loss": 0.022449632207016377,
+      "accuracy": 0.9921875,
+      "functional_drift": 22.879138469696045,
+      "cka_similarity": 0.05913815274834633
+    },
+    {
+      "step": 4140,
+      "task_id": 3,
+      "task_loss": 0.026350437336077448,
+      "accuracy": 1.0,
+      "functional_drift": 25.40874195098877,
+      "cka_similarity": 0.08561423420906067
+    },
+    {
+      "step": 4150,
+      "task_id": 3,
+      "task_loss": 0.029163802436198153,
+      "accuracy": 0.9609375,
+      "functional_drift": 35.58820724487305,
+      "cka_similarity": 0.082312673330307
+    },
+    {
+      "step": 4160,
+      "task_id": 3,
+      "task_loss": 0.033495688842287145,
+      "accuracy": 0.9921875,
+      "functional_drift": 24.25818109512329,
+      "cka_similarity": 0.08090173453092575
+    },
+    {
+      "step": 4170,
+      "task_id": 3,
+      "task_loss": 0.03316727658027723,
+      "accuracy": 0.9921875,
+      "functional_drift": 32.89473056793213,
+      "cka_similarity": 0.06397227197885513
+    },
+    {
+      "step": 4180,
+      "task_id": 3,
+      "task_loss": 0.03438780648543292,
+      "accuracy": 0.9921875,
+      "functional_drift": 27.528900146484375,
+      "cka_similarity": 0.05983930453658104
+    },
+    {
+      "step": 4190,
+      "task_id": 3,
+      "task_loss": 0.04676553583703935,
+      "accuracy": 1.0,
+      "functional_drift": 27.593966484069824,
+      "cka_similarity": 0.10161619633436203
+    },
+    {
+      "step": 4200,
+      "task_id": 3,
+      "task_loss": 0.03972123507768489,
+      "accuracy": 0.9921875,
+      "functional_drift": 24.41770648956299,
+      "cka_similarity": 0.06784038990736008
+    },
+    {
+      "step": 4210,
+      "task_id": 3,
+      "task_loss": 0.03314177846819486,
+      "accuracy": 0.9921875,
+      "functional_drift": 33.68150806427002,
+      "cka_similarity": 0.08329294621944427
+    },
+    {
+      "step": 4220,
+      "task_id": 3,
+      "task_loss": 0.035620438435933356,
+      "accuracy": 1.0,
+      "functional_drift": 23.380162715911865,
+      "cka_similarity": 0.08050359785556793
+    },
+    {
+      "step": 4230,
+      "task_id": 3,
+      "task_loss": 0.036696062352898164,
+      "accuracy": 0.9609375,
+      "functional_drift": 25.331265449523926,
+      "cka_similarity": 0.07468081265687943
+    },
+    {
+      "step": 4240,
+      "task_id": 3,
+      "task_loss": 0.034663851869310126,
+      "accuracy": 1.0,
+      "functional_drift": 25.67149019241333,
+      "cka_similarity": 0.05110703781247139
+    },
+    {
+      "step": 4250,
+      "task_id": 3,
+      "task_loss": 0.033334045630273604,
+      "accuracy": 0.9765625,
+      "functional_drift": 30.949769496917725,
+      "cka_similarity": 0.06153774634003639
+    },
+    {
+      "step": 4260,
+      "task_id": 3,
+      "task_loss": 0.03493204095707058,
+      "accuracy": 0.9921875,
+      "functional_drift": 27.6779465675354,
+      "cka_similarity": 0.09298045933246613
+    },
+    {
+      "step": 4270,
+      "task_id": 3,
+      "task_loss": 0.022817822406068444,
+      "accuracy": 0.9921875,
+      "functional_drift": 23.325247764587402,
+      "cka_similarity": 0.06889397650957108
+    },
+    {
+      "step": 4280,
+      "task_id": 3,
+      "task_loss": 0.015332446450234525,
+      "accuracy": 1.0,
+      "functional_drift": 33.591142654418945,
+      "cka_similarity": 0.045516617596149445
+    },
+    {
+      "step": 4290,
+      "task_id": 3,
+      "task_loss": 0.015443938105211904,
+      "accuracy": 0.9765625,
+      "functional_drift": 24.350636959075928,
+      "cka_similarity": 0.05117863789200783
+    },
+    {
+      "step": 4300,
+      "task_id": 3,
+      "task_loss": 0.01685016172225861,
+      "accuracy": 0.9921875,
+      "functional_drift": 43.77276420593262,
+      "cka_similarity": 0.1143912598490715
+    },
+    {
+      "step": 4310,
+      "task_id": 3,
+      "task_loss": 0.017998036716810682,
+      "accuracy": 0.9921875,
+      "functional_drift": 29.75817108154297,
+      "cka_similarity": 0.07690907269716263
+    },
+    {
+      "step": 4320,
+      "task_id": 3,
+      "task_loss": 0.019000286477859372,
+      "accuracy": 0.9921875,
+      "functional_drift": 39.29951095581055,
+      "cka_similarity": 0.08388873189687729
+    },
+    {
+      "step": 4330,
+      "task_id": 3,
+      "task_loss": 0.019549085525795817,
+      "accuracy": 1.0,
+      "functional_drift": 27.211121559143066,
+      "cka_similarity": 0.07155729085206985
+    },
+    {
+      "step": 4340,
+      "task_id": 3,
+      "task_loss": 0.020994753589400568,
+      "accuracy": 0.984375,
+      "functional_drift": 35.84826469421387,
+      "cka_similarity": 0.10861040651798248
+    },
+    {
+      "step": 4350,
+      "task_id": 3,
+      "task_loss": 0.01980932541191578,
+      "accuracy": 1.0,
+      "functional_drift": 25.998751163482666,
+      "cka_similarity": 0.07246371358633041
+    },
+    {
+      "step": 4360,
+      "task_id": 3,
+      "task_loss": 0.021769924322143197,
+      "accuracy": 0.984375,
+      "functional_drift": 29.060209274291992,
+      "cka_similarity": 0.11251102387905121
+    },
+    {
+      "step": 4370,
+      "task_id": 3,
+      "task_loss": 0.020047122901305555,
+      "accuracy": 0.9921875,
+      "functional_drift": 31.4469256401062,
+      "cka_similarity": 0.06804680079221725
+    },
+    {
+      "step": 4380,
+      "task_id": 3,
+      "task_loss": 0.01906288997270167,
+      "accuracy": 1.0,
+      "functional_drift": 27.551298141479492,
+      "cka_similarity": 0.08165322244167328
+    },
+    {
+      "step": 4390,
+      "task_id": 3,
+      "task_loss": 0.019630870797360936,
+      "accuracy": 0.96875,
+      "functional_drift": 24.506322383880615,
+      "cka_similarity": 0.06408988684415817
+    },
+    {
+      "step": 4400,
+      "task_id": 3,
+      "task_loss": 0.020877778229557654,
+      "accuracy": 1.0,
+      "functional_drift": 29.871887683868408,
+      "cka_similarity": 0.08096428960561752
+    },
+    {
+      "step": 4410,
+      "task_id": 3,
+      "task_loss": 0.023337266970282565,
+      "accuracy": 0.984375,
+      "functional_drift": 34.01390552520752,
+      "cka_similarity": 0.06783661991357803
+    },
+    {
+      "step": 4420,
+      "task_id": 3,
+      "task_loss": 0.02445662133085231,
+      "accuracy": 0.9921875,
+      "functional_drift": 26.952123165130615,
+      "cka_similarity": 0.05941799655556679
+    },
+    {
+      "step": 4430,
+      "task_id": 3,
+      "task_loss": 0.01302518198887507,
+      "accuracy": 0.9921875,
+      "functional_drift": 23.696669578552246,
+      "cka_similarity": 0.07315713167190552
+    },
+    {
+      "step": 4440,
+      "task_id": 3,
+      "task_loss": 0.01664019611052936,
+      "accuracy": 0.9921875,
+      "functional_drift": 31.294177055358887,
+      "cka_similarity": 0.06201484054327011
+    },
+    {
+      "step": 4450,
+      "task_id": 3,
+      "task_loss": 0.01803706034283655,
+      "accuracy": 0.9921875,
+      "functional_drift": 31.90400743484497,
+      "cka_similarity": 0.0882137194275856
+    },
+    {
+      "step": 4460,
+      "task_id": 3,
+      "task_loss": 0.02133049080859766,
+      "accuracy": 1.0,
+      "functional_drift": 24.61679744720459,
+      "cka_similarity": 0.04962921515107155
+    },
+    {
+      "step": 4470,
+      "task_id": 3,
+      "task_loss": 0.022353788997228865,
+      "accuracy": 1.0,
+      "functional_drift": 33.174262046813965,
+      "cka_similarity": 0.044490452855825424
+    },
+    {
+      "step": 4480,
+      "task_id": 3,
+      "task_loss": 0.022800523461358222,
+      "accuracy": 0.984375,
+      "functional_drift": 29.464590072631836,
+      "cka_similarity": 0.051131054759025574
+    },
+    {
+      "step": 4490,
+      "task_id": 3,
+      "task_loss": 0.024842991823485743,
+      "accuracy": 0.9921875,
+      "functional_drift": 37.74595642089844,
+      "cka_similarity": 0.05109890177845955
+    },
+    {
+      "step": 4500,
+      "task_id": 3,
+      "task_loss": 0.024503962993070384,
+      "accuracy": 0.984375,
+      "functional_drift": 26.579479217529297,
+      "cka_similarity": 0.05249759182333946
+    },
+    {
+      "step": 4510,
+      "task_id": 3,
+      "task_loss": 0.013562951636101519,
+      "accuracy": 0.9921875,
+      "functional_drift": 26.906321048736572,
+      "cka_similarity": 0.053979165852069855
+    },
+    {
+      "step": 4520,
+      "task_id": 3,
+      "task_loss": 0.013788518030196428,
+      "accuracy": 0.9921875,
+      "functional_drift": 23.395592212677002,
+      "cka_similarity": 0.05844511836767197
+    },
+    {
+      "step": 4530,
+      "task_id": 3,
+      "task_loss": 0.01656033770888354,
+      "accuracy": 0.984375,
+      "functional_drift": 30.300376892089844,
+      "cka_similarity": 0.06349876523017883
+    },
+    {
+      "step": 4540,
+      "task_id": 3,
+      "task_loss": 0.02280214913126484,
+      "accuracy": 0.984375,
+      "functional_drift": 37.46292781829834,
+      "cka_similarity": 0.0595848448574543
+    },
+    {
+      "step": 4550,
+      "task_id": 3,
+      "task_loss": 0.026883917630333057,
+      "accuracy": 1.0,
+      "functional_drift": 50.79952621459961,
+      "cka_similarity": 0.04692155122756958
+    },
+    {
+      "step": 4560,
+      "task_id": 3,
+      "task_loss": 0.025024552239317512,
+      "accuracy": 0.9921875,
+      "functional_drift": 26.920936107635498,
+      "cka_similarity": 0.07015596330165863
+    },
+    {
+      "step": 4570,
+      "task_id": 3,
+      "task_loss": 0.02458711313049017,
+      "accuracy": 0.984375,
+      "functional_drift": 34.64934062957764,
+      "cka_similarity": 0.04343857243657112
+    },
+    {
+      "step": 4580,
+      "task_id": 3,
+      "task_loss": 0.026282843878166144,
+      "accuracy": 0.984375,
+      "functional_drift": 33.438530921936035,
+      "cka_similarity": 0.05066336691379547
+    },
+    {
+      "step": 4590,
+      "task_id": 3,
+      "task_loss": 0.023087539011612535,
+      "accuracy": 1.0,
+      "functional_drift": 27.543230056762695,
+      "cka_similarity": 0.06229151412844658
+    },
+    {
+      "step": 4600,
+      "task_id": 3,
+      "task_loss": 0.01722402412754794,
+      "accuracy": 1.0,
+      "functional_drift": 26.85145664215088,
+      "cka_similarity": 0.05249332636594772
+    },
+    {
+      "step": 4610,
+      "task_id": 3,
+      "task_loss": 0.01681362756062299,
+      "accuracy": 0.9921875,
+      "functional_drift": 25.091386318206787,
+      "cka_similarity": 0.05385333672165871
+    },
+    {
+      "step": 4620,
+      "task_id": 3,
+      "task_loss": 0.01770028626350196,
+      "accuracy": 1.0,
+      "functional_drift": 24.01926326751709,
+      "cka_similarity": 0.051787495613098145
+    },
+    {
+      "step": 4630,
+      "task_id": 3,
+      "task_loss": 0.020546360159642063,
+      "accuracy": 0.9765625,
+      "functional_drift": 33.70151329040527,
+      "cka_similarity": 0.05172625184059143
+    },
+    {
+      "step": 4640,
+      "task_id": 3,
+      "task_loss": 0.019676095529074043,
+      "accuracy": 0.9921875,
+      "functional_drift": 31.103014945983887,
+      "cka_similarity": 0.06761662662029266
+    },
+    {
+      "step": 4650,
+      "task_id": 3,
+      "task_loss": 0.0191875378265703,
+      "accuracy": 1.0,
+      "functional_drift": 30.172175407409668,
+      "cka_similarity": 0.04937641695141792
+    },
+    {
+      "step": 4660,
+      "task_id": 3,
+      "task_loss": 0.02017307690738772,
+      "accuracy": 0.984375,
+      "functional_drift": 32.00108289718628,
+      "cka_similarity": 0.05681438371539116
+    },
+    {
+      "step": 4670,
+      "task_id": 3,
+      "task_loss": 0.016234100046050217,
+      "accuracy": 1.0,
+      "functional_drift": 28.374745845794678,
+      "cka_similarity": 0.05284210667014122
+    },
+    {
+      "step": 4680,
+      "task_id": 3,
+      "task_loss": 0.017957302925520037,
+      "accuracy": 1.0,
+      "functional_drift": 29.399330615997314,
+      "cka_similarity": 0.06525103747844696
+    },
+    {
+      "step": 4690,
+      "task_id": 3,
+      "task_loss": 0.02014962077975787,
+      "accuracy": 0.984375,
+      "functional_drift": 28.78471612930298,
+      "cka_similarity": 0.04630930349230766
+    },
+    {
+      "step": 4700,
+      "task_id": 3,
+      "task_loss": 0.02057376621553722,
+      "accuracy": 0.984375,
+      "functional_drift": 74.08122062683105,
+      "cka_similarity": 0.0711507797241211
+    },
+    {
+      "step": 4710,
+      "task_id": 3,
+      "task_loss": 0.019200467381018157,
+      "accuracy": 1.0,
+      "functional_drift": 24.87662172317505,
+      "cka_similarity": 0.06988232582807541
+    },
+    {
+      "step": 4720,
+      "task_id": 3,
+      "task_loss": 0.018853989563945493,
+      "accuracy": 0.984375,
+      "functional_drift": 29.45543146133423,
+      "cka_similarity": 0.07616870850324631
+    },
+    {
+      "step": 4730,
+      "task_id": 3,
+      "task_loss": 0.018737614559738533,
+      "accuracy": 0.9921875,
+      "functional_drift": 27.68077278137207,
+      "cka_similarity": 0.0806354358792305
+    },
+    {
+      "step": 4740,
+      "task_id": 3,
+      "task_loss": 0.01799704162757608,
+      "accuracy": 1.0,
+      "functional_drift": 32.046611309051514,
+      "cka_similarity": 0.0889844000339508
+    },
+    {
+      "step": 4750,
+      "task_id": 4,
+      "task_loss": 1.5086790800094605,
+      "accuracy": 0.828125,
+      "functional_drift": 85.286376953125,
+      "cka_similarity": 0.04812018573284149
+    },
+    {
+      "step": 4760,
+      "task_id": 4,
+      "task_loss": 1.0357651449739933,
+      "accuracy": 0.8828125,
+      "functional_drift": 38.51206684112549,
+      "cka_similarity": 0.05887094512581825
+    },
+    {
+      "step": 4770,
+      "task_id": 4,
+      "task_loss": 0.8205341254671414,
+      "accuracy": 0.9453125,
+      "functional_drift": 25.129305362701416,
+      "cka_similarity": 0.0757627785205841
+    },
+    {
+      "step": 4780,
+      "task_id": 4,
+      "task_loss": 0.685915032401681,
+      "accuracy": 0.953125,
+      "functional_drift": 21.586989402770996,
+      "cka_similarity": 0.07455110549926758
+    },
+    {
+      "step": 4790,
+      "task_id": 4,
+      "task_loss": 0.5972576597332955,
+      "accuracy": 0.9140625,
+      "functional_drift": 18.938900470733643,
+      "cka_similarity": 0.09533476084470749
+    },
+    {
+      "step": 4800,
+      "task_id": 4,
+      "task_loss": 0.5395743871728579,
+      "accuracy": 0.890625,
+      "functional_drift": 11.477722644805908,
+      "cka_similarity": 0.09840801358222961
+    },
+    {
+      "step": 4810,
+      "task_id": 4,
+      "task_loss": 0.49623609078781944,
+      "accuracy": 0.9140625,
+      "functional_drift": 13.853033542633057,
+      "cka_similarity": 0.09439364075660706
+    },
+    {
+      "step": 4820,
+      "task_id": 4,
+      "task_loss": 0.06621617078781128,
+      "accuracy": 0.9765625,
+      "functional_drift": 13.408680438995361,
+      "cka_similarity": 0.10378717631101608
+    },
+    {
+      "step": 4830,
+      "task_id": 4,
+      "task_loss": 0.12797924943945624,
+      "accuracy": 0.953125,
+      "functional_drift": 10.50661849975586,
+      "cka_similarity": 0.1134265661239624
+    },
+    {
+      "step": 4840,
+      "task_id": 4,
+      "task_loss": 0.11820711621216365,
+      "accuracy": 0.9375,
+      "functional_drift": 14.410951137542725,
+      "cka_similarity": 0.08940733224153519
+    },
+    {
+      "step": 4850,
+      "task_id": 4,
+      "task_loss": 0.12338382197964576,
+      "accuracy": 0.953125,
+      "functional_drift": 19.241844654083252,
+      "cka_similarity": 0.08938802033662796
+    },
+    {
+      "step": 4860,
+      "task_id": 4,
+      "task_loss": 0.12269830758251794,
+      "accuracy": 0.953125,
+      "functional_drift": 15.094536781311035,
+      "cka_similarity": 0.09334778785705566
+    },
+    {
+      "step": 4870,
+      "task_id": 4,
+      "task_loss": 0.12191528184156791,
+      "accuracy": 0.96875,
+      "functional_drift": 18.028096675872803,
+      "cka_similarity": 0.08527682721614838
+    },
+    {
+      "step": 4880,
+      "task_id": 4,
+      "task_loss": 0.12364820018410683,
+      "accuracy": 0.9140625,
+      "functional_drift": 15.459687948226929,
+      "cka_similarity": 0.09068717062473297
+    },
+    {
+      "step": 4890,
+      "task_id": 4,
+      "task_loss": 0.12648373196872187,
+      "accuracy": 0.953125,
+      "functional_drift": 18.103601932525635,
+      "cka_similarity": 0.07769295573234558
+    },
+    {
+      "step": 4900,
+      "task_id": 4,
+      "task_loss": 0.04084509611129761,
+      "accuracy": 1.0,
+      "functional_drift": 19.586862564086914,
+      "cka_similarity": 0.07164090126752853
+    },
+    {
+      "step": 4910,
+      "task_id": 4,
+      "task_loss": 0.047822097005943455,
+      "accuracy": 0.9921875,
+      "functional_drift": 32.202285289764404,
+      "cka_similarity": 0.06207601726055145
+    },
+    {
+      "step": 4920,
+      "task_id": 4,
+      "task_loss": 0.0578625142912973,
+      "accuracy": 0.9765625,
+      "functional_drift": 23.590450763702393,
+      "cka_similarity": 0.06775864958763123
+    },
+    {
+      "step": 4930,
+      "task_id": 4,
+      "task_loss": 0.06674401205964386,
+      "accuracy": 0.9765625,
+      "functional_drift": 25.626410961151123,
+      "cka_similarity": 0.08748231083154678
+    },
+    {
+      "step": 4940,
+      "task_id": 4,
+      "task_loss": 0.07042008594033264,
+      "accuracy": 0.984375,
+      "functional_drift": 23.76238203048706,
+      "cka_similarity": 0.07761877775192261
+    },
+    {
+      "step": 4950,
+      "task_id": 4,
+      "task_loss": 0.07146172734120718,
+      "accuracy": 0.9453125,
+      "functional_drift": 34.54835367202759,
+      "cka_similarity": 0.05785996839404106
+    },
+    {
+      "step": 4960,
+      "task_id": 4,
+      "task_loss": 0.07442565917247726,
+      "accuracy": 0.953125,
+      "functional_drift": 25.141489505767822,
+      "cka_similarity": 0.06614384800195694
+    },
+    {
+      "step": 4970,
+      "task_id": 4,
+      "task_loss": 0.07588103004834718,
+      "accuracy": 0.96875,
+      "functional_drift": 23.84939193725586,
+      "cka_similarity": 0.06529108434915543
+    },
+    {
+      "step": 4980,
+      "task_id": 4,
+      "task_loss": 0.044757647129396595,
+      "accuracy": 0.96875,
+      "functional_drift": 23.496181964874268,
+      "cka_similarity": 0.08488588780164719
+    },
+    {
+      "step": 4990,
+      "task_id": 4,
+      "task_loss": 0.034975215506095156,
+      "accuracy": 1.0,
+      "functional_drift": 30.17760467529297,
+      "cka_similarity": 0.06359604746103287
+    },
+    {
+      "step": 5000,
+      "task_id": 4,
+      "task_loss": 0.03694314141150402,
+      "accuracy": 0.9921875,
+      "functional_drift": 29.29520559310913,
+      "cka_similarity": 0.06263584643602371
+    },
+    {
+      "step": 5010,
+      "task_id": 4,
+      "task_loss": 0.035408722180308716,
+      "accuracy": 0.984375,
+      "functional_drift": 36.41250038146973,
+      "cka_similarity": 0.06212712451815605
+    },
+    {
+      "step": 5020,
+      "task_id": 4,
+      "task_loss": 0.03686379996496578,
+      "accuracy": 0.9609375,
+      "functional_drift": 39.036298751831055,
+      "cka_similarity": 0.05762229859828949
+    },
+    {
+      "step": 5030,
+      "task_id": 4,
+      "task_loss": 0.04056756966308041,
+      "accuracy": 1.0,
+      "functional_drift": 36.43316841125488,
+      "cka_similarity": 0.05884014070034027
+    },
+    {
+      "step": 5040,
+      "task_id": 4,
+      "task_loss": 0.04132682992707169,
+      "accuracy": 0.9765625,
+      "functional_drift": 38.42487144470215,
+      "cka_similarity": 0.05907132104039192
+    },
+    {
+      "step": 5050,
+      "task_id": 4,
+      "task_loss": 0.04373851275607331,
+      "accuracy": 0.984375,
+      "functional_drift": 40.55224609375,
+      "cka_similarity": 0.06333374232053757
+    },
+    {
+      "step": 5060,
+      "task_id": 4,
+      "task_loss": 0.04970153234899044,
+      "accuracy": 0.9609375,
+      "functional_drift": 42.1924409866333,
+      "cka_similarity": 0.05586777254939079
+    },
+    {
+      "step": 5070,
+      "task_id": 4,
+      "task_loss": 0.03882400804598417,
+      "accuracy": 1.0,
+      "functional_drift": 38.260560035705566,
+      "cka_similarity": 0.055142708122730255
+    },
+    {
+      "step": 5080,
+      "task_id": 4,
+      "task_loss": 0.030926500136653583,
+      "accuracy": 0.984375,
+      "functional_drift": 41.329697608947754,
+      "cka_similarity": 0.05724474415183067
+    },
+    {
+      "step": 5090,
+      "task_id": 4,
+      "task_loss": 0.030894213671083835,
+      "accuracy": 0.9609375,
+      "functional_drift": 38.59688091278076,
+      "cka_similarity": 0.05096505582332611
+    },
+    {
+      "step": 5100,
+      "task_id": 4,
+      "task_loss": 0.027947955902411857,
+      "accuracy": 1.0,
+      "functional_drift": 49.49271297454834,
+      "cka_similarity": 0.05647791922092438
+    },
+    {
+      "step": 5110,
+      "task_id": 4,
+      "task_loss": 0.03366884910846474,
+      "accuracy": 0.984375,
+      "functional_drift": 44.435696601867676,
+      "cka_similarity": 0.0485210195183754
+    },
+    {
+      "step": 5120,
+      "task_id": 4,
+      "task_loss": 0.035903313000744674,
+      "accuracy": 0.9921875,
+      "functional_drift": 60.68129253387451,
+      "cka_similarity": 0.04817129299044609
+    },
+    {
+      "step": 5130,
+      "task_id": 4,
+      "task_loss": 0.038783256235104556,
+      "accuracy": 0.9609375,
+      "functional_drift": 34.92821025848389,
+      "cka_similarity": 0.05722011625766754
+    },
+    {
+      "step": 5140,
+      "task_id": 4,
+      "task_loss": 0.03231840543448925,
+      "accuracy": 0.9921875,
+      "functional_drift": 42.449928283691406,
+      "cka_similarity": 0.05582647770643234
+    },
+    {
+      "step": 5150,
+      "task_id": 4,
+      "task_loss": 0.02819982748478651,
+      "accuracy": 0.9921875,
+      "functional_drift": 53.414873123168945,
+      "cka_similarity": 0.05216670036315918
+    },
+    {
+      "step": 5160,
+      "task_id": 4,
+      "task_loss": 0.026409395709633826,
+      "accuracy": 0.9921875,
+      "functional_drift": 48.78647518157959,
+      "cka_similarity": 0.05162399634718895
+    },
+    {
+      "step": 5170,
+      "task_id": 4,
+      "task_loss": 0.029375257822019715,
+      "accuracy": 0.984375,
+      "functional_drift": 52.55760383605957,
+      "cka_similarity": 0.06586763262748718
+    },
+    {
+      "step": 5180,
+      "task_id": 4,
+      "task_loss": 0.032260564569797784,
+      "accuracy": 1.0,
+      "functional_drift": 56.08885192871094,
+      "cka_similarity": 0.05047345161437988
+    },
+    {
+      "step": 5190,
+      "task_id": 4,
+      "task_loss": 0.03806427497078072,
+      "accuracy": 0.9765625,
+      "functional_drift": 51.34255504608154,
+      "cka_similarity": 0.047603707760572433
+    },
+    {
+      "step": 5200,
+      "task_id": 4,
+      "task_loss": 0.04006721651038298,
+      "accuracy": 1.0,
+      "functional_drift": 52.476003646850586,
+      "cka_similarity": 0.0501420684158802
+    },
+    {
+      "step": 5210,
+      "task_id": 4,
+      "task_loss": 0.039024285674095154,
+      "accuracy": 1.0,
+      "functional_drift": 42.2759313583374,
+      "cka_similarity": 0.04870528355240822
+    },
+    {
+      "step": 5220,
+      "task_id": 4,
+      "task_loss": 0.020193367342775066,
+      "accuracy": 1.0,
+      "functional_drift": 60.457279205322266,
+      "cka_similarity": 0.054111298173666
+    },
+    {
+      "step": 5230,
+      "task_id": 4,
+      "task_loss": 0.025403562845895067,
+      "accuracy": 0.96875,
+      "functional_drift": 79.00738143920898,
+      "cka_similarity": 0.048618730157613754
+    },
+    {
+      "step": 5240,
+      "task_id": 4,
+      "task_loss": 0.02807607209811417,
+      "accuracy": 0.984375,
+      "functional_drift": 46.323607444763184,
+      "cka_similarity": 0.048744939267635345
+    },
+    {
+      "step": 5250,
+      "task_id": 4,
+      "task_loss": 0.0343026988234164,
+      "accuracy": 1.0,
+      "functional_drift": 55.83277416229248,
+      "cka_similarity": 0.04833485931158066
+    },
+    {
+      "step": 5260,
+      "task_id": 4,
+      "task_loss": 0.03537046456830981,
+      "accuracy": 0.9765625,
+      "functional_drift": 45.91304016113281,
+      "cka_similarity": 0.04726938158273697
+    },
+    {
+      "step": 5270,
+      "task_id": 4,
+      "task_loss": 0.034973640219374956,
+      "accuracy": 0.9765625,
+      "functional_drift": 47.28909873962402,
+      "cka_similarity": 0.04818687587976456
+    },
+    {
+      "step": 5280,
+      "task_id": 4,
+      "task_loss": 0.036119367186488074,
+      "accuracy": 0.9921875,
+      "functional_drift": 48.501365661621094,
+      "cka_similarity": 0.04861079901456833
+    },
+    {
+      "step": 5290,
+      "task_id": 4,
+      "task_loss": 0.03966831130980465,
+      "accuracy": 1.0,
+      "functional_drift": 48.16006374359131,
+      "cka_similarity": 0.04857463017106056
+    },
+    {
+      "step": 5300,
+      "task_id": 4,
+      "task_loss": 0.03540301163281713,
+      "accuracy": 0.9921875,
+      "functional_drift": 52.339332580566406,
+      "cka_similarity": 0.05941256135702133
+    },
+    {
+      "step": 5310,
+      "task_id": 4,
+      "task_loss": 0.028468650491798624,
+      "accuracy": 0.9921875,
+      "functional_drift": 38.5712251663208,
+      "cka_similarity": 0.05867203697562218
+    },
+    {
+      "step": 5320,
+      "task_id": 4,
+      "task_loss": 0.030167458061542776,
+      "accuracy": 0.9921875,
+      "functional_drift": 38.58634281158447,
+      "cka_similarity": 0.05233804136514664
+    },
+    {
+      "step": 5330,
+      "task_id": 4,
+      "task_loss": 0.0275739763385138,
+      "accuracy": 1.0,
+      "functional_drift": 55.31517791748047,
+      "cka_similarity": 0.05075616016983986
+    },
+    {
+      "step": 5340,
+      "task_id": 4,
+      "task_loss": 0.025663143152648463,
+      "accuracy": 1.0,
+      "functional_drift": 49.831626892089844,
+      "cka_similarity": 0.04791015014052391
+    },
+    {
+      "step": 5350,
+      "task_id": 4,
+      "task_loss": 0.026958554305070846,
+      "accuracy": 0.984375,
+      "functional_drift": 50.760924339294434,
+      "cka_similarity": 0.054848089814186096
+    },
+    {
+      "step": 5360,
+      "task_id": 4,
+      "task_loss": 0.026727387156865713,
+      "accuracy": 0.984375,
+      "functional_drift": 51.366310119628906,
+      "cka_similarity": 0.05558375269174576
+    },
+    {
+      "step": 5370,
+      "task_id": 4,
+      "task_loss": 0.028903738683234755,
+      "accuracy": 0.9765625,
+      "functional_drift": 61.82724571228027,
+      "cka_similarity": 0.04501772299408913
+    },
+    {
+      "step": 5380,
+      "task_id": 4,
+      "task_loss": 0.015304400585591793,
+      "accuracy": 0.9921875,
+      "functional_drift": 53.161192893981934,
+      "cka_similarity": 0.04240177571773529
+    },
+    {
+      "step": 5390,
+      "task_id": 4,
+      "task_loss": 0.01807647498531474,
+      "accuracy": 0.9921875,
+      "functional_drift": 53.209357261657715,
+      "cka_similarity": 0.045038267970085144
+    },
+    {
+      "step": 5400,
+      "task_id": 4,
+      "task_loss": 0.021753791104336933,
+      "accuracy": 0.9921875,
+      "functional_drift": 58.84615993499756,
+      "cka_similarity": 0.05356210842728615
+    },
+    {
+      "step": 5410,
+      "task_id": 4,
+      "task_loss": 0.02628511875426691,
+      "accuracy": 0.9765625,
+      "functional_drift": 62.04153347015381,
+      "cka_similarity": 0.0426497608423233
+    },
+    {
+      "step": 5420,
+      "task_id": 4,
+      "task_loss": 0.02914821621379815,
+      "accuracy": 0.9609375,
+      "functional_drift": 55.59056377410889,
+      "cka_similarity": 0.04577287286520004
+    },
+    {
+      "step": 5430,
+      "task_id": 4,
+      "task_loss": 0.031768068293880285,
+      "accuracy": 0.9765625,
+      "functional_drift": 51.025527000427246,
+      "cka_similarity": 0.052016403526067734
+    },
+    {
+      "step": 5440,
+      "task_id": 4,
+      "task_loss": 0.03189758292865008,
+      "accuracy": 0.9765625,
+      "functional_drift": 55.915907859802246,
+      "cka_similarity": 0.052269887179136276
+    },
+    {
+      "step": 5450,
+      "task_id": 4,
+      "task_loss": 0.032039350656888045,
+      "accuracy": 0.9921875,
+      "functional_drift": 48.87486934661865,
+      "cka_similarity": 0.04535454884171486
+    },
+    {
+      "step": 5460,
+      "task_id": 4,
+      "task_loss": 0.026553874731891684,
+      "accuracy": 0.9921875,
+      "functional_drift": 47.8157434463501,
+      "cka_similarity": 0.04916927218437195
+    },
+    {
+      "step": 5470,
+      "task_id": 4,
+      "task_loss": 0.026194441205772915,
+      "accuracy": 1.0,
+      "functional_drift": 55.22663497924805,
+      "cka_similarity": 0.04991775378584862
+    },
+    {
+      "step": 5480,
+      "task_id": 4,
+      "task_loss": 0.02694631634472773,
+      "accuracy": 1.0,
+      "functional_drift": 59.35871410369873,
+      "cka_similarity": 0.04358744993805885
+    },
+    {
+      "step": 5490,
+      "task_id": 4,
+      "task_loss": 0.0274662911080015,
+      "accuracy": 0.9921875,
+      "functional_drift": 41.624037742614746,
+      "cka_similarity": 0.057716865092515945
+    },
+    {
+      "step": 5500,
+      "task_id": 4,
+      "task_loss": 0.030992059056095932,
+      "accuracy": 0.9765625,
+      "functional_drift": 58.0163516998291,
+      "cka_similarity": 0.040820226073265076
+    },
+    {
+      "step": 5510,
+      "task_id": 4,
+      "task_loss": 0.03340681148219412,
+      "accuracy": 0.9765625,
+      "functional_drift": 55.4691801071167,
+      "cka_similarity": 0.039788249880075455
+    },
+    {
+      "step": 5520,
+      "task_id": 4,
+      "task_loss": 0.03494523925895708,
+      "accuracy": 0.9765625,
+      "functional_drift": 49.1952600479126,
+      "cka_similarity": 0.0465928390622139
+    },
+    {
+      "step": 5530,
+      "task_id": 4,
+      "task_loss": 0.03610669216730549,
+      "accuracy": 1.0,
+      "functional_drift": 67.18557834625244,
+      "cka_similarity": 0.05166596546769142
+    },
+    {
+      "step": 5540,
+      "task_id": 4,
+      "task_loss": 0.01865815536584705,
+      "accuracy": 0.9921875,
+      "functional_drift": 55.41281509399414,
+      "cka_similarity": 0.04238394275307655
+    },
+    {
+      "step": 5550,
+      "task_id": 4,
+      "task_loss": 0.02071866699261591,
+      "accuracy": 0.984375,
+      "functional_drift": 57.24702072143555,
+      "cka_similarity": 0.04450380057096481
+    },
+    {
+      "step": 5560,
+      "task_id": 4,
+      "task_loss": 0.02905069657135755,
+      "accuracy": 0.9921875,
+      "functional_drift": 58.85181427001953,
+      "cka_similarity": 0.043743059039115906
+    },
+    {
+      "step": 5570,
+      "task_id": 4,
+      "task_loss": 0.02603368221898563,
+      "accuracy": 1.0,
+      "functional_drift": 57.030497550964355,
+      "cka_similarity": 0.04213917255401611
+    },
+    {
+      "step": 5580,
+      "task_id": 4,
+      "task_loss": 0.02743476309347898,
+      "accuracy": 1.0,
+      "functional_drift": 51.42653751373291,
+      "cka_similarity": 0.051544997841119766
+    },
+    {
+      "step": 5590,
+      "task_id": 4,
+      "task_loss": 0.028984240516244122,
+      "accuracy": 0.984375,
+      "functional_drift": 46.155943870544434,
+      "cka_similarity": 0.04260014370083809
+    },
+    {
+      "step": 5600,
+      "task_id": 4,
+      "task_loss": 0.02952287796818252,
+      "accuracy": 0.9921875,
+      "functional_drift": 68.365234375,
+      "cka_similarity": 0.038644108921289444
+    },
+    {
+      "step": 5610,
+      "task_id": 4,
+      "task_loss": 0.01625761017203331,
+      "accuracy": 0.9921875,
+      "functional_drift": 54.516706466674805,
+      "cka_similarity": 0.044758908450603485
+    },
+    {
+      "step": 5620,
+      "task_id": 4,
+      "task_loss": 0.029355427080934696,
+      "accuracy": 0.984375,
+      "functional_drift": 55.77225208282471,
+      "cka_similarity": 0.05383704975247383
+    },
+    {
+      "step": 5630,
+      "task_id": 4,
+      "task_loss": 0.023717531635026847,
+      "accuracy": 1.0,
+      "functional_drift": 68.35392379760742,
+      "cka_similarity": 0.044106923043727875
+    },
+    {
+      "step": 5640,
+      "task_id": 4,
+      "task_loss": 0.03176652085066082,
+      "accuracy": 0.984375,
+      "functional_drift": 58.5121431350708,
+      "cka_similarity": 0.04750648885965347
+    },
+    {
+      "step": 5650,
+      "task_id": 4,
+      "task_loss": 0.030259605343794314,
+      "accuracy": 1.0,
+      "functional_drift": 47.52927875518799,
+      "cka_similarity": 0.04244236648082733
+    },
+    {
+      "step": 5660,
+      "task_id": 4,
+      "task_loss": 0.029530533895298253,
+      "accuracy": 0.9921875,
+      "functional_drift": 67.99400520324707,
+      "cka_similarity": 0.048685766756534576
+    },
+    {
+      "step": 5670,
+      "task_id": 4,
+      "task_loss": 0.032683426999013686,
+      "accuracy": 0.9921875,
+      "functional_drift": 52.53702354431152,
+      "cka_similarity": 0.03577986732125282
+    },
+    {
+      "step": 5680,
+      "task_id": 4,
+      "task_loss": 0.03229156912724212,
+      "accuracy": 0.9765625,
+      "functional_drift": 63.40921401977539,
+      "cka_similarity": 0.04329429566860199
+    },
+    {
+      "step": 5690,
+      "task_id": 4,
+      "task_loss": 0.01425520982593298,
+      "accuracy": 0.9921875,
+      "functional_drift": 60.2940616607666,
+      "cka_similarity": 0.0445365272462368
+    },
+    {
+      "step": 5700,
+      "task_id": 4,
+      "task_loss": 0.028547548223286867,
+      "accuracy": 1.0,
+      "functional_drift": 63.493306159973145,
+      "cka_similarity": 0.040551140904426575
+    },
+    {
+      "step": 5710,
+      "task_id": 4,
+      "task_loss": 0.025147763715887613,
+      "accuracy": 0.984375,
+      "functional_drift": 52.91698932647705,
+      "cka_similarity": 0.044725339859724045
+    },
+    {
+      "step": 5720,
+      "task_id": 4,
+      "task_loss": 0.027895378443645313,
+      "accuracy": 0.9921875,
+      "functional_drift": 65.3761396408081,
+      "cka_similarity": 0.04769078269600868
+    },
+    {
+      "step": 5730,
+      "task_id": 4,
+      "task_loss": 0.027917709966589297,
+      "accuracy": 0.9921875,
+      "functional_drift": 55.842323303222656,
+      "cka_similarity": 0.043094079941511154
+    },
+    {
+      "step": 5740,
+      "task_id": 4,
+      "task_loss": 0.0335334828392101,
+      "accuracy": 0.9921875,
+      "functional_drift": 57.70344924926758,
+      "cka_similarity": 0.04868442192673683
+    },
+    {
+      "step": 5750,
+      "task_id": 4,
+      "task_loss": 0.033970356505784775,
+      "accuracy": 0.9765625,
+      "functional_drift": 39.614994049072266,
+      "cka_similarity": 0.04481624439358711
+    },
+    {
+      "step": 5760,
+      "task_id": 4,
+      "task_loss": 0.033120450078664966,
+      "accuracy": 0.9921875,
+      "functional_drift": 71.03260803222656,
+      "cka_similarity": 0.039760563522577286
+    },
+    {
+      "step": 5770,
+      "task_id": 4,
+      "task_loss": 0.010317511507309973,
+      "accuracy": 0.9921875,
+      "functional_drift": 55.156578063964844,
+      "cka_similarity": 0.04185955226421356
+    },
+    {
+      "step": 5780,
+      "task_id": 4,
+      "task_loss": 0.018842134472484198,
+      "accuracy": 0.9921875,
+      "functional_drift": 52.69614887237549,
+      "cka_similarity": 0.04181337729096413
+    },
+    {
+      "step": 5790,
+      "task_id": 4,
+      "task_loss": 0.02040463067975867,
+      "accuracy": 0.9921875,
+      "functional_drift": 53.69487285614014,
+      "cka_similarity": 0.0455603301525116
+    },
+    {
+      "step": 5800,
+      "task_id": 4,
+      "task_loss": 0.023788152498926855,
+      "accuracy": 0.9921875,
+      "functional_drift": 54.09340476989746,
+      "cka_similarity": 0.042126916348934174
+    },
+    {
+      "step": 5810,
+      "task_id": 4,
+      "task_loss": 0.026456469039129484,
+      "accuracy": 0.984375,
+      "functional_drift": 54.008503913879395,
+      "cka_similarity": 0.04487532004714012
+    },
+    {
+      "step": 5820,
+      "task_id": 4,
+      "task_loss": 0.026375522623980803,
+      "accuracy": 1.0,
+      "functional_drift": 51.17054557800293,
+      "cka_similarity": 0.0371512807905674
+    },
+    {
+      "step": 5830,
+      "task_id": 4,
+      "task_loss": 0.026452802659367166,
+      "accuracy": 1.0,
+      "functional_drift": 60.66336441040039,
+      "cka_similarity": 0.03732507675886154
+    },
+    {
+      "step": 5840,
+      "task_id": 4,
+      "task_loss": 0.028734842619909714,
+      "accuracy": 0.984375,
+      "functional_drift": 51.08794116973877,
+      "cka_similarity": 0.03606336563825607
+    },
+    {
+      "step": 5850,
+      "task_id": 4,
+      "task_loss": 0.030684768804349005,
+      "accuracy": 0.984375,
+      "functional_drift": 87.17769241333008,
+      "cka_similarity": 0.04751836508512497
+    },
+    {
+      "step": 5860,
+      "task_id": 4,
+      "task_loss": 0.036571188064824255,
+      "accuracy": 0.9921875,
+      "functional_drift": 50.07929229736328,
+      "cka_similarity": 0.041212525218725204
+    },
+    {
+      "step": 5870,
+      "task_id": 4,
+      "task_loss": 0.03379974130075425,
+      "accuracy": 0.9765625,
+      "functional_drift": 57.07974910736084,
+      "cka_similarity": 0.048802319914102554
+    },
+    {
+      "step": 5880,
+      "task_id": 4,
+      "task_loss": 0.035049832706777924,
+      "accuracy": 0.9765625,
+      "functional_drift": 58.617661476135254,
+      "cka_similarity": 0.05065106600522995
+    },
+    {
+      "step": 5890,
+      "task_id": 4,
+      "task_loss": 0.03585153937191618,
+      "accuracy": 0.984375,
+      "functional_drift": 41.47464847564697,
+      "cka_similarity": 0.0595124289393425
+    },
+    {
+      "step": 5900,
+      "task_id": 4,
+      "task_loss": 0.03332768177561876,
+      "accuracy": 0.9765625,
+      "functional_drift": 71.06505393981934,
+      "cka_similarity": 0.04959901422262192
+    },
+    {
+      "step": 5910,
+      "task_id": 4,
+      "task_loss": 0.037791110607940936,
+      "accuracy": 0.984375,
+      "functional_drift": 52.5807523727417,
+      "cka_similarity": 0.052031032741069794
+    },
+    {
+      "step": 5920,
+      "task_id": 4,
+      "task_loss": 0.0354775424851608,
+      "accuracy": 0.9921875,
+      "functional_drift": 67.01641750335693,
+      "cka_similarity": 0.04469790309667587
+    }
+  ],
+  "lambda_history": [],
+  "drift_history": [
+    1.5019170641899109,
+    4.946201205253601,
+    5.748672962188721,
+    6.767572402954102,
+    5.591391563415527,
+    8.813940048217773,
+    12.68784761428833,
+    7.08808445930481,
+    9.573952674865723,
+    11.612011909484863,
+    8.707191944122314,
+    9.950176000595093,
+    21.687235832214355,
+    10.460493326187134,
+    9.543709754943848,
+    23.048856735229492,
+    10.90634298324585,
+    12.999513864517212,
+    13.932899713516235,
+    11.909738540649414,
+    22.853580474853516,
+    19.16473627090454,
+    21.47725820541382,
+    27.172555446624756,
+    17.995980262756348,
+    23.31321954727173,
+    24.491655826568604,
+    22.004194736480713,
+    25.63144302368164,
+    27.140108108520508,
+    25.234076499938965,
+    29.60599994659424,
+    38.84574317932129,
+    29.52085781097412,
+    28.106537342071533,
+    33.67083549499512,
+    29.983286380767822,
+    37.968323707580566,
+    42.34036350250244,
+    63.68019676208496,
+    35.9662389755249,
+    57.28504657745361,
+    35.73788642883301,
+    38.98927021026611,
+    61.081851959228516,
+    64.57257080078125,
+    41.42647361755371,
+    62.653841972351074,
+    48.63896083831787,
+    61.34522819519043,
+    60.1015625,
+    57.54820728302002,
+    49.043582916259766,
+    79.82676124572754,
+    55.883883476257324,
+    68.89780616760254,
+    86.93281364440918,
+    53.7969274520874,
+    72.9410171508789,
+    55.41402816772461,
+    79.00824737548828,
+    49.529788970947266,
+    76.23791885375977,
+    92.06744194030762,
+    88.5428695678711,
+    94.52682876586914,
+    69.5947265625,
+    68.61017990112305,
+    94.98246383666992,
+    84.72636222839355,
+    76.70586013793945,
+    102.40278816223145,
+    67.98187637329102,
+    109.2920970916748,
+    99.53629875183105,
+    89.39533996582031,
+    116.73654174804688,
+    86.02927589416504,
+    62.208258628845215,
+    112.35932731628418,
+    61.69620895385742,
+    98.8621654510498,
+    67.62727355957031,
+    99.38018035888672,
+    102.3735580444336,
+    76.49539566040039,
+    178.8736343383789,
+    64.928879737854,
+    140.61286163330078,
+    81.61992454528809,
+    106.04605484008789,
+    120.95447540283203,
+    127.90385627746582,
+    76.80937385559082,
+    118.82059860229492,
+    95.96925735473633,
+    142.68396759033203,
+    86.40528678894043,
+    122.10440826416016,
+    84.92621994018555,
+    101.52647972106934,
+    118.73711585998535,
+    89.53861808776855,
+    102.67505645751953,
+    93.65920829772949,
+    122.92560577392578,
+    91.61499786376953,
+    127.32218360900879,
+    94.75375175476074,
+    131.34830856323242,
+    98.93509101867676,
+    129.86573028564453,
+    101.17305183410645,
+    116.77939224243164,
+    122.31854438781738,
+    133.90689086914062,
+    128.3733673095703,
+    212.1216583251953,
+    70.8189525604248,
+    23.533175468444824,
+    9.291831731796265,
+    3.646859884262085,
+    5.6034135818481445,
+    2.6450982093811035,
+    4.705617785453796,
+    4.466485977172852,
+    4.551936745643616,
+    3.2708577513694763,
+    5.355766534805298,
+    6.736264944076538,
+    5.1733410358428955,
+    5.763789534568787,
+    6.308291792869568,
+    4.589491009712219,
+    4.580793857574463,
+    5.632718563079834,
+    6.684573411941528,
+    6.7622740268707275,
+    7.05768883228302,
+    9.150774955749512,
+    7.728967070579529,
+    5.217203140258789,
+    8.1361403465271,
+    10.706703424453735,
+    13.265007972717285,
+    11.356812953948975,
+    15.491708993911743,
+    12.73842716217041,
+    10.563669919967651,
+    13.937983751296997,
+    16.050087451934814,
+    14.061086177825928,
+    21.91307258605957,
+    24.072062969207764,
+    19.299368381500244,
+    19.25020694732666,
+    30.213913440704346,
+    23.290652751922607,
+    22.609249114990234,
+    32.046499252319336,
+    29.88444995880127,
+    23.7267484664917,
+    27.528860092163086,
+    24.681003093719482,
+    25.900050163269043,
+    37.128231048583984,
+    30.49153709411621,
+    35.2494740486145,
+    35.4535026550293,
+    45.517109870910645,
+    30.157403469085693,
+    28.19169569015503,
+    39.92250347137451,
+    26.495559215545654,
+    31.717133045196533,
+    37.86387062072754,
+    37.63215255737305,
+    32.735477447509766,
+    36.99061107635498,
+    39.54732799530029,
+    31.658156871795654,
+    37.819908142089844,
+    33.23909616470337,
+    53.17360305786133,
+    36.480873107910156,
+    39.026567459106445,
+    38.8608980178833,
+    32.32606554031372,
+    45.94002723693848,
+    43.09529972076416,
+    34.897398948669434,
+    42.0401668548584,
+    48.25821399688721,
+    44.75768756866455,
+    52.46288776397705,
+    30.628801345825195,
+    37.61066246032715,
+    55.06861972808838,
+    47.835604667663574,
+    43.6486759185791,
+    36.15594482421875,
+    42.15735912322998,
+    52.932183265686035,
+    47.90461730957031,
+    37.00341796875,
+    38.68589401245117,
+    47.11305522918701,
+    44.23436641693115,
+    49.9308967590332,
+    49.00102710723877,
+    51.452083587646484,
+    47.46212291717529,
+    47.34504318237305,
+    42.00709342956543,
+    58.26100826263428,
+    59.233970642089844,
+    46.81591510772705,
+    44.70825004577637,
+    48.10952186584473,
+    48.617435455322266,
+    39.896904945373535,
+    41.490614891052246,
+    47.7897891998291,
+    85.8519058227539,
+    50.12980651855469,
+    42.051313400268555,
+    46.75838851928711,
+    47.915024757385254,
+    57.78001689910889,
+    48.65821170806885,
+    46.631364822387695,
+    49.57081413269043,
+    42.879170417785645,
+    52.597439765930176,
+    53.66187858581543,
+    57.82621097564697,
+    56.207743644714355,
+    24.410961151123047,
+    13.476900815963745,
+    5.861759185791016,
+    4.905073881149292,
+    4.474441349506378,
+    4.465015888214111,
+    2.503688156604767,
+    5.606839418411255,
+    5.045589208602905,
+    3.3539413809776306,
+    4.411672353744507,
+    9.94106650352478,
+    8.565734148025513,
+    4.228036820888519,
+    6.214942932128906,
+    4.386849045753479,
+    8.662075161933899,
+    8.792691469192505,
+    11.595386266708374,
+    7.755917906761169,
+    9.435374736785889,
+    9.53038763999939,
+    8.665806770324707,
+    9.637447357177734,
+    10.297234535217285,
+    13.725209712982178,
+    14.859280586242676,
+    16.89909529685974,
+    14.090454816818237,
+    15.700109481811523,
+    13.081052303314209,
+    16.544023275375366,
+    27.27495002746582,
+    19.323217391967773,
+    22.612618923187256,
+    22.438581466674805,
+    19.90095090866089,
+    24.10060167312622,
+    20.87283754348755,
+    19.2016544342041,
+    24.3144588470459,
+    23.417702198028564,
+    35.0756254196167,
+    23.029951095581055,
+    26.464335918426514,
+    25.893220901489258,
+    21.255908489227295,
+    27.920942783355713,
+    28.643202781677246,
+    24.742263793945312,
+    32.337753772735596,
+    30.40173864364624,
+    21.99148654937744,
+    26.98835802078247,
+    21.323534965515137,
+    31.576074600219727,
+    24.405527114868164,
+    21.503676891326904,
+    30.925861358642578,
+    28.452597618103027,
+    40.13615894317627,
+    26.358870029449463,
+    26.688395977020264,
+    29.175918102264404,
+    26.088842391967773,
+    42.064799308776855,
+    34.91449451446533,
+    36.57707118988037,
+    31.91194725036621,
+    29.46240472793579,
+    34.59969711303711,
+    39.031697273254395,
+    31.68474578857422,
+    21.958003520965576,
+    31.941758155822754,
+    34.65875816345215,
+    30.81516981124878,
+    26.496642589569092,
+    25.557671070098877,
+    36.027814865112305,
+    34.83071327209473,
+    25.340009689331055,
+    26.255203247070312,
+    33.476999282836914,
+    33.263397216796875,
+    27.153533935546875,
+    30.3265380859375,
+    36.72224807739258,
+    27.84693145751953,
+    37.907365798950195,
+    50.316426277160645,
+    33.166635513305664,
+    28.56171989440918,
+    28.523012161254883,
+    27.37771463394165,
+    30.801016807556152,
+    26.678754806518555,
+    24.416175365447998,
+    30.880744457244873,
+    34.9719820022583,
+    33.86842393875122,
+    26.91140079498291,
+    34.748430252075195,
+    30.650259494781494,
+    36.6652946472168,
+    33.83184051513672,
+    35.29184055328369,
+    35.19690132141113,
+    37.2012939453125,
+    32.98478078842163,
+    32.01594591140747,
+    46.96989631652832,
+    31.916718006134033,
+    34.3255558013916,
+    31.92236852645874,
+    29.763002395629883,
+    29.06978702545166,
+    38.00152778625488,
+    19.916097164154053,
+    10.830834150314331,
+    13.80634069442749,
+    5.090333580970764,
+    4.971949338912964,
+    5.061089396476746,
+    5.817152976989746,
+    7.102467894554138,
+    8.258220434188843,
+    9.653902769088745,
+    6.7456159591674805,
+    11.753032922744751,
+    6.767576694488525,
+    13.698636531829834,
+    7.797366619110107,
+    8.700271725654602,
+    8.952831864356995,
+    7.8236730098724365,
+    8.43308174610138,
+    9.638010263442993,
+    10.017308712005615,
+    11.264715909957886,
+    12.084471702575684,
+    17.6712327003479,
+    16.58171510696411,
+    16.45243549346924,
+    16.129754781723022,
+    18.206867933273315,
+    17.626155376434326,
+    17.56516170501709,
+    19.226139068603516,
+    17.93004083633423,
+    40.1959924697876,
+    23.331432819366455,
+    31.28569269180298,
+    17.40315294265747,
+    16.85494613647461,
+    19.779345512390137,
+    19.621868133544922,
+    24.028172969818115,
+    20.53157949447632,
+    21.25008726119995,
+    25.99051809310913,
+    26.391573429107666,
+    22.442773818969727,
+    24.69465732574463,
+    22.135602474212646,
+    20.75210952758789,
+    25.327635765075684,
+    26.494239807128906,
+    24.255788803100586,
+    32.295443534851074,
+    20.052921295166016,
+    36.1878023147583,
+    25.24474334716797,
+    25.199002265930176,
+    25.75209617614746,
+    22.879138469696045,
+    25.40874195098877,
+    35.58820724487305,
+    24.25818109512329,
+    32.89473056793213,
+    27.528900146484375,
+    27.593966484069824,
+    24.41770648956299,
+    33.68150806427002,
+    23.380162715911865,
+    25.331265449523926,
+    25.67149019241333,
+    30.949769496917725,
+    27.6779465675354,
+    23.325247764587402,
+    33.591142654418945,
+    24.350636959075928,
+    43.77276420593262,
+    29.75817108154297,
+    39.29951095581055,
+    27.211121559143066,
+    35.84826469421387,
+    25.998751163482666,
+    29.060209274291992,
+    31.4469256401062,
+    27.551298141479492,
+    24.506322383880615,
+    29.871887683868408,
+    34.01390552520752,
+    26.952123165130615,
+    23.696669578552246,
+    31.294177055358887,
+    31.90400743484497,
+    24.61679744720459,
+    33.174262046813965,
+    29.464590072631836,
+    37.74595642089844,
+    26.579479217529297,
+    26.906321048736572,
+    23.395592212677002,
+    30.300376892089844,
+    37.46292781829834,
+    50.79952621459961,
+    26.920936107635498,
+    34.64934062957764,
+    33.438530921936035,
+    27.543230056762695,
+    26.85145664215088,
+    25.091386318206787,
+    24.01926326751709,
+    33.70151329040527,
+    31.103014945983887,
+    30.172175407409668,
+    32.00108289718628,
+    28.374745845794678,
+    29.399330615997314,
+    28.78471612930298,
+    74.08122062683105,
+    24.87662172317505,
+    29.45543146133423,
+    27.68077278137207,
+    32.046611309051514,
+    85.286376953125,
+    38.51206684112549,
+    25.129305362701416,
+    21.586989402770996,
+    18.938900470733643,
+    11.477722644805908,
+    13.853033542633057,
+    13.408680438995361,
+    10.50661849975586,
+    14.410951137542725,
+    19.241844654083252,
+    15.094536781311035,
+    18.028096675872803,
+    15.459687948226929,
+    18.103601932525635,
+    19.586862564086914,
+    32.202285289764404,
+    23.590450763702393,
+    25.626410961151123,
+    23.76238203048706,
+    34.54835367202759,
+    25.141489505767822,
+    23.84939193725586,
+    23.496181964874268,
+    30.17760467529297,
+    29.29520559310913,
+    36.41250038146973,
+    39.036298751831055,
+    36.43316841125488,
+    38.42487144470215,
+    40.55224609375,
+    42.1924409866333,
+    38.260560035705566,
+    41.329697608947754,
+    38.59688091278076,
+    49.49271297454834,
+    44.435696601867676,
+    60.68129253387451,
+    34.92821025848389,
+    42.449928283691406,
+    53.414873123168945,
+    48.78647518157959,
+    52.55760383605957,
+    56.08885192871094,
+    51.34255504608154,
+    52.476003646850586,
+    42.2759313583374,
+    60.457279205322266,
+    79.00738143920898,
+    46.323607444763184,
+    55.83277416229248,
+    45.91304016113281,
+    47.28909873962402,
+    48.501365661621094,
+    48.16006374359131,
+    52.339332580566406,
+    38.5712251663208,
+    38.58634281158447,
+    55.31517791748047,
+    49.831626892089844,
+    50.760924339294434,
+    51.366310119628906,
+    61.82724571228027,
+    53.161192893981934,
+    53.209357261657715,
+    58.84615993499756,
+    62.04153347015381,
+    55.59056377410889,
+    51.025527000427246,
+    55.915907859802246,
+    48.87486934661865,
+    47.8157434463501,
+    55.22663497924805,
+    59.35871410369873,
+    41.624037742614746,
+    58.0163516998291,
+    55.4691801071167,
+    49.1952600479126,
+    67.18557834625244,
+    55.41281509399414,
+    57.24702072143555,
+    58.85181427001953,
+    57.030497550964355,
+    51.42653751373291,
+    46.155943870544434,
+    68.365234375,
+    54.516706466674805,
+    55.77225208282471,
+    68.35392379760742,
+    58.5121431350708,
+    47.52927875518799,
+    67.99400520324707,
+    52.53702354431152,
+    63.40921401977539,
+    60.2940616607666,
+    63.493306159973145,
+    52.91698932647705,
+    65.3761396408081,
+    55.842323303222656,
+    57.70344924926758,
+    39.614994049072266,
+    71.03260803222656,
+    55.156578063964844,
+    52.69614887237549,
+    53.69487285614014,
+    54.09340476989746,
+    54.008503913879395,
+    51.17054557800293,
+    60.66336441040039,
+    51.08794116973877,
+    87.17769241333008,
+    50.07929229736328,
+    57.07974910736084,
+    58.617661476135254,
+    41.47464847564697,
+    71.06505393981934,
+    52.5807523727417,
+    67.01641750335693
+  ],
+  "cka_history": [
+    0.22814281284809113,
+    0.10572488605976105,
+    0.14118720591068268,
+    0.09423953294754028,
+    0.09936919063329697,
+    0.0653424933552742,
+    0.05050329864025116,
+    0.08484315127134323,
+    0.07865511626005173,
+    0.07535544037818909,
+    0.06776557862758636,
+    0.07505002617835999,
+    0.05412929877638817,
+    0.07092104107141495,
+    0.07665344327688217,
+    0.05916229262948036,
+    0.06284844130277634,
+    0.070262111723423,
+    0.07706516981124878,
+    0.06008584424853325,
+    0.06013172119855881,
+    0.06428159028291702,
+    0.05440571904182434,
+    0.0495353601872921,
+    0.05894609913229942,
+    0.0642571672797203,
+    0.044913098216056824,
+    0.05832114443182945,
+    0.0428583137691021,
+    0.046494338661432266,
+    0.06773747503757477,
+    0.07300299406051636,
+    0.041031885892152786,
+    0.04741750657558441,
+    0.054194558411836624,
+    0.051283225417137146,
+    0.04697359725832939,
+    0.05108657106757164,
+    0.04118797928094864,
+    0.042870454490184784,
+    0.04889579862356186,
+    0.04239692538976669,
+    0.05011792108416557,
+    0.050790369510650635,
+    0.048235934227705,
+    0.042230620980262756,
+    0.0583057776093483,
+    0.04408743977546692,
+    0.04914166033267975,
+    0.041023217141628265,
+    0.035526420921087265,
+    0.047277260571718216,
+    0.04486234858632088,
+    0.03861197456717491,
+    0.03878464177250862,
+    0.0418972373008728,
+    0.03606640547513962,
+    0.03822459280490875,
+    0.04189540818333626,
+    0.039741694927215576,
+    0.0450899638235569,
+    0.04373195022344589,
+    0.05122017860412598,
+    0.04199331998825073,
+    0.05912934988737106,
+    0.03603513166308403,
+    0.050611671060323715,
+    0.042321864515542984,
+    0.0384347178041935,
+    0.042397771030664444,
+    0.044297635555267334,
+    0.04096924886107445,
+    0.037730198353528976,
+    0.04844602942466736,
+    0.04458939656615257,
+    0.039455387741327286,
+    0.04645940288901329,
+    0.04428699240088463,
+    0.045699555426836014,
+    0.05304212495684624,
+    0.03659375011920929,
+    0.0465599000453949,
+    0.042638324201107025,
+    0.04586366191506386,
+    0.04397391527891159,
+    0.03611034154891968,
+    0.047512494027614594,
+    0.04495147243142128,
+    0.04432140290737152,
+    0.04281718283891678,
+    0.040249574929475784,
+    0.04518972709774971,
+    0.04339740797877312,
+    0.04949909448623657,
+    0.043470434844493866,
+    0.03750164434313774,
+    0.044690195471048355,
+    0.040869444608688354,
+    0.042534660547971725,
+    0.046803951263427734,
+    0.03526926785707474,
+    0.0501895435154438,
+    0.03952636569738388,
+    0.04206538572907448,
+    0.03778008744120598,
+    0.033304352313280106,
+    0.04611961543560028,
+    0.04410332813858986,
+    0.04435433819890022,
+    0.043845854699611664,
+    0.0438116192817688,
+    0.043978407979011536,
+    0.04083256796002388,
+    0.041216891258955,
+    0.03882532939314842,
+    0.04601718485355377,
+    0.030369902029633522,
+    0.03977994993329048,
+    0.027838580310344696,
+    0.08646116405725479,
+    0.34337741136550903,
+    0.24471783638000488,
+    0.18383468687534332,
+    0.18660448491573334,
+    0.17040970921516418,
+    0.1735546886920929,
+    0.18202832341194153,
+    0.18295727670192719,
+    0.1574169546365738,
+    0.12432742863893509,
+    0.11298427730798721,
+    0.12535281479358673,
+    0.1297088861465454,
+    0.12783598899841309,
+    0.15459229052066803,
+    0.1066913828253746,
+    0.10925334692001343,
+    0.09945866465568542,
+    0.10561791807413101,
+    0.1021898165345192,
+    0.10714821517467499,
+    0.1664656400680542,
+    0.11344246566295624,
+    0.13032309710979462,
+    0.09267258644104004,
+    0.08988554030656815,
+    0.06360701471567154,
+    0.06576179713010788,
+    0.07414425909519196,
+    0.08610643446445465,
+    0.06293152272701263,
+    0.07731471210718155,
+    0.08459474891424179,
+    0.05442911759018898,
+    0.04136430099606514,
+    0.053732894361019135,
+    0.05845637246966362,
+    0.05301224812865257,
+    0.04938928782939911,
+    0.043476544320583344,
+    0.0476970300078392,
+    0.039105094969272614,
+    0.07015504688024521,
+    0.06536555290222168,
+    0.04100966081023216,
+    0.047342486679553986,
+    0.039949532598257065,
+    0.04853416606783867,
+    0.040026213973760605,
+    0.048753105103969574,
+    0.028748244047164917,
+    0.024814510717988014,
+    0.04924307391047478,
+    0.04092719778418541,
+    0.035469286143779755,
+    0.03408178314566612,
+    0.04013931751251221,
+    0.03281860426068306,
+    0.043398067355155945,
+    0.043280236423015594,
+    0.03966919332742691,
+    0.040162790566682816,
+    0.046030040830373764,
+    0.0470251739025116,
+    0.026713132858276367,
+    0.03237317502498627,
+    0.0439850278198719,
+    0.03703005611896515,
+    0.038982685655355453,
+    0.030132899060845375,
+    0.03110145591199398,
+    0.046633049845695496,
+    0.035729002207517624,
+    0.03300923481583595,
+    0.051489464938640594,
+    0.04771055653691292,
+    0.032165732234716415,
+    0.04439811408519745,
+    0.03241187706589699,
+    0.039831336587667465,
+    0.036051664501428604,
+    0.03596464544534683,
+    0.030891453847289085,
+    0.06058615818619728,
+    0.0609838142991066,
+    0.04049219563603401,
+    0.03686508908867836,
+    0.03917333856225014,
+    0.03233359381556511,
+    0.03331087529659271,
+    0.036454152315855026,
+    0.04439803212881088,
+    0.031489793211221695,
+    0.044690150767564774,
+    0.032966405153274536,
+    0.028313694521784782,
+    0.03549876809120178,
+    0.04069569334387779,
+    0.03370256349444389,
+    0.03861672431230545,
+    0.03530929237604141,
+    0.027520563453435898,
+    0.030939025804400444,
+    0.05374230816960335,
+    0.030605128034949303,
+    0.029844749718904495,
+    0.0272940956056118,
+    0.031111521646380424,
+    0.03263600915670395,
+    0.030436186119914055,
+    0.03393479436635971,
+    0.03871706873178482,
+    0.025359196588397026,
+    0.03449593856930733,
+    0.0526515357196331,
+    0.02801758609712124,
+    0.032892629504203796,
+    0.043709415942430496,
+    0.07726702094078064,
+    0.11407766491174698,
+    0.1521778553724289,
+    0.27018335461616516,
+    0.20385703444480896,
+    0.2382233738899231,
+    0.22023221850395203,
+    0.17123021185398102,
+    0.22848810255527496,
+    0.17098954319953918,
+    0.17415401339530945,
+    0.17573939263820648,
+    0.183944970369339,
+    0.17821234464645386,
+    0.18755429983139038,
+    0.18178972601890564,
+    0.15608002245426178,
+    0.1322169005870819,
+    0.13268783688545227,
+    0.12092682719230652,
+    0.10395114123821259,
+    0.11600672453641891,
+    0.1155104786157608,
+    0.11723186820745468,
+    0.09643750637769699,
+    0.07838629186153412,
+    0.07525788247585297,
+    0.08780190348625183,
+    0.09222783893346786,
+    0.11923768371343613,
+    0.07074146717786789,
+    0.07681022584438324,
+    0.1072312518954277,
+    0.07666642963886261,
+    0.05410780757665634,
+    0.08248066157102585,
+    0.1050235852599144,
+    0.06942638009786606,
+    0.11377955973148346,
+    0.06789835542440414,
+    0.09498195350170135,
+    0.06667736917734146,
+    0.07611559331417084,
+    0.06621796637773514,
+    0.06944161653518677,
+    0.10055896639823914,
+    0.09115820378065109,
+    0.06174154952168465,
+    0.07041777670383453,
+    0.05998726561665535,
+    0.07168895751237869,
+    0.05735316500067711,
+    0.06265192478895187,
+    0.08428288251161575,
+    0.08802386373281479,
+    0.06403736025094986,
+    0.05688225105404854,
+    0.07472899556159973,
+    0.07121109962463379,
+    0.043887313455343246,
+    0.07095306366682053,
+    0.07179220765829086,
+    0.06192468851804733,
+    0.04985581710934639,
+    0.07083238661289215,
+    0.05050746724009514,
+    0.07464607805013657,
+    0.055573344230651855,
+    0.0799022987484932,
+    0.06427440047264099,
+    0.07349270582199097,
+    0.08768878877162933,
+    0.0760132372379303,
+    0.0875118225812912,
+    0.0753755122423172,
+    0.0756254643201828,
+    0.060052450746297836,
+    0.08042578399181366,
+    0.055668607354164124,
+    0.061594460159540176,
+    0.06140028312802315,
+    0.08102551102638245,
+    0.05954856425523758,
+    0.06243760511279106,
+    0.04830705747008324,
+    0.04699331894516945,
+    0.05345402657985687,
+    0.05843253433704376,
+    0.07119172066450119,
+    0.07181812077760696,
+    0.0579332560300827,
+    0.039059266448020935,
+    0.04288565367460251,
+    0.04739009216427803,
+    0.05951918661594391,
+    0.05009502172470093,
+    0.0467715822160244,
+    0.038827694952487946,
+    0.06488820165395737,
+    0.04825682193040848,
+    0.051845334470272064,
+    0.048945844173431396,
+    0.0659729540348053,
+    0.06552978605031967,
+    0.055154964327812195,
+    0.0749511569738388,
+    0.04460112005472183,
+    0.04955068230628967,
+    0.0427066944539547,
+    0.06459297239780426,
+    0.04456009715795517,
+    0.0753471627831459,
+    0.03940267860889435,
+    0.05088081210851669,
+    0.06111064553260803,
+    0.04297898709774017,
+    0.045721638947725296,
+    0.06871223449707031,
+    0.17986051738262177,
+    0.2947365939617157,
+    0.34066343307495117,
+    0.34127917885780334,
+    0.2740412652492523,
+    0.2949827015399933,
+    0.29593321681022644,
+    0.2620413303375244,
+    0.3070390820503235,
+    0.327747106552124,
+    0.2600608468055725,
+    0.28901854157447815,
+    0.2833690345287323,
+    0.21127364039421082,
+    0.2048778533935547,
+    0.24150516092777252,
+    0.2136221081018448,
+    0.2457486391067505,
+    0.21055985987186432,
+    0.20483675599098206,
+    0.1860092580318451,
+    0.17172005772590637,
+    0.1678188592195511,
+    0.11727159470319748,
+    0.1460743546485901,
+    0.12298941612243652,
+    0.14514102041721344,
+    0.12104015052318573,
+    0.11738599836826324,
+    0.09278769791126251,
+    0.11211388558149338,
+    0.08565742522478104,
+    0.08354406803846359,
+    0.11721378564834595,
+    0.1134219765663147,
+    0.09553514420986176,
+    0.0953797772526741,
+    0.12316621840000153,
+    0.09545812755823135,
+    0.0736609697341919,
+    0.07873304188251495,
+    0.07958570122718811,
+    0.09400967508554459,
+    0.09543433040380478,
+    0.08990217745304108,
+    0.07676345854997635,
+    0.08421886712312698,
+    0.09107661992311478,
+    0.0866650938987732,
+    0.06728316098451614,
+    0.06731899082660675,
+    0.0903032124042511,
+    0.16732561588287354,
+    0.08577622473239899,
+    0.08205362409353256,
+    0.08147920668125153,
+    0.05913815274834633,
+    0.08561423420906067,
+    0.082312673330307,
+    0.08090173453092575,
+    0.06397227197885513,
+    0.05983930453658104,
+    0.10161619633436203,
+    0.06784038990736008,
+    0.08329294621944427,
+    0.08050359785556793,
+    0.07468081265687943,
+    0.05110703781247139,
+    0.06153774634003639,
+    0.09298045933246613,
+    0.06889397650957108,
+    0.045516617596149445,
+    0.05117863789200783,
+    0.1143912598490715,
+    0.07690907269716263,
+    0.08388873189687729,
+    0.07155729085206985,
+    0.10861040651798248,
+    0.07246371358633041,
+    0.11251102387905121,
+    0.06804680079221725,
+    0.08165322244167328,
+    0.06408988684415817,
+    0.08096428960561752,
+    0.06783661991357803,
+    0.05941799655556679,
+    0.07315713167190552,
+    0.06201484054327011,
+    0.0882137194275856,
+    0.04962921515107155,
+    0.044490452855825424,
+    0.051131054759025574,
+    0.05109890177845955,
+    0.05249759182333946,
+    0.053979165852069855,
+    0.05844511836767197,
+    0.06349876523017883,
+    0.0595848448574543,
+    0.04692155122756958,
+    0.07015596330165863,
+    0.04343857243657112,
+    0.05066336691379547,
+    0.06229151412844658,
+    0.05249332636594772,
+    0.05385333672165871,
+    0.051787495613098145,
+    0.05172625184059143,
+    0.06761662662029266,
+    0.04937641695141792,
+    0.05681438371539116,
+    0.05284210667014122,
+    0.06525103747844696,
+    0.04630930349230766,
+    0.0711507797241211,
+    0.06988232582807541,
+    0.07616870850324631,
+    0.0806354358792305,
+    0.0889844000339508,
+    0.04812018573284149,
+    0.05887094512581825,
+    0.0757627785205841,
+    0.07455110549926758,
+    0.09533476084470749,
+    0.09840801358222961,
+    0.09439364075660706,
+    0.10378717631101608,
+    0.1134265661239624,
+    0.08940733224153519,
+    0.08938802033662796,
+    0.09334778785705566,
+    0.08527682721614838,
+    0.09068717062473297,
+    0.07769295573234558,
+    0.07164090126752853,
+    0.06207601726055145,
+    0.06775864958763123,
+    0.08748231083154678,
+    0.07761877775192261,
+    0.05785996839404106,
+    0.06614384800195694,
+    0.06529108434915543,
+    0.08488588780164719,
+    0.06359604746103287,
+    0.06263584643602371,
+    0.06212712451815605,
+    0.05762229859828949,
+    0.05884014070034027,
+    0.05907132104039192,
+    0.06333374232053757,
+    0.05586777254939079,
+    0.055142708122730255,
+    0.05724474415183067,
+    0.05096505582332611,
+    0.05647791922092438,
+    0.0485210195183754,
+    0.04817129299044609,
+    0.05722011625766754,
+    0.05582647770643234,
+    0.05216670036315918,
+    0.05162399634718895,
+    0.06586763262748718,
+    0.05047345161437988,
+    0.047603707760572433,
+    0.0501420684158802,
+    0.04870528355240822,
+    0.054111298173666,
+    0.048618730157613754,
+    0.048744939267635345,
+    0.04833485931158066,
+    0.04726938158273697,
+    0.04818687587976456,
+    0.04861079901456833,
+    0.04857463017106056,
+    0.05941256135702133,
+    0.05867203697562218,
+    0.05233804136514664,
+    0.05075616016983986,
+    0.04791015014052391,
+    0.054848089814186096,
+    0.05558375269174576,
+    0.04501772299408913,
+    0.04240177571773529,
+    0.045038267970085144,
+    0.05356210842728615,
+    0.0426497608423233,
+    0.04577287286520004,
+    0.052016403526067734,
+    0.052269887179136276,
+    0.04535454884171486,
+    0.04916927218437195,
+    0.04991775378584862,
+    0.04358744993805885,
+    0.057716865092515945,
+    0.040820226073265076,
+    0.039788249880075455,
+    0.0465928390622139,
+    0.05166596546769142,
+    0.04238394275307655,
+    0.04450380057096481,
+    0.043743059039115906,
+    0.04213917255401611,
+    0.051544997841119766,
+    0.04260014370083809,
+    0.038644108921289444,
+    0.044758908450603485,
+    0.05383704975247383,
+    0.044106923043727875,
+    0.04750648885965347,
+    0.04244236648082733,
+    0.048685766756534576,
+    0.03577986732125282,
+    0.04329429566860199,
+    0.0445365272462368,
+    0.040551140904426575,
+    0.044725339859724045,
+    0.04769078269600868,
+    0.043094079941511154,
+    0.04868442192673683,
+    0.04481624439358711,
+    0.039760563522577286,
+    0.04185955226421356,
+    0.04181337729096413,
+    0.0455603301525116,
+    0.042126916348934174,
+    0.04487532004714012,
+    0.0371512807905674,
+    0.03732507675886154,
+    0.03606336563825607,
+    0.04751836508512497,
+    0.041212525218725204,
+    0.048802319914102554,
+    0.05065106600522995,
+    0.0595124289393425,
+    0.04959901422262192,
+    0.052031032741069794,
+    0.04469790309667587
+  ],
+  "task_boundaries": [
+    0,
+    1185,
+    2370,
+    3555,
+    4740
+  ],
+  "n_params": 307794
+}

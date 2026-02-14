@@ -49,6 +49,7 @@ class StabilityConstrainedOptimizer:
         lambda_init: float = 0.1,
         lambda_lr: float = 0.01,
         lambda_max: float = 100.0,
+        lambda_momentum: float = 0.9,
         epsilon_scheduler: Optional['EpsilonScheduler'] = None,
         epsilon_fixed: float = 1.0,
         grad_clip: float = 1.0,
@@ -62,6 +63,7 @@ class StabilityConstrainedOptimizer:
             lambda_init: Initial Lagrange multiplier
             lambda_lr: Learning rate for dual variable update
             lambda_max: Maximum value for λ (prevents instability)
+            lambda_momentum: Momentum for dual variable update (EMA smoothing)
             epsilon_scheduler: Adaptive ε schedule (if None, uses fixed ε)
             epsilon_fixed: Fixed ε value (used if scheduler is None)
             grad_clip: Maximum gradient norm
@@ -74,6 +76,8 @@ class StabilityConstrainedOptimizer:
         self.lambda_val = lambda_init
         self.lambda_lr = lambda_lr
         self.lambda_max = lambda_max
+        self.lambda_momentum = lambda_momentum
+        self._ema_violation = 0.0  # EMA of constraint violation for smoother updates
 
         self.epsilon_scheduler = epsilon_scheduler
         self.epsilon_fixed = epsilon_fixed
@@ -95,6 +99,7 @@ class StabilityConstrainedOptimizer:
     def step(
         self,
         task_loss: torch.Tensor,
+        current_batch: torch.Tensor = None,
         drift_batch_size: int = 128,
     ) -> Dict[str, float]:
         """
@@ -102,7 +107,9 @@ class StabilityConstrainedOptimizer:
         
         Args:
             task_loss: The task-specific loss (already computed, with grad graph)
-            drift_batch_size: Batch size for drift estimation
+            current_batch: If provided, computes drift on this batch (more effective
+                          than reference-only drift). Used for online drift estimation.
+            drift_batch_size: Batch size for drift estimation (for reference-based)
             
         Returns:
             Dict with step metrics
@@ -118,17 +125,25 @@ class StabilityConstrainedOptimizer:
         # Check if constraint is active
         constraint_active = self.step_count >= self.activation_step
 
-        if constraint_active and self.lambda_val > 0:
+        if constraint_active:
             # Compute differentiable drift
-            drift_loss = self.drift_module.compute_differentiable(
-                self.model, batch_size=drift_batch_size
-            )
-
-            # Form Lagrangian: L_total = L_task + λ · D_f
-            total_loss = task_loss + self.lambda_val * drift_loss
+            # Prefer online drift (on current batch) if available
+            if current_batch is not None and hasattr(self.drift_module, 'compute_online_drift'):
+                drift_loss = self.drift_module.compute_online_drift(self.model, current_batch)
+            else:
+                drift_loss = self.drift_module.compute_differentiable(
+                    self.model, batch_size=drift_batch_size
+                )
 
             # Compute drift value for logging and dual update
             drift_val = drift_loss.item()
+
+            if self.lambda_val > 1e-8:
+                # Form Lagrangian: L_total = L_task + λ · D_f
+                total_loss = task_loss + self.lambda_val * drift_loss
+            else:
+                # Lambda is zero — no drift penalty but still compute for dual update
+                total_loss = task_loss
         else:
             total_loss = task_loss
             drift_val = 0.0
@@ -144,11 +159,17 @@ class StabilityConstrainedOptimizer:
         # Optimizer step (primal update)
         self.optimizer.step()
 
-        # Dual variable update: λ ← max(0, λ + η_λ(D_f - ε))
+        # Dual variable update: λ ← max(0, λ + η_λ · v_t)
+        # where v_t = β · v_{t-1} + (1-β) · (D_f - ε)  (momentum-smoothed)
         if constraint_active:
             constraint_violation = drift_val - self.epsilon
+            # EMA-smooth the violation signal to prevent lambda oscillation
+            self._ema_violation = (
+                self.lambda_momentum * self._ema_violation 
+                + (1 - self.lambda_momentum) * constraint_violation
+            )
             self.lambda_val = max(0.0, min(
-                self.lambda_val + self.lambda_lr * constraint_violation,
+                self.lambda_val + self.lambda_lr * self._ema_violation,
                 self.lambda_max
             ))
         else:

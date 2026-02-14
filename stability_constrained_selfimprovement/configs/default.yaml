@@ -15,7 +15,7 @@ device: "auto"  # auto, cpu, cuda, mps
 # --- Functional Drift ---
 drift:
   # Drift estimation
-  num_reference_points: 1024    # Number of points to estimate E_x[||f_θ(x) - f_θ0(x)||²]
+  num_reference_points: 512     # Number of points to estimate E_x[||f_θ(x) - f_θ0(x)||²]
   reference_batch_size: 128
   norm_type: "l2"               # l2, linf, kl
   # Constraint
@@ -23,14 +23,15 @@ drift:
   epsilon_min: 0.01             # Minimum ε
   epsilon_max: 10.0             # Maximum ε
   # Lagrangian
-  lambda_init: 0.1              # Initial Lagrange multiplier λ₀
-  lambda_lr: 0.01               # Learning rate for dual variable
-  lambda_max: 100.0             # Maximum λ
+  lambda_init: 1.0              # Initial Lagrange multiplier λ₀ (start with real regularization)
+  lambda_lr: 0.005              # Learning rate for dual variable (slower → more stable)
+  lambda_max: 50.0              # Maximum λ
+  lambda_momentum: 0.9          # EMA smoothing for dual updates (prevents oscillation)
 
 # --- Adaptive Epsilon Scheduler ---
 epsilon_scheduler:
-  type: "uncertainty"           # fixed, linear_decay, cosine, uncertainty
-  warmup_steps: 100
+  type: "fixed"                 # fixed, linear_decay, cosine, uncertainty
+  warmup_steps: 0               # No warmup — constraint active from the start
   decay_rate: 0.995
   uncertainty_scale: 1.0        # Scale factor for uncertainty-based ε
 
@@ -52,9 +53,34 @@ experiment_a:
   lr: 0.001
   batch_size: 128
   num_tasks: 5                  # Split CIFAR-10 into 5 binary tasks
-  ewc_lambda: 1000.0            # For EWC baseline
-  drift_epsilon: 0.5
-  drift_lambda: 1.0
+  ewc_lambda: 400.0             # For EWC baseline (tuned)
+  drift_epsilon: 0.2            # FTR: KL-divergence budget (tuned: best AA-Fgt trade-off)
+  drift_lambda: 1.0             # FTR: initial lambda (dual ascent adapts this)
+
+# --- Additional method-specific config ---
+si:
+  c: 0.5                       # SI regularization strength
+
+lwf:
+  alpha: 1.0                   # LwF distillation weight
+  temperature: 2.0             # Distillation temperature
+
+replay:
+  buffer_size: 500             # Total replay buffer size
+  batch_size: 32               # Replay mini-batch size
+
+distillation:
+  lambda: 1.0                  # Fixed distillation weight
+
+# --- MNIST benchmarks ---
+mnist:
+  num_tasks: 10                # Number of permutations / rotations
+  batch_size: 256              # Larger batch for MNIST (simpler)
+  epochs_per_task: 10          # MNIST is easier, fewer epochs
+
+# --- CIFAR-100 benchmarks ---
+cifar100:
+  num_tasks: 10                # 10 tasks × 10 classes each
 
 # --- Experiment B: Transformer Algorithmic ---
 experiment_b:

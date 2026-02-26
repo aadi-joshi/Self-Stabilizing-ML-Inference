@@ -196,13 +196,20 @@ def get_split_cifar100_tasks(
     - More tasks = more forgetting opportunities
     - Finer-grained classes = harder to distinguish
     """
-    transform = transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)),
-    ])
+    # Download without transforms — load raw data in bulk for speed
+    train_data = datasets.CIFAR100(data_dir, train=True, download=True)
+    test_data = datasets.CIFAR100(data_dir, train=False, download=True)
 
-    train_data = datasets.CIFAR100(data_dir, train=True, download=True, transform=transform)
-    test_data = datasets.CIFAR100(data_dir, train=False, download=True, transform=transform)
+    mean = torch.tensor([0.5071, 0.4867, 0.4408]).view(3, 1, 1)
+    std = torch.tensor([0.2675, 0.2565, 0.2761]).view(3, 1, 1)
+
+    all_train_x = torch.tensor(train_data.data, dtype=torch.float32).permute(0, 3, 1, 2) / 255.0
+    all_train_x = (all_train_x - mean) / std
+    all_train_y = torch.tensor(train_data.targets, dtype=torch.long)
+
+    all_test_x = torch.tensor(test_data.data, dtype=torch.float32).permute(0, 3, 1, 2) / 255.0
+    all_test_x = (all_test_x - mean) / std
+    all_test_y = torch.tensor(test_data.targets, dtype=torch.long)
 
     classes_per_task = 100 // n_tasks
     tasks = []
@@ -211,14 +218,24 @@ def get_split_cifar100_tasks(
         task_classes = list(range(task_id * classes_per_task, (task_id + 1) * classes_per_task))
         class_map = {c: i for i, c in enumerate(task_classes)}
 
-        # Filter and remap
-        train_indices = [i for i, (_, y) in enumerate(train_data) if y in task_classes]
-        test_indices = [i for i, (_, y) in enumerate(test_data) if y in task_classes]
+        # Filter using vectorized operations
+        train_mask = torch.zeros(len(all_train_y), dtype=torch.bool)
+        test_mask = torch.zeros(len(all_test_y), dtype=torch.bool)
+        for c in task_classes:
+            train_mask |= (all_train_y == c)
+            test_mask |= (all_test_y == c)
 
-        train_x = torch.stack([train_data[i][0] for i in train_indices])
-        train_y = torch.tensor([class_map[train_data[i][1]] for i in train_indices])
-        test_x = torch.stack([test_data[i][0] for i in test_indices])
-        test_y = torch.tensor([class_map[test_data[i][1]] for i in test_indices])
+        train_x = all_train_x[train_mask]
+        train_y_orig = all_train_y[train_mask]
+        test_x = all_test_x[test_mask]
+        test_y_orig = all_test_y[test_mask]
+
+        # Remap labels
+        train_y = torch.zeros_like(train_y_orig)
+        test_y = torch.zeros_like(test_y_orig)
+        for orig_c, new_c in class_map.items():
+            train_y[train_y_orig == orig_c] = new_c
+            test_y[test_y_orig == orig_c] = new_c
 
         train_loader = DataLoader(
             TensorDataset(train_x, train_y), batch_size=batch_size, shuffle=True,

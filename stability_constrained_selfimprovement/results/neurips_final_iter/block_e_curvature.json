@@ -1,0 +1,173 @@
+{
+  "TinyCNN": {
+    "eps_results": {
+      "0.01": {
+        "avg_accuracy": 0.7455,
+        "forgetting": 0.089,
+        "grad_norm": 1.0989583301054906,
+        "hessian_trace": 207.98828712687828,
+        "fisher_trace": 1.2219907245105788,
+        "n_params": 35634
+      },
+      "0.1": {
+        "avg_accuracy": 0.7477,
+        "forgetting": 0.083375,
+        "grad_norm": 1.154042301954622,
+        "hessian_trace": 206.2621886669658,
+        "fisher_trace": 1.3460993581113143,
+        "n_params": 35634
+      },
+      "0.5": {
+        "avg_accuracy": 0.7482,
+        "forgetting": 0.09862500000000002,
+        "grad_norm": 1.0508402285336913,
+        "hessian_trace": 222.3152371852193,
+        "fisher_trace": 1.0923708700655652,
+        "n_params": 35634
+      },
+      "1.0": {
+        "avg_accuracy": 0.7484,
+        "forgetting": 0.09987499999999999,
+        "grad_norm": 0.9904428596843028,
+        "hessian_trace": 221.92756909574382,
+        "fisher_trace": 0.9213255612919965,
+        "n_params": 35634
+      },
+      "2.0": {
+        "avg_accuracy": 0.7384000000000001,
+        "forgetting": 0.12087499999999998,
+        "grad_norm": 1.0135180850181509,
+        "hessian_trace": 227.12166380602866,
+        "fisher_trace": 1.0206145336909458,
+        "n_params": 35634
+      },
+      "5.0": {
+        "avg_accuracy": 0.6706,
+        "forgetting": 0.21874999999999997,
+        "grad_norm": 1.1620282508996829,
+        "hessian_trace": 280.9952340135351,
+        "fisher_trace": 1.4322772668667854,
+        "n_params": 35634
+      }
+    },
+    "optimal_eps": 1.0,
+    "best_accuracy": 0.7484,
+    "mean_hessian_trace": 227.7683633157285,
+    "mean_fisher_trace": 1.1724463857561978,
+    "n_params": 35634
+  },
+  "FastCNN": {
+    "eps_results": {
+      "0.01": {
+        "avg_accuracy": 0.7716000000000001,
+        "forgetting": 0.07237500000000002,
+        "grad_norm": 1.260538754276014,
+        "hessian_trace": 102.80953203933313,
+        "fisher_trace": 2.259056726205915,
+        "n_params": 187778
+      },
+      "0.1": {
+        "avg_accuracy": 0.7736,
+        "forgetting": 0.07850000000000001,
+        "grad_norm": 1.049105974710657,
+        "hessian_trace": 96.68168850289658,
+        "fisher_trace": 1.3802881153500495,
+        "n_params": 187778
+      },
+      "0.5": {
+        "avg_accuracy": 0.7708,
+        "forgetting": 0.08687500000000004,
+        "grad_norm": 1.0342066886926498,
+        "hessian_trace": 100.28533879201859,
+        "fisher_trace": 1.4174610088073678,
+        "n_params": 187778
+      },
+      "1.0": {
+        "avg_accuracy": 0.7686999999999999,
+        "forgetting": 0.09487500000000004,
+        "grad_norm": 1.207275974256483,
+        "hessian_trace": 123.17108447523788,
+        "fisher_trace": 2.049137499920937,
+        "n_params": 187778
+      },
+      "2.0": {
+        "avg_accuracy": 0.7667,
+        "forgetting": 0.10887500000000003,
+        "grad_norm": 1.1012856705170182,
+        "hessian_trace": 114.87485406873748,
+        "fisher_trace": 1.544691820411754,
+        "n_params": 187778
+      },
+      "5.0": {
+        "avg_accuracy": 0.7026,
+        "forgetting": 0.199,
+        "grad_norm": 1.6003683547321468,
+        "hessian_trace": 183.0096103362739,
+        "fisher_trace": 5.095481163788684,
+        "n_params": 187778
+      }
+    },
+    "optimal_eps": 0.1,
+    "best_accuracy": 0.7736,
+    "mean_hessian_trace": 120.13868470241626,
+    "mean_fisher_trace": 2.2910193890807844,
+    "n_params": 187778
+  },
+  "ResNet18N": {
+    "eps_results": {
+      "0.01": {
+        "avg_accuracy": 0.7492,
+        "forgetting": 0.0885,
+        "grad_norm": 1.6136875195938862,
+        "hessian_trace": 594.1734114023857,
+        "fisher_trace": 2.8462132249260677,
+        "n_params": 700434
+      },
+      "0.1": {
+        "avg_accuracy": 0.7456,
+        "forgetting": 0.08750000000000002,
+        "grad_norm": 1.6041136031853984,
+        "hessian_trace": 575.8413001183071,
+        "fisher_trace": 2.8204262242535507,
+        "n_params": 700434
+      },
+      "0.5": {
+        "avg_accuracy": 0.7581,
+        "forgetting": 0.08087500000000003,
+        "grad_norm": 1.5723433782224374,
+        "hessian_trace": 567.0852738729445,
+        "fisher_trace": 2.7155518183214906,
+        "n_params": 700434
+      },
+      "1.0": {
+        "avg_accuracy": 0.7509,
+        "forgetting": 0.0885,
+        "grad_norm": 1.5706976593796567,
+        "hessian_trace": 574.7026103808312,
+        "fisher_trace": 2.710270940374575,
+        "n_params": 700434
+      },
+      "2.0": {
+        "avg_accuracy": 0.7394,
+        "forgetting": 0.10912500000000003,
+        "grad_norm": 1.5299490404637308,
+        "hessian_trace": 626.7263948597247,
+        "fisher_trace": 2.5459760505549998,
+        "n_params": 700434
+      },
+      "5.0": {
+        "avg_accuracy": 0.7448,
+        "forgetting": 0.112375,
+        "grad_norm": 1.4275289727102232,
+        "hessian_trace": 769.1405319225742,
+        "fisher_trace": 2.136544432583004,
+        "n_params": 700434
+      }
+    },
+    "optimal_eps": 0.5,
+    "best_accuracy": 0.7581,
+    "mean_hessian_trace": 617.9449204261279,
+    "mean_fisher_trace": 2.6291637818356146,
+    "n_params": 700434
+  }
+}

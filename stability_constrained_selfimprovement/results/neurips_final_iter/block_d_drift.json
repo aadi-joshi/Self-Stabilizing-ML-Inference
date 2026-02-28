@@ -1,0 +1,128 @@
+{
+  "0.0": {
+    "ftr": {
+      "avg_accuracy": 0.7353000000000001,
+      "forgetting": 0.053375000000000006
+    },
+    "replay": {
+      "avg_accuracy": 0.753,
+      "forgetting": 0.03412499999999999
+    },
+    "ftr_replay": {
+      "avg_accuracy": 0.73,
+      "forgetting": 0.010375000000000023
+    }
+  },
+  "0.2": {
+    "ftr": {
+      "avg_accuracy": 0.7687999999999999,
+      "forgetting": 0.04375000000000001
+    },
+    "replay": {
+      "avg_accuracy": 0.7527,
+      "forgetting": 0.058499999999999996
+    },
+    "ftr_replay": {
+      "avg_accuracy": 0.7651,
+      "forgetting": 0.013249999999999984
+    }
+  },
+  "0.4": {
+    "ftr": {
+      "avg_accuracy": 0.7718,
+      "forgetting": 0.04450000000000001
+    },
+    "replay": {
+      "avg_accuracy": 0.7657,
+      "forgetting": 0.0315
+    },
+    "ftr_replay": {
+      "avg_accuracy": 0.7734,
+      "forgetting": 0.01100000000000001
+    }
+  },
+  "0.6": {
+    "ftr": {
+      "avg_accuracy": 0.7706,
+      "forgetting": 0.04500000000000001
+    },
+    "replay": {
+      "avg_accuracy": 0.7692,
+      "forgetting": 0.032625000000000015
+    },
+    "ftr_replay": {
+      "avg_accuracy": 0.7626999999999999,
+      "forgetting": 0.020125000000000032
+    }
+  },
+  "0.8": {
+    "ftr": {
+      "avg_accuracy": 0.7454,
+      "forgetting": 0.06687500000000002
+    },
+    "replay": {
+      "avg_accuracy": 0.7611000000000001,
+      "forgetting": 0.027500000000000024
+    },
+    "ftr_replay": {
+      "avg_accuracy": 0.7656999999999999,
+      "forgetting": 0.018375000000000002
+    }
+  },
+  "1.0": {
+    "ftr": {
+      "avg_accuracy": 0.7307,
+      "forgetting": 0.09512500000000004
+    },
+    "replay": {
+      "avg_accuracy": 0.7363999999999999,
+      "forgetting": 0.083375
+    },
+    "ftr_replay": {
+      "avg_accuracy": 0.7596999999999999,
+      "forgetting": 0.021624999999999978
+    }
+  },
+  "1.5": {
+    "ftr": {
+      "avg_accuracy": 0.7144,
+      "forgetting": 0.111375
+    },
+    "replay": {
+      "avg_accuracy": 0.7487999999999999,
+      "forgetting": 0.06
+    },
+    "ftr_replay": {
+      "avg_accuracy": 0.7458,
+      "forgetting": 0.02150000000000002
+    }
+  },
+  "2.0": {
+    "ftr": {
+      "avg_accuracy": 0.733,
+      "forgetting": 0.07100000000000001
+    },
+    "replay": {
+      "avg_accuracy": 0.6649,
+      "forgetting": 0.12212499999999998
+    },
+    "ftr_replay": {
+      "avg_accuracy": 0.703,
+      "forgetting": 0.05174999999999999
+    }
+  },
+  "3.0": {
+    "ftr": {
+      "avg_accuracy": 0.4901,
+      "forgetting": 0.06575
+    },
+    "replay": {
+      "avg_accuracy": 0.5055999999999999,
+      "forgetting": 0.04612500000000001
+    },
+    "ftr_replay": {
+      "avg_accuracy": 0.5061,
+      "forgetting": 0.039750000000000035
+    }
+  }
+}

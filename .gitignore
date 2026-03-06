@@ -33,4 +33,30 @@ venv/
 *.bak
 *.tmp
 
+# Data files
 data/
+*.tar.gz
+stability_constrained_selfimprovement/data/
+self_stabilizing_inference/data/
+
+# Virtual environments
+.venv/
+
+# Large binary files
+*.dylib
+*.npy
+*.pkl
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+
+# Logs
+*.log
+phase_diagram.log
+
+# Plot outputs (regenerable)
+*.png
+*.pdf
+

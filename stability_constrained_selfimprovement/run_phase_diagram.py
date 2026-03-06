@@ -20,6 +20,35 @@ import numpy as np
 from collections import OrderedDict
 from datetime import datetime
 
+class NumpyEncoder(json.JSONEncoder):
+    """JSON encoder that handles numpy types."""
+    def default(self, obj):
+        if isinstance(obj, (np.integer,)):
+            return int(obj)
+        if isinstance(obj, (np.floating,)):
+            return float(obj)
+        if isinstance(obj, (np.bool_,)):
+            return bool(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super().default(obj)
+
+def make_json_safe(obj):
+    """Recursively convert numpy types to native Python for JSON serialization."""
+    if isinstance(obj, dict):
+        return {str(k): make_json_safe(v) for k, v in obj.items()}
+    elif isinstance(obj, (list, tuple)):
+        return [make_json_safe(v) for v in obj]
+    elif isinstance(obj, (np.integer,)):
+        return int(obj)
+    elif isinstance(obj, (np.floating,)):
+        return float(obj)
+    elif isinstance(obj, (np.bool_, bool)):
+        return bool(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    return obj
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -595,8 +624,9 @@ def main():
                 }
 
         if arch_sweep:
-            lams = sorted([float(k) for k in arch_sweep.keys()])
-            fg_means = [arch_sweep[str(l)]['forgetting_mean'] for l in lams]
+            lam_keys = sorted(arch_sweep.keys(), key=lambda k: float(k))
+            lams = [float(k) for k in lam_keys]
+            fg_means = [arch_sweep[k]['forgetting_mean'] for k in lam_keys]
             inv_lams = [1.0/(l+1e-10) for l in lams]
             es, sh, md = estimate_eps_star_interpolated(inv_lams, fg_means)
             lam_star = 1.0/es if es > 0 else lams[0]
@@ -604,7 +634,7 @@ def main():
             ewc_data[arch_name] = {
                 'lambda_values': lams,
                 'forgetting_means': fg_means,
-                'forgetting_stds': [arch_sweep[str(l)]['forgetting_std'] for l in lams],
+                'forgetting_stds': [arch_sweep[k]['forgetting_std'] for k in lam_keys],
                 'lambda_star': float(lam_star),
                 'sharpness': float(sh),
             }
@@ -788,13 +818,13 @@ def main():
             'within_var': float(total_boot_var),
             'f_ratio': float(f_ratio),
             'p_value': float(p_const),
-            'is_constant': p_const > 0.05,
+            'is_constant': bool(p_const > 0.05),
         }
     else:
         stat_results['constancy_test'] = {'note': 'scipy not available'}
 
     with open(os.path.join(RESULTS_DIR, 'phase4_statistics.json'), 'w') as f:
-        json.dump(stat_results, f, indent=2)
+        json.dump(make_json_safe(stat_results), f, indent=2)
 
     print(f"\nPhase 4 done. ({datetime.now()})")
 
@@ -1096,10 +1126,10 @@ def main():
 
     # Determine conclusion
     constancy = stat_results.get('constancy_test', {})
-    is_constant = constancy.get('is_constant', True)
+    is_constant = bool(constancy.get('is_constant', True))
     best_norm_key = min(variance_results.keys(), key=lambda k: variance_results[k]['cv'])
     best_norm_cv = variance_results[best_norm_key]['cv']
-    collapse_helps = best_norm_cv < raw_cv_fine
+    collapse_helps = bool(best_norm_cv < raw_cv_fine)
 
     print(f"\n  ── CONCLUSIONS ──")
     print(f"  1. Is ε* constant across architectures?")
@@ -1139,7 +1169,7 @@ def main():
         'total_time': str(datetime.now() - t_start),
     }
     with open(os.path.join(RESULTS_DIR, 'final_summary.json'), 'w') as f:
-        json.dump(summary, f, indent=2)
+        json.dump(make_json_safe(summary), f, indent=2)
 
     t_end = datetime.now()
     print(f"\n{'='*70}")

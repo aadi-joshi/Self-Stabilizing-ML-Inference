@@ -124,21 +124,32 @@ def main():
 
     print(f"Loaded dense sweep: {list(dense_data.keys())}")
 
-    # Load curvature data
+    # Load curvature data — merge 5-seed (preferred) with original 3-seed fallback
     curv5_path = os.path.join(RESULTS_DIR, 'curvature_5seed.json')
     curv_orig = os.path.join(PREV_RESULTS, 'block_a_curvature.json')
 
-    if os.path.exists(curv5_path):
-        with open(curv5_path) as f:
-            curv_data = json.load(f)
-        print(f"Using 5-seed curvature: {list(curv_data.keys())}")
-    elif os.path.exists(curv_orig):
+    curv_data = {}
+    if os.path.exists(curv_orig):
         with open(curv_orig) as f:
             curv_data = json.load(f)
-        print(f"Using original 3-seed curvature: {list(curv_data.keys())}")
-    else:
+        print(f"Loaded original 3-seed curvature: {sorted(curv_data.keys())}")
+
+    if os.path.exists(curv5_path):
+        with open(curv5_path) as f:
+            curv5 = json.load(f)
+        # Overwrite with higher-quality 5-seed data where available
+        for arch, vals in curv5.items():
+            curv_data[arch] = vals
+        print(f"Merged 5-seed curvature for: {sorted(curv5.keys())}")
+
+    if not curv_data:
         print("ERROR: No curvature data found")
         return
+
+    # Show which sweep architectures have curvature
+    sweep_archs = list(dense_data.keys())
+    matched = [a for a in sweep_archs if a in curv_data]
+    print(f"Curvature available for {len(matched)}/{len(sweep_archs)} sweep archs: {matched}")
 
     # ══════════════════════════════════════════════════════════════
     # RE-ESTIMATE ε* WITH SIGMOID FIT

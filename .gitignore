@@ -60,3 +60,7 @@ phase_diagram.log
 *.png
 *.pdf
 
+# But track the README figures
+!figures/
+!figures/*.png
+

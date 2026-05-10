@@ -54,15 +54,30 @@ LABELS = {
     "learning": "Q-Learning",
 }
 
-BASE = "/Users/kavyabhand/Desktop/SSMLIS-DEV"
-SRC_RESULTS = os.path.join(BASE, "src/results")
-FTR_RESULTS = os.path.join(BASE, "stability_constrained_selfimprovement/results")
+REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
+PAPER_DATA = os.path.join(REPO_ROOT, "paper_data")
+
+# Curated, tracked artifacts used to regenerate README figures.
+SSMLIS_DATA = os.path.join(PAPER_DATA, "ssmlis")
+FTR_DATA = os.path.join(PAPER_DATA, "ftr")
+
+
+def _require_file(path: str) -> str:
+    if not os.path.exists(path):
+        raise FileNotFoundError(
+            f"Missing required artifact: {path}\n"
+            "This repo keeps only curated paper artifacts under 'paper_data/'. "
+            "If you removed that folder, re-run the experiments/exports or restore it."
+        )
+    return path
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Figure 1: Controller Reliability Comparison (default + random environments)
 # ─────────────────────────────────────────────────────────────────────────────
 def fig_controller_reliability():
-    stability_csv = os.path.join(SRC_RESULTS, "metrics/iteration_8/20260203_220313/stability_summary.csv")
+    stability_csv = _require_file(
+        os.path.join(SSMLIS_DATA, "metrics/iteration_8/20260203_220313/stability_summary.csv")
+    )
     rows = []
     with open(stability_csv) as f:
         reader = csv.DictReader(f)
@@ -136,7 +151,9 @@ def fig_controller_reliability():
 # Figure 2: Oscillation Bound Comparison
 # ─────────────────────────────────────────────────────────────────────────────
 def fig_oscillation_bound():
-    stability_csv = os.path.join(SRC_RESULTS, "metrics/iteration_8/20260203_220313/stability_summary.csv")
+    stability_csv = _require_file(
+        os.path.join(SSMLIS_DATA, "metrics/iteration_8/20260203_220313/stability_summary.csv")
+    )
     rows = []
     with open(stability_csv) as f:
         reader = csv.DictReader(f)
@@ -194,7 +211,7 @@ def fig_oscillation_bound():
 # Figure 3: Phase Transition — epsilon vs forgetting (multiple architectures)
 # ─────────────────────────────────────────────────────────────────────────────
 def fig_phase_transition():
-    eps_star_file = os.path.join(FTR_RESULTS, "neurips_breakthrough/block_b2_eps_star.json")
+    eps_star_file = _require_file(os.path.join(FTR_DATA, "neurips_breakthrough/block_b2_eps_star.json"))
     with open(eps_star_file) as f:
         data = json.load(f)
 
@@ -263,7 +280,7 @@ def fig_phase_transition():
 # Figure 4: Method Comparison (FTR vs baselines) — accuracy & forgetting
 # ─────────────────────────────────────────────────────────────────────────────
 def fig_method_comparison():
-    agg_file = os.path.join(FTR_RESULTS, "20260213_185341/aggregated_results.json")
+    agg_file = _require_file(os.path.join(FTR_DATA, "20260213_185341/aggregated_results.json"))
     with open(agg_file) as f:
         agg = json.load(f)
 
@@ -345,7 +362,7 @@ def fig_method_comparison():
 # Figure 5: Lambda (Lagrange multiplier) Dynamics
 # ─────────────────────────────────────────────────────────────────────────────
 def fig_lambda_dynamics():
-    lam_file = os.path.join(FTR_RESULTS, "neurips_elevated/lambda_dynamics.json")
+    lam_file = _require_file(os.path.join(FTR_DATA, "neurips_elevated/lambda_dynamics.json"))
     with open(lam_file) as f:
         data = json.load(f)
 
@@ -403,7 +420,7 @@ def fig_lambda_dynamics():
 # Figure 6: FTR Epsilon Sweep — Accuracy-Forgetting Frontier
 # ─────────────────────────────────────────────────────────────────────────────
 def fig_epsilon_frontier():
-    pt_file = os.path.join(FTR_RESULTS, "neurips_elevated/phase_transition.json")
+    pt_file = _require_file(os.path.join(FTR_DATA, "neurips_elevated/phase_transition.json"))
     with open(pt_file) as f:
         data = json.load(f)
 
@@ -463,9 +480,9 @@ def fig_epsilon_frontier():
 # Figure 7: Reliability Timeline Simulation (using main_default telemetry)
 # ─────────────────────────────────────────────────────────────────────────────
 def fig_reliability_timeline():
-    main_csv = os.path.join(SRC_RESULTS, "metrics/iteration_8/20260203_220313/main_default_metrics.csv")
-    fast_csv = os.path.join(SRC_RESULTS, "metrics/iteration_8/20260203_220313/always_fast_default_metrics.csv")
-    robust_csv = os.path.join(SRC_RESULTS, "metrics/iteration_8/20260203_220313/always_robust_default_metrics.csv")
+    main_csv = _require_file(os.path.join(SSMLIS_DATA, "metrics/iteration_8/20260203_220313/main_default_metrics.csv"))
+    fast_csv = _require_file(os.path.join(SSMLIS_DATA, "metrics/iteration_8/20260203_220313/always_fast_default_metrics.csv"))
+    robust_csv = _require_file(os.path.join(SSMLIS_DATA, "metrics/iteration_8/20260203_220313/always_robust_default_metrics.csv"))
 
     def read_metric(path, col):
         vals = []

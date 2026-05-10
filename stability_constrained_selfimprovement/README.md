@@ -34,6 +34,11 @@ python run_all.py --figures-only
 python run_all.py --ablations
 ```
 
+## Archived long reports
+
+Some long-form reports embed images from `results/neurips_*/plots/`, which are generated outputs and not committed in the public repo.
+Those reports live in `stability_constrained_selfimprovement/archive/`.
+
 ## Project Structure
 
 ```

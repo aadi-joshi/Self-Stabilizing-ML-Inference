@@ -314,8 +314,9 @@ SSMLIS-DEV/
 │   ├── trainers/trainer.py               # BaseTrainer with method switching
 │   ├── run_all.py                        # Full experiment pipeline
 │   ├── run_phase_diagram.py              # Phase transition sweep
-│   └── results/                          # JSON results for all experiments
+│   └── results/                          # Generated JSON outputs (gitignored)
 │
+├── paper_data/                           # Curated artifacts used for paper/figures
 ├── figures/                              # Generated publication figures
 ├── self_stabilizing_inference/           # Legacy Keras/TF prototype
 └── FINAL_PAPER_EXPORT/                   # LaTeX paper draft
@@ -331,12 +332,12 @@ SSMLIS-DEV/
 cd src
 
 # Install dependencies
-pip install torch numpy matplotlib
+pip install -r ../requirements.txt
 
 # Run all 6 controllers × 2 environments (12 configurations)
 python main.py
 
-# Results appear in src/results/metrics/ and src/results/logs/
+# Results are written to src/results/metrics/ and src/results/logs/ (gitignored)
 ```
 
 ### Functional Trust Regions
@@ -364,7 +365,9 @@ python run_all.py --experiment continual_cifar --seeds 42 137 256
 
 ```bash
 # From the project root
-PYTHONPATH=/path/to/site-packages python3.9 generate_figures.py
+pip install -r requirements.txt
+
+python generate_figures.py
 ```
 
 **Hardware:** All experiments were run on CPU. The full pipeline (5 seeds, all 3 benchmarks, phase diagram sweep) takes approximately 4–8 hours on a modern CPU. The quick mode (`--quick`) completes in under 10 minutes.
@@ -391,10 +394,9 @@ If you use this work, please cite:
 ```bibtex
 @misc{ssmlis2026,
   title     = {Self-Stabilizing ML Inference and Functional Trust Regions for Continual Learning},
-  author    = {Bhand, Kavya},
+  author    = {kavyabhand},
   year      = {2026},
-  url       = {https://github.com/kavyabhand/SSMLIS-DEV},
-  note      = {Preprint}
+  url       = {https://github.com/kavyabhand/Self-Stabilizing-ML-Inference}
 }
 ```
 

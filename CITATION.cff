@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it."
+title: "SSMLIS: Self-Stabilizing ML Inference and Functional Trust Regions"
+type: software
+authors:
+  - name: "kavyabhand"
+repository-code: "https://github.com/kavyabhand/Self-Stabilizing-ML-Inference"
+license: MIT

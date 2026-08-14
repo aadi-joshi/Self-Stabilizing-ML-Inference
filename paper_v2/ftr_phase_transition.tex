@@ -105,12 +105,16 @@ standard protocol for Lagrangian-constrained continual learning.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/graphical_abstract.png}
-\caption{Five architecturally distinct model families are usually assumed
-to each require their own stability budget. This paper's central finding is
-that, under Lagrangian-dual constrained continual learning, the budget is
-instead set almost entirely by a shared control mechanism, the dual-ascent
-optimizer's own schedule, common to every architecture trained with it.}
+\includegraphics[width=0.95\textwidth]{figures/graphical_abstract.pdf}
+\caption{Left: on the same architecture and task, the dual-ascent schedule
+moves $\epsstar$ across a $93\times$ range (six single-factor
+perturbations, Section~\ref{sec:diagnostic}), more than four times the
+$24$-fold range spanned by 30 architectures with the schedule held fixed
+(Section~\ref{sec:crossover}). Right: holding the schedule ratio
+$S=\lambda_{\mathrm{init}}/(\eta_\lambda N)$ fixed while independently
+varying its three components (circles) collapses that spread back down,
+on every architecture tested, versus a matched-magnitude change in $S$
+itself (X, Section~\ref{sec:sinvariance}).}
 \label{fig:graphical_abstract}
 \end{figure}
 

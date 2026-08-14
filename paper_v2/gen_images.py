@@ -15,15 +15,17 @@ FIGDIR = os.path.join(HERE, 'figures')
 os.makedirs(FIGDIR, exist_ok=True)
 
 PROMPT_GRAPHICAL_ABSTRACT = """
-A clean, minimalist scientific graphical-abstract illustration for a machine learning research paper, flat vector style, white background, restrained color palette (navy blue, slate gray, one warm orange accent color), no text or labels anywhere in the image.
+A sophisticated scientific graphical abstract for a machine learning research paper, in the style of a Nature Physics or Science journal editorial illustration: fine engraved technical linework, subtle depth and shading, muted precise palette (deep navy, warm brass/copper, warm off-white paper background), the rendering quality of a professional scientific illustrator, NOT flat corporate icon art, NOT flaticon-style clipart, NOT a business infographic.
 
-Left side: five small distinct abstract icons in a vertical row representing different neural network architecture families (a grid pattern for a convolutional network, a chain of connected blocks for a residual network, a simple layered rectangle for a plain multilayer perceptron, a grid of small squares with an eye/attention symbol for a transformer, a checkerboard pattern for a mixer network) - each icon a different color to show they are distinct.
+Composition, left to right:
 
-Center: each of the five icons connects via a thin line to a single central dial or knob mechanism, like a control valve or gauge, rendered in orange, that all five lines pass through before continuing to the right.
+Left: five distinct neural network architecture diagrams stacked vertically, each rendered with real technical structure, not generic icons: (1) a convolutional network shown as a small stack of layered feature-map cubes with a sliding kernel window; (2) a residual network shown as a chain of blocks with curved skip-connection arcs looping over them; (3) a plain multilayer perceptron shown as columns of small circular nodes fully connected by fine lines; (4) a vision transformer shown as a grid of image patches with a few attention lines radiating from a central patch to others; (5) an MLP-mixer shown as a grid with alternating cross-hatched rows and columns representing token-mixing and channel-mixing. Each diagram is small, precise, monochrome navy linework on the paper background, no color fill except thin brass accent lines. No text, letters, or labels anywhere near these five diagrams.
 
-Right side: a single output gauge or threshold meter, showing the lines converging to the same reading, implying one shared output.
+Center: all five architectures connect via fine converging brass lines into a single antique mechanical governor mechanism, like a Watt's centrifugal flyball governor from classical engineering, rendered in warm brass/copper with visible mechanical linkages, spinning arms, and a central spindle, symbolizing a shared feedback control mechanism that regulates all five inputs identically.
 
-The overall composition should visually communicate: many different things feeding through one shared control mechanism to produce one shared outcome. Professional, elegant, suitable for a journal figure, isometric or flat 2D technical illustration style, no photorealism, no 3D render, no text, no numbers, no words anywhere in the image.
+Right: the governor's output connects to exactly one single clean analog dial gauge with a needle pointing to one shared position, rendered in navy with a brass needle. There must be only one gauge and one governor mechanism in the entire image; the bottom-right corner and all other empty space in the image should remain blank paper background, with no second smaller device, no duplicate valve, no extra mechanism anywhere.
+
+The whole piece should look like it belongs on the cover of a physics or machine-learning journal: elegant, precise, slightly vintage-technical in feeling, with real engineering detail in the mechanism, not a smooth flat vector icon set. No text, no numbers, no words, no labels anywhere in the image.
 """
 
 resp = client.images.generate(

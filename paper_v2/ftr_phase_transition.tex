@@ -55,15 +55,16 @@ A prior study of Functional Trust Regions (FTR), a method that enforces
 explicit KL-divergence constraints on functional drift during sequential
 task learning, reported that the critical stability budget $\epsstar$ at
 which forgetting turns catastrophic is constant across eight architectures,
-concluding it reflects task structure rather than model geometry. We show
-this is incomplete: because the dual-ascent optimizer resets its Lagrange
+concluding it reflects task structure rather than model geometry. This
+account is incomplete: because the dual-ascent optimizer resets its Lagrange
 multiplier at every task boundary, $\epsstar$ is mechanically co-determined
 by the optimizer's own hyperparameters, not only by task or architecture.
 Holding architecture and task fixed, the dual learning rate, the initial
 multiplier, and the steps-per-task budget each move $\epsstar$ by more than
 an order of magnitude; across six single-factor perturbations, $\epsstar$
-spans roughly $1$ to $90$ on the \emph{same} model and task, exceeding the
-effect of the original $24$-fold architecture range. This
+spans roughly $1$ to $90$ on the \emph{same} model and task, a $93\times$
+range that exceeds the $2.6\times$ range $\epsstar$ itself spans across
+30 architectures with the schedule held fixed. This
 three-dimensional sensitivity is not irreducible: it collapses
 substantially onto a single ratio, $S=\lambda_{\mathrm{init}}/(\eta_\lambda N)$.
 Holding $S$ fixed while independently varying its three components by up
@@ -75,15 +76,16 @@ expanding the architecture zoo to 30 models across five representational
 families (CNN, ResNet, MLP, Vision Transformer, MLP-Mixer), a hierarchical
 partial-pooling model, replacing the original F-test whose own code and
 reported degrees of freedom disagreed, initially estimates real,
-non-negligible between-architecture structure. Applying our own diagnostic
-standard to our own zoo design, however, we trace most of that structure
-to two further, independently-diagnosed data-quality issues: a
+non-negligible between-architecture structure. Applying this paper's own
+diagnostic standard to its own zoo design, however, this research traces
+most of that structure to two further, independently-diagnosed
+data-quality issues: a
 self-inflicted instance of the same schedule confound affecting four
 architectures, and a curve-fitting artifact affecting two more. Correcting
 both cuts the model's between-architecture variance by more than half
 (from $\tau=2.13$ to $1.03$) and gives a corrected population-level
 crossover of $\epsstar=11.07\pm0.25$. At this larger, adequately powered
-sample, the four purely curvature-based statistics we test (Hessian trace,
+sample, the four purely curvature-based statistics this work tests (Hessian trace,
 Fisher trace, spectral norm, gradient norm) remain uncorrelated with
 $\epsstar$, confirming the original curvature-irrelevance claim on grounds
 its own underpowered $n=8$ test could not support, though model size shows
@@ -93,9 +95,10 @@ crossover while EWC and SI show none, and further robustness checks (KL
 direction, task ordering, class-incremental evaluation, task granularity)
 both support and further qualify the picture. A pretrained ViT-B/16 with a
 LoRA adapter on Split CIFAR-100, a setting closer to how continual
-learning is actually practiced, shows FTR still gives the lowest
-forgetting and highest accuracy of the four methods, with an order of
-magnitude less seed-to-seed variance than the next best. Together, these
+learning is actually practiced, shows FTR's seed-to-seed forgetting
+variance an order of magnitude tighter than the next best method, with
+mean forgetting and accuracy also, by a smaller margin, the best of the
+four. Together, these
 results invert the original study's practical guidance: architecture-specific
 tuning of the stability budget is largely unnecessary, but the dual-ascent
 schedule that enforces it is not a free implementation detail, and
@@ -108,9 +111,10 @@ standard protocol for Lagrangian-constrained continual learning.
 \includegraphics[width=0.95\textwidth]{figures/graphical_abstract.pdf}
 \caption{Left: on the same architecture and task, the dual-ascent schedule
 moves $\epsstar$ across a $93\times$ range (six single-factor
-perturbations, Section~\ref{sec:diagnostic}), more than four times the
-$24$-fold range spanned by 30 architectures with the schedule held fixed
-(Section~\ref{sec:crossover}). Right: holding the schedule ratio
+perturbations, Section~\ref{sec:diagnostic}), more than the $2.6\times$
+range $\epsstar$ itself spans across 30 architectures with the schedule
+held fixed (Section~\ref{sec:crossover}, corrected values). Right: holding
+the schedule ratio
 $S=\lambda_{\mathrm{init}}/(\eta_\lambda N)$ fixed while independently
 varying its three components (circles) collapses that spread back down,
 on every architecture tested, versus a matched-magnitude change in $S$
@@ -151,15 +155,15 @@ catastrophic forgetting because small parameter perturbations produce large
 functional changes. Conversely, models with flatter minima should tolerate
 larger updates.
 
-\paragraph{Central Research Question.} We ask whether this curvature-dependent
+This research asks whether this curvature-dependent
 hypothesis holds when stability is enforced as a hard constraint in function
 space via KL divergence, rather than as a soft penalty in parameter space.
 The constraint $\DKL(f_\theta \| f_{\mathrm{old}}) \le \eps$ directly limits
 functional drift in output probability distributions, raising the question:
 does the critical stability budget $\epsstar$ depend on model architecture and
 loss-landscape geometry, or does it emerge as an invariant of the task
-structure alone? We additionally ask a question the constrained-continual-learning
-literature has not, to our knowledge, posed: \emph{is $\epsstar$ in fact
+structure alone? This work additionally asks a question the constrained-continual-learning
+literature has not, to this work's knowledge, posed: \emph{is $\epsstar$ in fact
 determined chiefly by the constrained optimizer's own dual-ascent schedule
 rather than by the model or the task at all?} Section~\ref{sec:diagnostic}
 answers this second question first, because the answer determines how the
@@ -168,15 +172,16 @@ a hyperparameter-free constant, but as a value conditional on the schedule,
 whose \emph{architecture}-independence (holding that schedule fixed) is
 nonetheless real and is the paper's remaining claim.
 
-\paragraph{Primary Findings.} Contrary to the reading that stability
-crossovers reflect task or architecture geometry alone, we find that the
+Contrary to the reading that stability
+crossovers reflect task or architecture geometry alone, this research finds that the
 dual-ascent optimizer's own schedule dominates: holding architecture and
 task fixed, a five-fold change in the dual learning rate $\eta_\lambda$, the
 initial multiplier $\lambda_{\mathrm{init}}$, or the per-task step budget
 each moves $\epsstar$ by more than an order of magnitude
-(Section~\ref{sec:diagnostic}), more than the $24$--$75$-fold range in
-architecture size moves it, and more than any single robustness axis we
-test afterward (KL direction, task ordering, class-incremental vs.\
+(Section~\ref{sec:diagnostic}), more than the $2.6\times$ range $\epsstar$
+itself spans across a $24$--$75$-fold range of architecture size with the
+schedule held fixed, and more than any single robustness axis this work
+tests afterward (KL direction, task ordering, class-incremental vs.\
 task-incremental protocol). This three-dimensional schedule sensitivity is
 not irreducible, however: Section~\ref{sec:sinvariance} shows it collapses
 substantially onto a single ratio, $S=\lambda_{\mathrm{init}}/(\eta_\lambda N)$,
@@ -187,45 +192,45 @@ $\epsstar$ remains architecture-independent in the sense that matters
 operationally: no per-architecture retuning is needed, across an expanded,
 30-model, five-family zoo, though a hierarchical model shows genuine (if
 modest) between-architecture structure that a single reported constant
-obscures (Section~\ref{sec:universality}); notably, applying our own
-optimizer-schedule diagnostic to our own zoo design caught a second,
+obscures (Section~\ref{sec:universality}); notably, applying this paper's
+own optimizer-schedule diagnostic to its own zoo design caught a second,
 self-inflicted instance of the same confound inflating that apparent
 structure (Section~\ref{sec:selfconfound}).
 
-\paragraph{Contributions.} This work makes the following contributions:
+This work makes the following contributions:
 \begin{enumerate}
-    \item We identify and directly test a confound in Lagrangian-dual
-    constrained continual learning that, to our knowledge, no prior work on
-    this optimization paradigm has isolated: because the dual variable is
+    \item This research identifies and directly tests a confound in Lagrangian-dual
+    constrained continual learning that no prior work on
+    this optimization paradigm is known to have isolated: because the dual variable is
     reset at every task boundary, the apparent stability threshold of a
     KL-constrained method is jointly determined by the optimizer's own
     schedule and by task/architecture geometry, and the schedule's effect
     can dominate (Section~\ref{sec:diagnostic}).
-    \item Holding the schedule fixed, we expand the architecture zoo from 8
+    \item Holding the schedule fixed, this work expands the architecture zoo from 8
     to 30 models across five representational families (CNN, ResNet, plain
-    MLP, ViT, MLP-Mixer) and show, via a hierarchical partial-pooling model,
+    MLP, ViT, MLP-Mixer) and shows, via a hierarchical partial-pooling model,
     that $\epsstar$ is not a single universal constant as v1 claimed but has
     real, if modest, between-architecture structure; curvature-based metrics
     still fail to predict it, now with adequate statistical power to support
-    that conclusion (Section~\ref{sec:universality}). We further show that
-    part of the apparent family-level structure we initially observed was
-    itself a second, self-inflicted instance of the schedule confound in our
-    own zoo design, caught and corrected by applying our own diagnostic
-    standard (Section~\ref{sec:selfconfound}), and that LwF's own
+    that conclusion (Section~\ref{sec:universality}). This research further shows that
+    part of the apparent family-level structure initially observed was
+    itself a second, self-inflicted instance of the schedule confound in
+    this paper's own zoo design, caught and corrected by applying its own
+    diagnostic standard (Section~\ref{sec:selfconfound}), and that LwF's own
     universal crossover replicates, while EWC and SI show no reliable
     crossover at all, on this same expanded, matched architecture subset
     (Section~\ref{sec:crossmethod}). Task ordering (Section~\ref{sec:taskstructure})
     and the class-incremental protocol (Section~\ref{sec:classincremental})
     are both real, non-schedule sources of variation in $\epsstar$ that v1's
     single fixed ordering and task-incremental-only design could not surface.
-    \item We correct a methodological error in the original F-test for
+    \item This research corrects a methodological error in the original F-test for
     constancy (its code computed $p$ using $df_2=1000$ while the manuscript
-    reported $df=(7,7)$) with a hierarchical partial-pooling model, and show
+    reported $df=(7,7)$) with a hierarchical partial-pooling model, and shows
     the original curvature-correlation result was underpowered rather than
     confirmatory of the null (Section~\ref{sec:universality}).
-    \item We identify and test the specific ratio,
+    \item This work identifies and tests the specific ratio,
     $S=\lambda_{\mathrm{init}}/(\eta_\lambda N)$, that governs the
-    schedule's effect on $\epsstar$, and show that holding it fixed while
+    schedule's effect on $\epsstar$, and shows that holding it fixed while
     independently varying its three components by up to $5\times$ keeps
     $\epsstar$ within a factor of $2$--$3$ across five architectures
     spanning four representational families, converting an otherwise intractable three-hyperparameter
@@ -239,101 +244,352 @@ structure (Section~\ref{sec:selfconfound}).
 \subsection{Continual Learning Regularization}
 Elastic Weight Consolidation (EWC) \citep{kirkpatrick2017overcoming} imposes
 penalties on parameter changes weighted by the diagonal Fisher information
-matrix, thereby protecting parameters deemed important for prior tasks.
-Synaptic Intelligence (SI) \citep{zenke2017continual} accumulates importance
-weights online through path integrals over training trajectories. Both
-methods enforce stability in parameter space, implicitly assuming that
-maintaining proximity in parameter space ensures proximity in function space.
-This assumption fails in overparameterized neural networks, where distinct
-parameter vectors can produce functionally identical mappings
-\citep{garipov2018loss,frankle2020linear,frankle2018lottery}. Recent work on
-mode connectivity \citep{garipov2018loss,draxler2018essentially} has
-established the non-convexity of the loss landscape in parameter space,
-further motivating function-space approaches.
+matrix, treating each parameter's importance as proportional to its
+curvature contribution and protecting the parameters most responsible for
+prior-task performance while leaving the rest free to adapt. It is the
+most widely adopted parameter-space regularizer and the natural EWC
+baseline used throughout Section~\ref{sec:crossmethod}.
+
+Synaptic Intelligence (SI) \citep{zenke2017continual} replaces EWC's
+end-of-task Fisher estimate with an online importance signal, accumulating
+a path integral of each parameter's contribution to the loss reduction
+along the entire training trajectory, so importance is estimated
+continuously rather than in a single post-hoc pass. Mechanically it is a
+different weighting scheme over the same penalty structure as EWC, and the
+two behave similarly in Section~\ref{sec:crossmethod}'s comparison: neither
+shows a reliable stability crossover under the sigmoid-fitting procedure
+this paper applies to every method.
+
+Progressive Neural Networks \citep{rusu2016progressive} sidestep the
+parameter-interference problem entirely rather than penalizing it: each new
+task gets its own network column, laterally connected to and reading from
+every previously frozen column, so old-task parameters are never touched at
+all. This is a structural, not a regularization, solution, and it trades
+forgetting for a parameter budget that grows linearly with the number of
+tasks, a tradeoff FTR and the other methods studied here do not make.
+
+Hard Attention to the Task (HAT) \citep{serra2018overcoming} occupies a
+middle position: a learned, near-binary attention mask per task gates which
+units are available for that task's forward and backward pass, annealed
+from soft to hard during training, so parameters an earlier task marked as
+important are effectively frozen for later tasks without adding new
+parameters. Like Progressive Networks, this is a masking-based isolation
+mechanism rather than a soft penalty, and, like both, it constrains
+\emph{which parameters can change}, not \emph{how far the function
+computed by the network can move}, the distinction Section~\ref{sec:method}
+argues is decisive for the curvature-independence result in
+Section~\ref{sec:universality}.
+
+Online Structured Laplace Approximations \citep{ritter2018online} put EWC's
+diagonal-Fisher approximation on more principled Bayesian footing: after
+each task, the posterior over weights is recursively approximated as
+Gaussian, and a Kronecker-factored block-diagonal curvature approximation
+(in the spirit of K-FAC, Section~\ref{sec:trustregion}) makes tracking a
+full, non-diagonal quadratic penalty tractable at network scale, reporting
+substantially better retention than diagonal EWC on 50-task permuted MNIST.
+This sharpens rather than changes the argument above: even a better,
+non-diagonal curvature estimate is still a parameter-space quantity, and
+Section~\ref{sec:universality} shows that curvature of any kind, diagonal
+or Kronecker-factored, fails to predict $\epsstar$ once the constraint
+lives in function space instead.
+
+All five methods above enforce stability in parameter space, implicitly
+assuming that proximity in parameter space ensures proximity in function
+space. This assumption fails in overparameterized neural networks, where
+distinct parameter vectors can produce functionally identical mappings
+\citep{garipov2018loss,frankle2020linear,frankle2018lottery}. Work on mode
+connectivity \citep{garipov2018loss,draxler2018essentially} establishes the
+non-convexity of the parameter-space loss landscape directly, further
+motivating function-space approaches as a distinct alternative rather than
+a mere reformulation.
 
 \subsection{Function-Space and Distillation-Based Continual Learning}
+\label{sec:functionspace}
 Learning without Forgetting (LwF) \citep{li2017learning} constrains output
-distributions through a KL-divergence distillation loss, maintaining the
-student model's outputs close to the teacher model's predictions. Dark
-Experience Replay (DER) \citep{buzzega2020dark} extends this by combining
-distillation with stored logits. \citet{titsias2020functional} regularize
-continual learning directly in function space via a KL term derived from a
-Gaussian-process view of the network's outputs, and
-\citet{pan2020continual} (FROMP) regularize network outputs at a set of
-``memorable past'' points using a GP-derived functional prior with an
-explicit memory. Both use a \emph{soft}, memory-based functional prior; FTR
-differs in enforcing a \emph{hard} constraint via Lagrangian dual ascent with
-no stored exemplars, and, unlike either, is evaluated here specifically for
-whether its critical budget is architecture-independent.
+distributions through a KL-divergence distillation loss against a frozen
+copy of the pre-update model, so stability is measured and enforced
+directly on what the network computes rather than on its parameters. It
+requires no stored exemplars from earlier tasks, only the old model's
+predictions on the current task's inputs, which makes it the closest
+existing method to FTR's own function-space formulation and the natural
+distillation baseline used throughout this paper
+(Sections~\ref{sec:crossmethod} and~\ref{sec:pretrained}); the two differ in
+that LwF's distillation weight is a fixed, grid-searched scalar, while FTR
+enforces the analogous quantity as a hard constraint via dual ascent
+(Section~\ref{sec:diagnostic} shows this distinction is not cosmetic).
+
+Dark Experience Replay (DER) \citep{buzzega2020dark} extends the same
+distillation idea with an explicit memory: it stores network logits
+(pre-softmax outputs) from earlier tasks in a reservoir buffer and
+distills against them alongside ordinary replay of the raw examples,
+combining a function-space penalty with a memory-based one rather than
+relying on either alone.
+
+\citet{titsias2020functional} regularize continual learning directly in
+function space via a variational, Gaussian-process-derived view of the
+network's output distribution: an approximate posterior over functions is
+maintained and a KL term penalizes its drift from task to task, giving a
+Bayesian, uncertainty-aware analogue of distillation rather than a fixed
+teacher-student penalty. This appears to be the paper that coined
+the term ``functional regularisation'' for continual learning and the
+closest conceptual ancestor to FTR's framing of stability as a
+function-space, not parameter-space, quantity.
+
+\citet{pan2020continual} (FROMP) regularize network outputs at a small,
+explicitly selected set of ``memorable past'' inducing points using a
+GP-derived functional prior, choosing those points to be maximally
+informative about the function's shape rather than storing raw exemplars
+or a full logit history, and update the point set task by task as new,
+more informative candidates arrive.
+
+Meta-Experience Replay (MER) \citep{riemer2019learning} takes a different
+route to the same goal of bounding how much a new task perturbs old-task
+behavior: it combines experience replay with a first-order meta-learning
+objective (a Reptile-style update) that explicitly optimizes for gradients
+on new data to align with, rather than interfere with, gradients on
+replayed old data. It does not impose an explicit function-space distance
+penalty the way LwF, Titsias et al., FROMP, and FTR do, but it targets the
+same underlying quantity, how much the learned function changes on old
+inputs, through the geometry of the optimization trajectory instead.
+
+Titsias et al. and FROMP both use a \emph{soft}, memory-based functional
+prior; DER and MER are both memory-based but differ in whether the penalty
+is an explicit distillation term (DER) or an implicit trajectory-alignment
+objective (MER). FTR differs from all four in enforcing a \emph{hard}
+constraint via Lagrangian dual ascent with no stored exemplars of any
+kind, and, unlike any of them, is evaluated here specifically for whether
+its critical budget is architecture-independent.
 
 \subsection{Constrained Learning via Lagrangian Duality}
+\label{sec:lagrangianrelated}
 Beyond continual learning specifically, \citet{chamon2023constrained}
 formalize constrained empirical risk minimization as a general learning
-paradigm and prove near-PAC learnability together with empirical duality-gap
-bounds for non-convex losses, the theoretical setting that FTR's
-Lagrangian dual-ascent update (Eqs.~\ref{eq:lagrangian}--\ref{eq:dual_ascent})
-implicitly relies on. \citet{elenter2024nearoptimal} give near-optimal
-solutions for this class of constrained-learning problems, and
+paradigm: rather than adding a fixed penalty term, the learning problem is
+posed with an explicit constraint and solved via its Lagrangian dual, and
+the paper proves near-PAC learnability together with empirical duality-gap
+bounds for non-convex losses. This is the theoretical setting that FTR's
+own Lagrangian dual-ascent update
+(Eqs.~\ref{eq:lagrangian}--\ref{eq:dual_ascent}) implicitly relies on, and
+Section~\ref{sec:theory} draws the connection to this paper's convergence
+guarantees explicitly.
+
+\citet{elenter2024nearoptimal} extend this program with near-optimal
+solutions for the same class of constrained-learning problems under
+weaker assumptions on the constraint set, tightening the conditions under
+which a dual-ascent solution is guaranteed to approach feasibility rather
+than merely to exist.
+
 \citet{hounie2023resilient} study \emph{resilient} constrained learning,
-where the constraint level itself is relaxed adaptively based on cost,
-directly relevant to how $\eps$ is chosen here and a natural extension we do
-not pursue. Closest to the present work, \citet{elenter2023primal} formulate
-continual learning explicitly as a Lagrangian-dual constrained-optimization
-problem (Primal-Dual Continual Learning, PDCL) with a dual variable that
-adapts via projected ascent on constraint violation, evaluated on
-Tiny-ImageNet, SpeechCommands, and MedMNIST-OrganA in the class-incremental
-setting. PDCL already demonstrates that Lagrangian-dual constrained continual
-learning is practical and studies its dual dynamics; it does not, however,
-constrain drift in \emph{function space} via a KL ball on output
-distributions, and does not study whether its own critical constraint level
-is architecture-independent, the two questions this paper is organized
-around.
+where the constraint level itself is relaxed adaptively based on the
+marginal cost of tightening it, rather than fixed in advance by the
+practitioner. This is directly relevant to how $\eps$ is chosen in the
+present paper: this work treats $\eps$ as a swept, externally chosen
+hyperparameter throughout, and an explicitly resilient, cost-adaptive
+choice of $\eps$ is a natural extension not pursued here.
+
+Closest to the present work, \citet{elenter2023primal} formulate continual
+learning explicitly as a Lagrangian-dual constrained-optimization problem
+(Primal-Dual Continual Learning, PDCL), with a dual variable that adapts
+via projected ascent on constraint violation in a manner structurally
+similar to Eq.~\ref{eq:dual_ascent}, evaluated on Tiny-ImageNet,
+SpeechCommands, and MedMNIST-OrganA in the class-incremental setting. PDCL
+already demonstrates that Lagrangian-dual constrained continual learning is
+practical at benchmark scale and studies its dual dynamics; it does not,
+however, constrain drift in \emph{function space} via a KL ball on output
+distributions (its constraints are loss-value and memory-allocation
+based), and it does not study whether its own critical constraint level is
+architecture-independent or how its dual-ascent schedule interacts with
+that question, the two questions this paper is organized around. No paper
+in this cluster, nor in the broader constrained-learning
+literature, is known to have previously isolated the dual-ascent schedule itself, as
+opposed to the constraint level $\eps$, as a confound for an apparent
+stability threshold.
 
 \subsection{Trust Regions and KL Constraints}
-Trust Region Policy Optimization (TRPO) \citep{schulman2015trust} constrains
-policy updates in reinforcement learning through explicit KL-divergence trust
-regions, motivating the FTR formulation. The connection between KL
-constraints and projected gradient descent in Riemannian function space has
-been explored in online convex optimization \citep{hazan2019introduction,
-rakhlin2012online,shalevshwartz2012online}. Recent work on natural gradient
-methods \citep{amari1998natural,martens2015optimizing} establishes
-connections between KL constraints and information geometry on parameter
-manifolds.
+\label{sec:trustregion}
+Trust Region Policy Optimization (TRPO) \citep{schulman2015trust}
+constrains policy updates in reinforcement learning through an explicit
+KL-divergence trust region around the previous policy, solved via a
+constrained natural-gradient step, directly motivating FTR's own
+$D_{\mathrm{KL}}(f_\theta\|f_{\mathrm{old}})\le\eps$ formulation
+(Section~\ref{sec:method}) transplanted from policy space to a
+supervised continual-learning setting.
+
+Proximal Policy Optimization (PPO) \citep{schulman2017proximal} replaces
+TRPO's explicit constrained optimization with a clipped surrogate
+objective that approximates the same trust-region effect using only
+first-order updates, trading exactness for simplicity and better sample
+efficiency in practice. The relationship between PPO's soft clipping and
+TRPO's hard constraint is structurally analogous to the relationship
+between LwF's soft distillation penalty (Section~\ref{sec:functionspace})
+and FTR's hard Lagrangian constraint: both pairs trade a hard,
+dual-ascent-enforced boundary for a fixed, unconstrained penalty of
+similar intent, and this paper's diagnostic (Section~\ref{sec:diagnostic})
+is specific to the hard-constraint side of that trade, since only it has a
+dual variable whose own reset schedule can confound the result.
+
+Natural gradient descent \citep{amari1998natural} rescales the gradient by
+the inverse Fisher information matrix, so that a fixed-size step in
+parameter space corresponds to an approximately fixed-size step in
+distribution space as measured by KL divergence; this is the same
+KL-as-a-distance intuition underlying both TRPO's trust region and FTR's
+constraint, applied to single-task optimization rather than sequential
+constraint enforcement. \citet{martens2015optimizing} make the natural
+gradient tractable at deep-network scale with a Kronecker-factored
+approximate curvature (K-FAC) to the Fisher information, the same
+block-diagonal approximation strategy \citet{ritter2018online}
+(Section~\ref{sec:related}) later reuse for continual learning
+specifically.
+
+The general connection between KL-divergence constraints and projected
+gradient descent in the associated Bregman geometry is developed in the
+online convex optimization literature \citep{hazan2019introduction,
+rakhlin2012online,shalevshwartz2012online}, which frames KL-constrained
+updates as a special case of mirror descent with the negative-entropy
+mirror map; this is the general mathematical machinery of which TRPO,
+PPO, and FTR's own dual-ascent update are each a specific, differently
+motivated instance.
 
 \subsection{Curvature and Forgetting: an Active, More Recent Literature}
-Our claim that curvature fails to predict $\epsstar$ under a function-space
-hard constraint should not be read against the older curvature literature
-alone \citep{keskar2016large,ghorbani2019investigation,li2018visualizing}; a
-more recent, active line of work directly studies curvature-forgetting links
-that our result must be positioned against rather than ignore.
-\citet{cflat2024} use sharpness-aware minimization to reduce forgetting by
-flattening the loss landscape, and its extension pushes this further; other
-work explores Hessian eigenvalue spectra as a forgetting diagnostic, and
-\citet{deng2021flattening} project gradients using curvature information to
-reduce interference. Most directly relevant, \citet{parameterisolation2023}
-formally derive that sharper old-task minima require a \emph{tighter}
-parameter-space constraint to prevent forgetting. That result is not in
-tension with the present finding: it is a parameter-space claim, and our
-finding that curvature fails to predict $\epsstar$ is specific to
-\emph{function}-space hard constraints. \citet{lewandowski2025spectral} and
-\citet{lewandowski2024directions} study curvature's relationship to loss of
-plasticity (the stability-plasticity tradeoff's other side), a complementary
-rather than contradictory line.
+\label{sec:curvaturerelated}
+The claim in Section~\ref{sec:universality} that curvature fails to predict
+$\epsstar$ under a function-space hard constraint should not be read
+against the older curvature literature alone. \citet{keskar2016large}
+introduce the sharp-minima hypothesis for deep learning: large-batch
+training tends to converge to sharper minima than small-batch training,
+and sharper minima are empirically associated with a worse generalization
+gap, using the largest eigenvalue of the loss Hessian (approximated via
+power iteration) as the sharpness proxy this paper's own curvature suite
+(Appendix~\ref{app:sdpa}) also computes. \citet{ghorbani2019investigation}
+go further, using Lanczos-based stochastic estimation of the full Hessian
+eigenvalue density (rather than a single top eigenvalue) across training,
+finding a small number of large outlier eigenvalues whose count tracks
+architectural choices such as the presence of BatchNorm, a diagnostic tool
+this paper's own Hessian-trace and spectral-norm estimators are direct
+descendants of.
+
+A more recent, active line of work studies curvature-forgetting links
+specifically, which the present null result must be positioned against
+rather than ignore. \citet{cflat2024} use sharpness-aware minimization,
+explicitly flattening the loss landscape around each task's minimum during
+training, to reduce forgetting in standard continual-learning benchmarks,
+treating flatness as something to optimize for rather than only measure.
+\citet{deng2021flattening} combine a similar flatness-seeking objective
+with gradient projection memory, projecting new-task gradients to be
+approximately orthogonal to a memory of prior-task gradient subspaces so
+that flatness and low-interference updates are pursued jointly rather than
+as two separate mechanisms.
+
+Most directly relevant, \citet{parameterisolation2023} formally derive
+that sharper old-task minima require a strictly \emph{tighter}
+parameter-space constraint to guarantee bounded forgetting, a
+learning-theoretic result for exactly the class of parameter-space
+penalty methods surveyed in Section~\ref{sec:related}. That result is not
+in tension with the present finding: it is a parameter-space claim, and
+the finding here that curvature fails to predict $\epsstar$
+(Section~\ref{sec:universality}) is specific to \emph{function}-space hard
+constraints, a different constraint geometry with a different relevant
+notion of distance. If anything, \citet{parameterisolation2023} is
+supporting evidence for, not a counterexample to, the present paper's
+central distinction between the two constraint families.
+
+\citet{lewandowski2025spectral} and \citet{lewandowski2024directions}
+study curvature's relationship to loss of \emph{plasticity}, the
+stability-plasticity tradeoff's other side: the former proposes spectral
+regularization of layer-wise weight matrices to preserve a network's
+capacity to keep learning over long task sequences, and the latter
+identifies specific directions of parameter-space curvature responsible
+for plasticity loss during continual training. Both are a complementary
+rather than contradictory line to the present paper's curvature-null
+result: they ask whether curvature predicts a network's capacity to keep
+learning, not whether it predicts the stability threshold of a
+function-space constraint, the question Section~\ref{sec:universality}
+answers in the negative.
 
 \subsection{Phase Transitions in Deep Learning}
 Phase transitions in neural network training have been documented in
-contexts including grokking \citep{power2022grokking}, lottery-ticket
-emergence \citep{frankle2018lottery}, and loss-landscape structure
-\citep{li2018visualizing,keskar2016large}. Recent finite-size-scaling
-treatments of grokking \citep{grokking2026dimensional} and of absorbing
-phase transitions in deep networks \citep{scaling2023universal} apply
-statistical-mechanics tools, tracking how a transition sharpens with system
-size, directly analogous to the width-family analysis in
-Section~\ref{sec:finitesize}. A thematically adjacent but mechanistically
-different framing casts the stability-plasticity tradeoff itself as a
-Stefan (moving-boundary) problem governed by a single scalar
-\citep{stefancl2026}; we note it here as a kindred "physics-of-training"
-perspective rather than a directly competing method.
+several distinct contexts. \citet{power2022grokking} report grokking: a
+network that has already reached near-zero training loss on an
+algorithmic task continues training and, after a long plateau, abruptly
+generalizes to the validation set, a delayed and sharp transition in
+generalization rather than in training loss itself. \citet{frankle2018lottery}
+document a related but distinct phenomenon in the lottery-ticket setting:
+sparse subnetworks identified by iterative magnitude pruning train to full
+accuracy only if reset to their original initialization, an all-or-nothing
+transition in trainability as a function of which weights are kept.
+\citet{li2018visualizing} and \citet{keskar2016large}
+(Section~\ref{sec:curvaturerelated}) each document sharp qualitative
+changes in loss-landscape structure as a function of network width, depth,
+and batch size, the same broad phenomenon, a smooth training-time behavior
+changing abruptly with a control parameter, that this paper's own
+$\epsstar$ crossover exhibits as a function of $\eps$.
+
+Recent finite-size-scaling treatments bring statistical-mechanics tools to
+these phenomena directly. \citet{grokking2026dimensional} analyze grokking
+across eight model scales as a genuine finite-size phase transition,
+extracting a critical exponent that characterizes how the transition
+sharpens as model size grows. \citet{scaling2023universal} apply the same
+finite-size-scaling framework to absorbing phase transitions in deep
+network training dynamics more generally, showing scaling collapse across
+network sizes. Both are directly analogous in method, though not in
+subject, to the CNN width-family analysis in Section~\ref{sec:finitesize},
+which asks the same finite-size-scaling question of the FTR crossover's
+sigmoid sharpness and finds no significant effect at the widths tested
+here.
+
+A thematically adjacent but mechanistically different framing casts the
+stability-plasticity tradeoff itself as a Stefan (moving-boundary) problem,
+the class of PDEs describing melting and solidification fronts, governed
+by a single scalar analogous to latent heat \citep{stefancl2026}; this work
+notes it here as a kindred ``physics-of-training'' perspective on a
+single-scalar-governs-a-transition story rather than a directly competing
+method, since it is evaluated on toy benchmarks with a level-set PDE
+solver rather than the KL-constrained dual-ascent mechanism studied
+throughout this paper.
+
+\subsection{Summary of Related Methods}
+Table~\ref{tab:relatedwork} summarizes every continual-learning and
+constrained-optimization method discussed above along the dimensions most
+relevant to positioning FTR: which space the stability constraint lives
+in, whether it is enforced as a hard constraint or a soft penalty, whether
+it requires an explicit memory of past data or activations, and whether
+the source work studies architecture-independence of its own stability
+threshold, the central empirical question of this paper. No prior method
+in this table both constrains function space with a hard,
+dual-ascent-enforced boundary \emph{and} studies whether its critical
+threshold generalizes across architectures; FTR (v1, extended here) is the
+only entry with both properties.
+
+\begin{table}[h]
+\centering
+\caption{Related methods by constraint space, enforcement type, memory
+requirement, and whether architecture-independence of the stability
+threshold is studied. HAT and Progressive Nets isolate parameters
+structurally rather than penalizing or constraining a distance, marked
+n/a.}
+\label{tab:relatedwork}
+\footnotesize
+\begin{tabular}{lllll}
+\toprule
+Method & Constraint space & Hard/soft & Memory & Arch.-invariance? \\
+\midrule
+EWC \citep{kirkpatrick2017overcoming} & Parameter & Soft & No & No \\
+SI \citep{zenke2017continual} & Parameter & Soft & No & No \\
+Progressive Nets \citep{rusu2016progressive} & Parameter (isol.) & n/a & No & No \\
+HAT \citep{serra2018overcoming} & Parameter (isol.) & n/a & No & No \\
+Online Laplace \citep{ritter2018online} & Parameter & Soft & No & No \\
+LwF \citep{li2017learning} & Function/output & Soft & No & No \\
+DER \citep{buzzega2020dark} & Function/output & Soft & Yes (logits) & No \\
+Functional reg.\ \citep{titsias2020functional} & Function & Soft & Yes (var.) & No \\
+FROMP \citep{pan2020continual} & Function & Soft & Yes (points) & No \\
+MER \citep{riemer2019learning} & Grad.\ trajectory & Soft & Yes (replay) & No \\
+TRPO \citep{schulman2015trust} & Policy (KL) & Hard & No & No \\
+PPO \citep{schulman2017proximal} & Policy (KL) & Soft & No & No \\
+PDCL \citep{elenter2023primal} & Loss/memory & Hard & Yes & No \\
+\textbf{FTR (this work)} & \textbf{Function (KL)} & \textbf{Hard} & \textbf{No} & \textbf{Yes} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Method: Functional Trust Regions}
 \label{sec:method}
@@ -360,7 +616,7 @@ class-incremental variant on a subset of architectures to test whether the
 crossover survives the harder protocol.
 
 \subsection{Constrained Optimization Formulation}
-We formulate task $t+1$ learning as a constrained optimization problem:
+This work formulates task $t+1$ learning as a constrained optimization problem:
 \begin{equation}
 \theta_{t+1} = \arg\min_\theta \; \mathcal{L}_{\mathrm{task}}(\theta)
 \quad \text{subject to} \quad \DKL\big(f_\theta \| f_{\mathrm{old}}\big) \le \eps,
@@ -372,14 +628,14 @@ current task's training batch. The constraint radius $\eps$ represents the
 stability budget in function space.
 
 \subsection{Optimization via Lagrangian Dual Ascent}
-We solve the constrained problem using Lagrangian relaxation. The Lagrangian
+This research solves the constrained problem using Lagrangian relaxation. The Lagrangian
 is:
 \begin{equation}
 \mathcal{L}(\theta,\lambda) = \mathcal{L}_{\mathrm{task}}(\theta)
 + \lambda\big(\DKL(f_\theta\|f_{\mathrm{old}}) - \eps\big),
 \label{eq:lagrangian}
 \end{equation}
-where $\lambda \ge 0$ is the dual variable. We employ dual gradient ascent
+where $\lambda \ge 0$ is the dual variable. This work employs dual gradient ascent
 with momentum:
 \begin{align}
 \theta_{t+1} &\leftarrow \theta_t - \eta_\theta \nabla_\theta \mathcal{L}(\theta_t,\lambda_t), \\
@@ -463,12 +719,20 @@ Adam \citep{kingma2014adam}, learning rate $\eta_\theta = 0.001$.
 Section~\ref{sec:diagnostic} sweeps every one of these choices individually
 against a dense $\eps$ grid to test their effect on $\epsstar$.
 
+\paragraph{Compute.} Unlike v1, which was CPU-only, every experiment in
+this revision runs on free-tier Kaggle GPUs (Tesla P100 and T4$\times$2
+instances), which is what makes the 30-architecture zoo, the schedule
+diagnostics, and the pretrained-backbone check tractable in reasonable
+wall-clock time. Across all stages, this amounts to more than $11{,}300$
+individual training runs (each a full sequential-task training pass),
+spread over several dozen Kaggle kernel sessions.
+
 \section{Experimental Setup}
 \label{sec:setup}
 
 \subsection{Architecture Zoo}
-v1's zoo comprised eight architectures, all convolutional or residual. We
-expand it to 30 architectures spanning five representational families and a
+v1's zoo comprised eight architectures, all convolutional or residual. This research
+expands it to 30 architectures spanning five representational families and a
 $75.8\times$ parameter range ($36{,}866$--$2{,}795{,}554$): a CNN width sweep
 (W8 through W128, 8 architectures), a CNN depth sweep (2--5 conv layers at
 width 32, 4 architectures), CNN variants without BatchNorm at three scales,
@@ -493,9 +757,9 @@ two classes. Each task contains 1{,}000 samples per class (2{,}000 total),
 trained for 4 epochs/task for the CNN, ResNet, ResNet-Lite, and MLP
 families, and 5 epochs/task for ViT and MLP-Mixer (a per-family
 accommodation made when the zoo was built, whose consequence for $\epsstar$
-we return to in Section~\ref{sec:selfconfound}). The forgetting metric is computed as the
+this work returns to in Section~\ref{sec:selfconfound}). The forgetting metric is computed as the
 mean decrease in accuracy on all previously learned tasks after completion of
-training on the final task; we additionally report new-task accuracy
+training on the final task; this research additionally reports new-task accuracy
 (accuracy on task $t$ immediately after training on task $t$, before any
 subsequent forgetting) to rule out the trivial explanation that low
 forgetting at small $\eps$ reflects a model that has simply failed to learn
@@ -520,22 +784,22 @@ geometry), and how many steps it takes $\lambda$ to travel from
 $\lambda_{\mathrm{init}}$ to 0 (or to $\lambda_{\max}$) under the dual-ascent
 rule (an optimizer-schedule property: $\eta_\lambda$, $\lambda_{\mathrm{init}}$,
 $\lambda_{\max}$, momentum $\rho$, steps/task, and the temperature $T$, which
-rescales the drift term itself). v1 varied only the first axis. We test the
+rescales the drift term itself). v1 varied only the first axis. This work tests the
 second directly.
 
 \subsection{Setup}
 On two anchor architectures (CNN\_W16, CNN\_W32) and a 10-point $\eps$ grid
-$\{1,3,5,6,7,8,9,10,12,20\}$, 3 seeds, we ran the \texttt{baseline}
+$\{1,3,5,6,7,8,9,10,12,20\}$, 3 seeds, this research ran the \texttt{baseline}
 configuration of Section~\ref{sec:method} ($\eta_\lambda=0.005$,
 $\lambda_{\mathrm{init}}=1.0$, $\lambda_{\max}=50$, $\rho=0.9$, $T=2.0$, 4
 epochs/task) alongside eleven single-factor perturbations: $\eta_\lambda$ and
 $\lambda_{\mathrm{init}}$ each $\times 5$ and $\div 5$; $\lambda_{\max} \in
 \{10, 200\}$; epochs/task $\in \{2, 8\}$ (baseline 4); $\rho = 0.5$; and
-$T \in \{1.0, 4.0\}$. For each of the 24 (architecture, condition) cells we
-fit the same logistic-sigmoid procedure as Section~\ref{sec:crossover} and
-bootstrap a 95\% CI (1{,}000 resamples over seeds). Four conditions produced
+$T \in \{1.0, 4.0\}$. For each of the 24 (architecture, condition) cells this
+work fits the same logistic-sigmoid procedure as Section~\ref{sec:crossover} and
+bootstraps a 95\% CI (1{,}000 resamples over seeds). Four conditions produced
 a forgetting curve that was \emph{flat across the entire $[1,20]$ grid}
-(range $<0.05$) rather than an S-shape inside it, so we reran those four plus
+(range $<0.05$) rather than an S-shape inside it, so this work reran those four plus
 baseline on a wider, coarser grid extending to $\eps=100$
 ($\{0.05,0.1,0.3,0.5,1,3,5,7,10,15,20,30,40,50,75,100\}$, same architectures
 and seeds) to locate the true crossover rather than report a degenerate
@@ -550,7 +814,7 @@ architectures, 3 seeds, 95\% bootstrap CI). ``Ratio'' is $\epsstar$ relative
 to that architecture's own baseline. On the original dense grid
 ($\eps\in[1,20]$), five rows produced a forgetting curve flat across the
 \emph{entire} grid rather than an S-shape inside it, so no transition was
-located; we rescanned exactly those five (condition, architecture) cells
+located; this analysis rescanned exactly those five (condition, architecture) cells
 with a wider grid ($\eps\in[0.05,100]$, marked $\ddagger$) to locate the
 true crossover rather than report only a direction.}
 \label{tab:diagnostic}
@@ -591,7 +855,7 @@ one order of magnitude on the log axis.}
 \label{fig:diagnosticforest}
 \end{figure}
 
-Three of the six hyperparameters we varied, $\eta_\lambda$,
+Three of the six hyperparameters this work varied, $\eta_\lambda$,
 $\lambda_{\mathrm{init}}$, and epochs/task, move $\epsstar$ far more than
 architecture does in this paper's own main result, and with the wide-grid
 follow-up all three directions are now precisely located rather than
@@ -616,7 +880,7 @@ quantity compared against $\eps$, so its effect cancels at the crossover.
 \label{sec:diagfamilies}
 Everything above uses two CNN width variants as anchors. Before treating
 the schedule confound as a general property of Lagrangian-dual constrained
-continual learning rather than a CNN-specific quirk, we repeat the two
+continual learning rather than a CNN-specific quirk, this research repeats the two
 cleanest single-factor perturbations, $\eta_\lambda\times5$ and
 epochs/task $\times2$, on one anchor from each of the four remaining
 families (ResNet18\_W16, MLP\_H128, ViT\_Tiny, Mixer\_Tiny), 3 seeds, dense
@@ -643,7 +907,7 @@ Section~\ref{sec:crossover} (MLP\_H128 and ViT\_Tiny baselines, both
 pinned at the grid's upper bound) or land at poor fit quality ($R^2<0.5$
 for ResNet18\_W16 and ViT\_Tiny under $\lambda_{\mathrm{init}}\times5$, which
 were not rescanned on the wider grid Section~\ref{sec:diagnostic}'s
-CNN-only version used for its own analogous cells). We do not draw
+CNN-only version used for its own analogous cells). This work does not draw
 quantitative conclusions from those specific cells, but every one that
 fits reliably moves in the predicted direction, and the two
 best-established conditions generalize cleanly across all five
@@ -660,8 +924,9 @@ fixed task, changing only how fast the dual variable is allowed to move, a
 choice most papers using Lagrangian-relaxed constraints (including v1 of
 this one) report as a fixed implementation detail rather than a variable to
 sweep, shifts the critical stability budget by more than an order of
-magnitude, comfortably exceeding the effect that a $24$--$75\times$ range in
-architecture size produced in Section~\ref{sec:crossover}. So
+magnitude, comfortably exceeding the $2.6\times$ range $\epsstar$ itself
+spans across a $24$--$75\times$ range of architecture size in
+Section~\ref{sec:crossover}. So
 $\epsstar\approx7$--$13$ is not a hyperparameter-free constant of CIFAR-10's
 task structure that a practitioner can adopt off the shelf; it is the value
 produced by one particular, previously unremarked choice of $\eta_\lambda$,
@@ -675,11 +940,11 @@ with no reset dynamics to confound, or to EWC and SI, which show no
 crossover at all (Section~\ref{sec:crossmethod}) and so raise no analogous
 question. It applies directly to FTR and, by the same argument, to PDCL
 \citep{elenter2023primal} and any other Lagrangian-dual constrained-learning
-method with a periodically reset dual variable. To our knowledge, no prior
+method with a periodically reset dual variable. No prior
 work on Lagrangian-dual constrained continual learning
 (\citealp{elenter2023primal}; \citealp{chamon2023constrained,elenter2024nearoptimal,hounie2023resilient})
-has isolated the dual-ascent schedule itself as a confound for an apparent
-stability threshold, and we are not aware of this question being asked
+is known to have isolated the dual-ascent schedule itself as a confound for an apparent
+stability threshold, and this question does not appear to have been asked
 elsewhere in the constrained-learning literature.
 
 The practical upshot inverts v1's: architecture-specific tuning of $\eps$ is
@@ -698,7 +963,7 @@ three components produces alone.
 \label{sec:crossover}
 
 Holding the dual-ascent schedule fixed at the Section~\ref{sec:method}
-defaults (the same schedule used throughout v1), we ran the dense $17$-point
+defaults (the same schedule used throughout v1), this work ran the dense $17$-point
 $\eps$ sweep $\{0.5,1,2,3,4,5,6,6.5,7,7.5,8,9,10,12,15,25,50\}$ on all 30
 architectures of the expanded zoo (Section~\ref{sec:setup}), 5 seeds per
 architecture (10 for the two diagnostic anchor architectures), fit the same
@@ -735,7 +1000,10 @@ a broader band. CNN\_W8\_NoBN and two ResNet points show markedly wider CIs.}
 \begin{table}[h]
 \centering
 \caption{Sigmoid-fitted $\epsstar$ across a representative subset of the
-30-architecture zoo (full table in Appendix~\ref{app:fulltable}). Families: CNN
+30-architecture zoo, shown as originally recorded (full table in
+Appendix~\ref{app:fulltable}); see Table~\ref{tab:family_corrected} for
+corrected downstream values for the six architectures affected by the
+epoch-matching and wide-grid corrections below. Families: CNN
 (width/depth/BatchNorm sweeps), ResNet (2 blocks/layer), ResNet-Lite (1
 block/layer), MLP (no spatial inductive bias), ViT (patch attention),
 Mixer (token/channel MLP-mixing).}
@@ -765,18 +1033,18 @@ wide-grid relocation below.
 
 Two architectures, ResNet18\_W16 and ResNetLite\_W8\_NoBN, have bootstrap
 CI upper bounds that land exactly on $50e=135.91$, the \texttt{curve\_fit}
-search-bound value diagnosed in Section~\ref{sec:diagnostic}; here the
+search-bound artifact diagnosed below; here the
 \emph{point estimate} is not pinned (both are ordinary interior fits,
 $R^2=0.94$ and $0.78$), but enough individual bootstrap resamples produce a
 flat-enough curve to hit the bound that the reported upper CI is not
-trustworthy. We reran both on a wider grid extending to $\eps=200$ (5
+trustworthy. This research reran both on a wider grid extending to $\eps=200$ (5
 seeds, 1{,}000 bootstrap resamples): ResNet18\_W16 relocates to
 $\epsstar=9.22$ [$7.59,10.67$] ($R^2=0.953$), a much tighter interval and a
 point-estimate shift of $-5.37$ from the original narrow-grid value;
 ResNetLite\_W8\_NoBN relocates to $12.50$ [$6.87,97.02$] ($R^2=0.889$), a
 shift of $-3.47$, with the CI substantially narrower than before but still
 wide, indicating this architecture's crossover remains less precisely
-determined than most of the zoo even with the wider grid. We use these
+determined than most of the zoo even with the wider grid. This work uses these
 relocated values in place of the narrow-grid ones throughout
 Section~\ref{sec:universality}.
 
@@ -789,7 +1057,7 @@ zoo includes two representational families (ViT, MLP-Mixer) with no
 analogue in v1's CNN/ResNet-only zoo, and Section~\ref{sec:universality}
 shows the extra dispersion tracks family identity, not any tested
 curvature statistic, though, as that section also shows, part of it
-tracks two rounds of our own schedule confound rather than architecture
+tracks two rounds of this paper's own schedule confound rather than architecture
 identity itself.
 
 \section{Universality Analysis}
@@ -802,17 +1070,16 @@ Grouping $\epsstar$ by architecture family as originally recorded
 (Table~\ref{tab:family}) shows the CNN, ResNet, and MLP families clustering
 in a broad $8$--$15$ band, while ViT and MLP-Mixer sit systematically
 lower, $6$--$7.4$, with almost no within-family spread ($\text{std}\le0.05$
-for both). \textbf{This clustering is substantially an artifact of our own
-experimental design, not primarily a representational-paradigm effect}: as
+for both). \textbf{This clustering is substantially an artifact of this
+paper's own experimental design, not primarily a representational-paradigm effect}: as
 Section~\ref{sec:selfconfound} shows, ViT and MLP-Mixer were assigned 5
 epochs/task rather than the 4 used elsewhere in the zoo, and
 Equation~\ref{eq:eps_star_approx} predicts, and a direct epoch-matched
 re-run confirms, that this alone accounts for most of the apparent gap:
 epoch-matched, ViT\_Tiny and Mixer\_Tiny move from $7.31$/$6.10$ to
 $10.18$/$10.41$, landing inside the CNN/ResNet/MLP family's range rather
-than below it. We caught this only by applying Section~\ref{sec:diagnostic}'s
-own standard to our own zoo, and report it plainly rather than let the
-originally-recorded clustering stand as an architectural finding. One
+than below it, found by applying Section~\ref{sec:diagnostic}'s own
+diagnostic to this paper's own zoo. One
 architecture, CNN\_W8\_NoBN, remains a clear outlier at $\epsstar=21.45$,
 the smallest, narrowest, unnormalized network in the zoo, which
 Section~\ref{sec:leaveoneout} shows has outsized leverage on the raw CV but
@@ -876,10 +1143,10 @@ point in the CNN row) remains an outlier in both panels.}
 v1's F-test for constancy (its Table 3) computed
 $p=1-F_{\mathrm{cdf}}(0.563; df_1{=}7, df_2{=}1000)=0.786$ in code, while the
 manuscript text reported $df=(7,7)$: an inconsistency between the stated
-methodology and the actual computation that we caught while reproducing it
+methodology and the actual computation that this research identifies while reproducing it
 (with $df_2=7$ the same statistic gives $p=0.767$, not $0.786$; the
 discrepancy is not merely rounding). $df_2=1000$ has no stated
-justification and appears to be an unexplained placeholder. We replace it
+justification and appears to be an unexplained placeholder. This work replaces it
 with a normal-normal hierarchical partial-pooling model: each
 architecture's true crossover $\theta_a \sim \mathcal{N}(\mu,\tau^2)$, with
 the sigmoid point estimate observed as $\hat\eps^*_a\sim\mathcal{N}(\theta_a,
@@ -892,7 +1159,7 @@ $[9.58, 11.36]$), $\tau = 2.13$ (95\% CI $[1.56, 2.92]$), and an ICC-style
 universality index $\tau^2/(\tau^2+\bar s^2) = 0.041$ (95\% CI
 $[0.022, 0.073]$): $\tau$'s credible interval excludes zero, suggesting real
 between-architecture structure. But this zoo contains two known,
-independently-diagnosed data-quality issues that we do not treat as
+independently-diagnosed data-quality issues that this work does not treat as
 acceptable to leave uncorrected before reporting a final estimate: the
 epoch/task schedule confound on four architectures
 (Section~\ref{sec:selfconfound}), and two architectures whose bootstrap CI
@@ -919,12 +1186,12 @@ $22.3$, both far more precise than their original, bound-saturated
 estimates. A more precisely measured zoo is a more sensitive test, and it
 detects the same, now smaller, $\tau$ against a quieter noise floor. Both
 corrected quantities are consistent with the same qualitative reading: the
-credible interval for $\tau$ still excludes zero, so we do not claim
+credible interval for $\tau$ still excludes zero, so this work does not claim
 $\epsstar$ is a literal universal constant, but $\tau\approx1$ on a
 population with mean $\approx11$ is a small effect in absolute terms (all
 five family means in Table~\ref{tab:family_corrected} fall within a
 $10.5$--$13.5$ band), and both the ICC before and after correction round to
-"small" on standard interpretive scales ($<0.1$). We report both the raw
+"small" on standard interpretive scales ($<0.1$). This research reports both the raw
 and corrected fits rather than only the more favorable one; the corrected
 values are used in Sections~\ref{sec:leaveoneout} onward unless stated
 otherwise.
@@ -979,7 +1246,7 @@ well-powered detection threshold and still short of conventional
 significance ($p=0.085$ and $0.100$), but their Bayes factors sit in the
 "barely worth mentioning" range rather than clearly favoring the null, and
 both moved further from zero once the two data-quality corrections were
-applied (from $r=-0.091$ and $-0.137$ on the uncorrected zoo). We flag this
+applied (from $r=-0.091$ and $-0.137$ on the uncorrected zoo). This work flags this
 rather than round it down to a clean null: parameter count and effective
 dimension are the two metrics most directly tied to model \emph{size}, and
 size is also what differs most systematically between the low-$\epsstar$
@@ -989,7 +1256,7 @@ association is plausible without being a confirmed effect at this sample
 size. The four purely curvature-based metrics (Hessian trace, Fisher trace,
 spectral norm, gradient norm) show no such trend in either direction.
 (ViT's fused attention kernel does not support the double-backward the
-Hessian/spectral estimators require by default; we force the math-mode
+Hessian/spectral estimators require by default; this work forces the math-mode
 SDPA backend during curvature measurement only, Appendix~\ref{app:sdpa},
 recovering all 30 architectures rather than excluding ViT.) Unlike v1's
 claim, this is now an adequately powered result: loss-landscape curvature
@@ -1021,9 +1288,9 @@ finite-size-scaling signature that would indicate the crossover sharpens
 toward a true phase transition as width $\to\infty$, on the full 8-point
 CNN width family (W8 through W128, same task, same schedule, 5 seeds each):
 $k \sim W^\alpha$ with $\alpha = 0.124 \pm 0.082$, $R^2=0.276$, $p=0.181$
-(Figure~\ref{fig:finitesize}). This is not statistically significant, and we
-report it as a null result rather than force a narrative: at the widths
-tested here, we find no reliable evidence that the FTR crossover sharpens
+(Figure~\ref{fig:finitesize}). This is not statistically significant, and this research
+reports it as a null result rather than force a narrative: at the widths
+tested here, this analysis finds no reliable evidence that the FTR crossover sharpens
 with system size. This does not rule out finite-size scaling at larger
 widths than tested, but the data in hand do not support the claim.
 
@@ -1041,7 +1308,7 @@ in Section~\ref{sec:crossover}.}
 \label{sec:crossmethod}
 v1 compared FTR, LwF, and EWC on different architecture subsets (FTR on all
 8, LwF/EWC on 5, omitting, among others, CNN\_W32\_NoBN from the
-LwF/EWC comparison). We rerun FTR, LwF, EWC, and SI on the identical
+LwF/EWC comparison). This work reruns FTR, LwF, EWC, and SI on the identical
 15-architecture subset spanning every family (Section~\ref{sec:setup},
 \texttt{SUBSET\_ARCHS}), 3 seeds, dense hyperparameter sweeps for each
 method's own stability knob: $\eps\in[0.5,50]$ (17 points) for FTR,
@@ -1098,18 +1365,48 @@ Eq.~\ref{eq:tstar} and therefore no reason to produce a crossover at all.
 Every result so far trains small models from scratch. This leaves open
 whether FTR's advantage is an artifact of that regime or survives contact
 with how continual learning is actually practiced: fine-tuning a large
-pretrained backbone with a parameter-efficient adapter. We test this
+pretrained backbone with a parameter-efficient adapter. This research tests this
 directly on ImageNet-pretrained ViT-B/16 (86M parameters) with LoRA
 (rank 8, $\alpha=16$) applied to the MLP sublayers only, following
 Section~\ref{app:lorafix}'s finding that \texttt{nn.MultiheadAttention}'s
 fused forward bypasses a wrapped \texttt{out\_proj}; the base network is
 frozen, the classification head and LoRA adapters ($0.84\%$ of total
 parameters) are trainable. Split CIFAR-100, 10 tasks of 10 classes each,
-200 samples/class, 2 epochs/task, 3 seeds. We compare FTR ($\eps=5.0$,
+200 samples/class, 2 epochs/task, 3 seeds. This work compares FTR ($\eps=5.0$,
 $\eta_\lambda=0.005$, $\lambda_{\mathrm{init}}=1.0$) against vanilla
 fine-tuning, EWC ($\lambda=1000$), and LwF ($\alpha=0.7$), each method's
 hyperparameter fixed rather than swept, since a full crossover sweep on
-this scale is not the point of this check.
+this scale is not the point of this check. None of the four
+hyperparameters was tuned for this specific regime: EWC's
+$\lambda=1000$ and LwF's $\alpha=0.7$ are standard values reported
+elsewhere in the continual-learning literature rather than values
+selected here, and FTR's $\eps=5.0$, $\eta_\lambda=0.005$,
+$\lambda_{\mathrm{init}}=1.0$ are exactly Section~\ref{sec:diagnostic}'s
+baseline schedule transplanted onto a completely different dataset,
+backbone, and adapter method without adjustment. This makes the comparison
+fair in the sense that no method received a hand-tuned advantage, but not
+a best-case comparison for any single method.
+
+Reporting $\eps=5.0$ alone, however, is exactly the omission
+Section~\ref{sec:sinvariance} argues against: this regime's constrained
+step budget $N$ is not the main zoo's. With batch size 64 and 2{,}000
+samples/task, one epoch is 32 steps; with the same 1-epoch warmup used
+throughout this paper, $N=32$ constrained steps/task, giving
+$S=\lambda_{\mathrm{init}}/(\eta_\lambda N)=1.0/(0.005\times32)=6.25$,
+close to but not identical to the main zoo's baseline $S=8.33$. The
+population-level crossover on the main zoo at $S=8.33$ is
+$\epsstar=11.07$ (Section~\ref{sec:hierarchical}); at this regime's
+lower $S=6.25$, Eq.~\ref{eq:eps_star_approx} predicts a somewhat lower
+crossover, and $\eps=5.0$ is directionally consistent with, though smaller
+than, that back-of-envelope expectation. This is not a
+validated prediction: $d_{\mathrm{unc}}$ for a LoRA-adapted, pretrained
+ViT-B/16 on CIFAR-100 has not been measured and need not resemble
+$d_{\mathrm{unc}}$ for the small from-scratch zoo the approximation was
+calibrated on. Reporting $N$ and $S$ here, rather than only $\eps$, is
+itself the practice Section~\ref{sec:sinvariance} recommends; using $S$ to
+select $\eps$ in a new regime without any grid search is a natural next
+test of that section's practical claim, which this single-operating-point
+check does not attempt.
 
 \begin{table}[h]
 \centering
@@ -1144,7 +1441,7 @@ setting. It does.
 \section{KL-Direction Ablation}
 \label{sec:klablation}
 The constraint $D_{\mathrm{KL}}(f_{\mathrm{old}}\|f_\theta)\le\eps$ is
-asymmetric; we ablate the direction on CNN\_W16 and CNN\_W32 (dense $\eps$
+asymmetric; this work ablates the direction on CNN\_W16 and CNN\_W32 (dense $\eps$
 grid, 3 seeds), comparing forward (paper default), reverse
 $D_{\mathrm{KL}}(f_\theta\|f_{\mathrm{old}})$, and symmetric
 Jensen-Shannon. All three directions fit cleanly ($R^2=0.83$--$1.00$).
@@ -1161,7 +1458,7 @@ $\lambda_{\mathrm{init}}$, or steps/task.
 \label{sec:classincremental}
 Every result so far uses the task-incremental protocol (Section~\ref{sec:method}):
 a head sized to classes-per-task, locally remapped labels, and an oracle
-task ID at evaluation. We additionally test the harder class-incremental
+task ID at evaluation. This work additionally tests the harder class-incremental
 protocol, a single shared 10-way head, no task ID, global labels
 throughout, on five width-family architectures (CNN\_W8 through
 CNN\_W48, 5 seeds, dense $\eps$ grid).
@@ -1196,7 +1493,7 @@ pattern.
 
 This looks like a genuine task-structure effect, and was the intended
 result of the experiment. But Section~\ref{sec:selfconfound}'s own
-diagnostic obligates us to check for a schedule confound before reading it
+diagnostic makes checking for a schedule confound obligatory before reading it
 that way, and there is one: holding \texttt{max\_per\_class} and batch size
 fixed while classes/task increases also increases samples/task
 (and hence batches/task, and hence the constrained step budget $N$), purely
@@ -1205,12 +1502,12 @@ mechanically. Using Eq.~\ref{eq:eps_star_approx}'s schedule term alone
 $N\approx21$, schedule term $9.52$; $\text{cpt}=4$ gives $N\approx39$, term
 $5.13$; $\text{cpt}=5$ gives $N\approx48$, term $4.17$; $\text{cpt}=10$
 gives $N\approx96$, term $2.08$: the same monotonically decreasing
-pattern, comparable in magnitude to what we observe. We cannot, from this
+pattern, comparable in magnitude to what this analysis observes. This work cannot, from this
 experiment as designed, separate a genuine task-structure effect from this
 third instance of the $N$-confound; a corrected version would need to hold
 samples/task (not samples/class) fixed as classes/task varies.
 
-We ran that corrected version: 10 architectures, classes/task
+This research ran that corrected version: 10 architectures, classes/task
 $\in\{2,4,5,10\}$, samples/task now held fixed at $800$
 ($\text{max\_per\_class} = 800/\text{cpt}$) so that $N$ no longer varies
 mechanically with granularity, 3 seeds, same dense $\eps$ grid. The
@@ -1230,11 +1527,11 @@ Restricting to the reliably-fit range $\text{cpt}\in\{4,5,10\}$ (every cell
 $R^2\ge0.89$), the pooled correlation flips sign but remains
 non-significant: $r=+0.265$ ($p=0.157$, $n=30$), and the mean
 within-architecture Spearman correlation across this range is $+0.45$,
-weakly positive rather than negative. We do not read this as evidence of a
+weakly positive rather than negative. This is not evidence of a
 genuine increasing effect either, given $p=0.157$ and $n=10$ architectures;
 the honest summary is that once the schedule confound is removed, classes-per-task
 shows no reliable, significant relationship with $\epsstar$ over the range
-we can fit reliably ($4$--$10$ classes/task), and the striking monotonic
+that can be fit reliably ($4$--$10$ classes/task), and the striking monotonic
 decrease in the original design was overwhelmingly the $N$-confound, not a
 genuine task-structure effect: the same lesson as
 Sections~\ref{sec:diagnostic} and~\ref{sec:selfconfound}, discovered a
@@ -1269,7 +1566,7 @@ three-dimensional sensitivity problem: any reported $\epsstar$ is
 conditional on three separately-chosen numbers, with no obvious way to
 report or budget for that dependence short of a full grid search.
 Equation~\ref{eq:eps_star_approx}'s schedule term, $\lambda_{\mathrm{init}}/(\eta_\lambda N)$,
-suggests a way out: if this specific ratio, which we call $S$, is what
+suggests a way out: if this specific ratio, which this work calls $S$, is what
 actually drives the schedule's effect on $\epsstar$, then the
 three-dimensional problem collapses to one dimension, and holding $S$ fixed
 while varying $\eta_\lambda$, $\lambda_{\mathrm{init}}$, and $N$
@@ -1279,7 +1576,7 @@ each of the three still moves it by an order of magnitude on its own.
 \subsection{Design}
 On five architectures spanning four of the five families (two CNN widths,
 ResNet18\_W16, MLP\_H128, ViT\_Tiny; MLP-Mixer was not included in this
-sub-zoo), we ran six conditions, all epoch/task
+sub-zoo), this work ran six conditions, all epoch/task
 schedule-matched at 4 epochs/task: the Section~\ref{sec:diagnostic} baseline
 ($\eta_\lambda=0.005$, $\lambda_{\mathrm{init}}=1.0$, $N=24$, giving
 $S=8.33$); two conditions that scale $\eta_\lambda$ and
@@ -1295,7 +1592,7 @@ and the sixth (different $S$) should not. Three seeds per (architecture,
 condition, $\eps$) cell, dense $\eps$ grid. Four of the resulting 30 cells
 initially hit the same curve\_fit bound-saturation issue diagnosed in
 Section~\ref{sec:crossover} (three baselines and one scale-up condition,
-each pinned at $50e=54.37$ on this experiment's narrower grid); we reran
+each pinned at $50e=54.37$ on this experiment's narrower grid); this research reran
 exactly those four on a wider grid extending to $\eps=200$ (5 seeds, 1{,}000
 bootstrap resamples) to locate their true crossovers rather than report
 degenerate fits.
@@ -1366,13 +1663,18 @@ alongside $\epsstar$ captures most of what those three numbers jointly
 determine, and two runs with matched $S$ but different individual
 hyperparameters should be expected to land within roughly a factor of $2$--$3$
 of each other, not the order-of-magnitude range Section~\ref{sec:diagnostic}
-shows is possible when $S$ itself is left to vary. We do not claim this
+shows is possible when $S$ itself is left to vary. This work does not claim this
 closes the schedule-dependence problem entirely, the residual $18$--$39\%$
 within-$S$ spread is real and architecture-dependent, but it is a
-substantial, practically useful reduction in dimensionality, and, to our
-knowledge, the first time this specific ratio has been identified and
+substantial, practically useful reduction in dimensionality, and appears
+to be the first time this specific ratio has been identified and
 tested as the operative quantity in Lagrangian-dual constrained continual
-learning.
+learning. $S$ is also not the complete schedule: Section~\ref{sec:diagnostic}
+finds momentum $\rho$ has a smaller but real effect on $\epsstar$
+independent of $\eta_\lambda$, $\lambda_{\mathrm{init}}$, and $N$, and is
+not part of $S$ by construction; some of the residual within-$S$ spread
+reported above is plausibly attributable to $\rho$ being held fixed rather
+than matched, which was not tested directly.
 
 \section{Interpretation and Theory}
 \label{sec:theory}
@@ -1380,7 +1682,7 @@ learning.
 \subsection{A Back-of-Envelope Account of $\epsstar$}
 \label{sec:theory-derivation}
 Section~\ref{sec:diagnostic} showed $\epsstar$ is dominated by the
-optimizer's own schedule. We now give an approximate, testable account of
+optimizer's own schedule. This work now gives an approximate, testable account of
 \emph{why}, and of why architecture-independence nonetheless survives at a
 fixed schedule.
 
@@ -1429,7 +1731,7 @@ signal riding on top of a shared, schedule-determined baseline.
 Equation~\ref{eq:eps_star_approx} is only approximate (it ignores momentum,
 the EMA smoothing constant $\beta$, and treats $\bar d$ as constant in
 $\lambda$ rather than solving the coupled primal-dual dynamics
-self-consistently), so we treat it as a mechanistic account, not a closed-form
+self-consistently), so this research treats it as a mechanistic account, not a closed-form
 prediction, and check it against data rather than asserting it. With
 $\lambda_{\mathrm{init}}=1.0$, $\eta_\lambda=0.005$: at $N=24$ (the diagnostic's
 baseline, 4 epochs/task minus 1 warmup epoch, 8 batches/epoch), the schedule
@@ -1443,7 +1745,7 @@ comparable in magnitude to the schedule term itself rather than negligible,
 so while the schedule term dominates \emph{sensitivity} (Section
 \ref{sec:diagnostic}'s core finding), it does not always dominate the
 \emph{absolute value}, and the architecture-dependent correction is real and
-worth taking seriously, which brings us to a confound in our own zoo design.
+worth taking seriously, which leads to a confound in this paper's own zoo design.
 
 \subsection{Convergence-Theoretic Grounding for the Schedule Term}
 \label{sec:theory-grounding}
@@ -1453,7 +1755,7 @@ For a concave dual function optimized by projected subgradient ascent with
 fixed step size $\eta_\lambda$, the sub-optimality of the dual iterate after
 $N$ steps decays at rate $O(1/(\eta_\lambda N))$ under standard step-size and
 boundedness conditions \citep{boyd2004convex,nedic2009subgradient}; this is
-the same $O(1/T)$ behavior that underlies our Eq.~\ref{eq:tstar}'s
+the same $O(1/T)$ behavior that underlies Eq.~\ref{eq:tstar}'s
 disengagement-time argument, just stated as a convergence-rate bound rather
 than a hitting-time calculation. \citet{chamon2023constrained} extend
 exactly this style of guarantee, near-PAC learnability and a bounded
@@ -1462,24 +1764,24 @@ neural-network training loss functions actually are, which is the setting
 FTR's task loss and constraint fall into. Read together, their result
 establishes that a dual-ascent-enforced constraint on a non-convex loss
 converges to near-feasibility at a rate governed by $\eta_\lambda$ and the
-step budget rather than by problem-specific constants alone; our diagnostic
-sweep (Section~\ref{sec:diagnostic}) is, in effect, an empirical
+step budget rather than by problem-specific constants alone; the diagnostic
+sweep here (Section~\ref{sec:diagnostic}) is, in effect, an empirical
 demonstration that this generic rate dependence is large enough, in the
 specific regime FTR operates in, to dominate the architecture-dependent
-constants it is usually assumed to be secondary to. We do not derive
+constants it is usually assumed to be secondary to. This work does not derive
 Eq.~\ref{eq:eps_star_approx} as a formal corollary of their bound (that
 would require tracking the exact non-convex duality-gap constants through
-to a task-transition hitting time, which we leave as a natural extension),
+to a task-transition hitting time, which this work leaves as a natural extension),
 but the qualitative scaling, and the fact that Section~\ref{sec:sinvariance}
 finds the schedule collapses to a single ratio rather than three independent
-effects, is exactly what generic dual-ascent convergence theory predicts and
-is not, to our knowledge, a connection the Lagrangian-dual continual-learning
-literature has previously drawn out explicitly.
+effects, is exactly what generic dual-ascent convergence theory predicts,
+a connection the Lagrangian-dual continual-learning
+literature does not appear to have previously drawn out explicitly.
 
 \subsection{A Self-Inflicted Version of the Same Confound}
 \label{sec:selfconfound}
 Equation~\ref{eq:eps_star_approx} makes a specific, checkable prediction
-about our own experimental design. The ViT and MLP-Mixer families in
+about this paper's own experimental design. The ViT and MLP-Mixer families in
 Section~\ref{sec:setup} were assigned 5 epochs/task rather than the 4 used
 for every other family (a well-intentioned accommodation for harder
 optimization at the time the zoo was built), giving them $N=32$ rather than
@@ -1489,7 +1791,7 @@ $1/(0.005\times24) - 1/(0.005\times32) = 8.33-6.25 = 2.08$ relative to an
 epoch-matched comparison, \emph{before any genuine architectural
 difference is considered}.
 
-We tested this directly: re-running all four affected architectures
+This research tested this directly: re-running all four affected architectures
 (ViT\_Tiny, Mixer\_Tiny, and the same mismatch on their wider siblings
 ViT\_Small and Mixer\_Small) with epochs forced to 4 (matching the
 CNN/ResNet/MLP family, 5 seeds, same dense $\eps$ grid as
@@ -1528,13 +1830,10 @@ Epoch-matched, all four land at $\approx10.2$--$12.4$, inside
 the CNN/ResNet/MLP family's range ($8.35$--$15.98$ across its 26
 architectures) rather than systematically below it. The family clustering
 reported in Section~\ref{sec:universality}.1 was therefore substantially,
-possibly almost entirely, an artifact of our own epoch/task mismatch, not
+possibly almost entirely, an artifact of this paper's own epoch/task mismatch, not
 a genuine effect of representational paradigm (convolution vs.\ attention
-vs.\ token-mixing). We report this plainly rather than let the earlier,
-uncorrected framing stand, since it is exactly the kind of check
-Section~\ref{sec:diagnostic} argues the field should be running as standard
-practice, and we caught it only by holding ourselves to that standard
-against our own zoo. Sections~\ref{sec:universality}.1 and
+vs.\ token-mixing), caught by holding this paper's own zoo to
+Section~\ref{sec:diagnostic}'s own standard. Sections~\ref{sec:universality}.1 and
 \ref{sec:hierarchical} are revised accordingly, substituting these four
 epoch-matched values for the confounded ones throughout the rest of the
 paper.
@@ -1582,16 +1881,16 @@ than an order of magnitude under simple, reasonable changes to
 $\eta_\lambda$, $\lambda_{\mathrm{init}}$, or steps/task. Any reuse of a
 reported $\epsstar$ value from this paper (or any Lagrangian-dual
 constrained continual-learning method) on a different codebase should first
-check sensitivity to these three quantities, not assume architecture is the
-only relevant axis.
-\item \textbf{Single dataset.} All main experiments use CIFAR-10; the
-CIFAR-100 granularity sweep (Section~\ref{sec:taskstructure}) holds the
-dataset fixed and varies only task construction. Tiny-ImageNet, CORe50, and
-CLEAR-style benchmarks remain untested.
-\item \textbf{Modest scale.} Moving to GPU compute (from v1's CPU-only
-setup) enabled a $3.75\times$ larger architecture zoo and more seeds, but
-model sizes ($\le2.8$M parameters) and per-task sample counts
-($1{,}000$/class) remain small by contemporary standards.
+check sensitivity to these three quantities, or to $S$ directly
+(Section~\ref{sec:sinvariance}), not assume architecture is the only
+relevant axis.
+\item \textbf{Limited scope.} All main experiments use CIFAR-10 and
+CIFAR-100 (Section~\ref{sec:taskstructure}); Tiny-ImageNet, CORe50, and
+CLEAR-style benchmarks remain untested. Model sizes in the from-scratch zoo
+($\le2.8$M parameters) and per-task sample counts ($1{,}000$/class) are
+modest by contemporary standards, partially offset by the pretrained
+ViT-B/16 check (Section~\ref{sec:pretrained}) but not by a systematic sweep
+at that scale.
 \item \textbf{The theoretical account (Section~\ref{sec:theory}) is
 approximate, not a closed-form derivation.} Equation~\ref{eq:eps_star_approx}
 ignores dual-ascent momentum and treats the drift rate as constant in
@@ -1599,40 +1898,16 @@ $\lambda$; it matches the epochs/task sensitivity closely but under-predicts
 the baseline value by an amount comparable to the schedule term itself, so
 it should be read as a mechanistic account that generates testable
 predictions (Section~\ref{sec:selfconfound}), not an exact formula.
-\item \textbf{Aggregate and per-task-profile metrics only go so far.} We
-report new-task accuracy and per-task forgetting profiles
-(Section~\ref{sec:newtaskacc}), an improvement on v1's aggregate-only
-reporting, but do not analyze per-class or per-sample forgetting patterns.
 \item \textbf{No accuracy/SOTA comparison.} Unchanged from v1: this work is
 diagnostic and mechanistic, not a proposal for a state-of-the-art
 continual-learning method, and FTR without replay does not exceed LwF on
-average accuracy.
-\item \textbf{Curvature measurement required a backend workaround for one
-family.} The Hessian trace / spectral norm estimators require a
-twice-differentiable loss surface; PyTorch's fused scaled-dot-product-attention
-kernel does not support this by default, which initially excluded the ViT
-family from curvature measurement entirely. Forcing the math-mode SDPA
-backend for curvature measurement only (Appendix~\ref{app:sdpa}) resolved
-this, and the correlation results in Section~\ref{sec:universality} use the
-full $n=30$ zoo.
-\item \textbf{One architecture's crossover remains imprecisely determined
-even after correction.} ResNetLite\_W8\_NoBN's wide-grid-relocated bootstrap
-CI is $[6.87, 97.02]$ (Section~\ref{sec:crossover}); extending the search
-grid resolved the exact bound-pinning artifact but not the underlying
-measurement noise, which a purely $\eps$-grid-based fix cannot address. More
-seeds, rather than a wider grid, are the likelier next step for this
-specific architecture.
-\item \textbf{The classes-per-task=2 condition is unreliable in the
-corrected CIFAR-100 granularity experiment.} Holding samples/task fixed at
-this granularity leaves few examples per class; fit quality there is
-visibly worse than at classes/task $\ge4$ (Section~\ref{sec:granularityconfound}),
-and we do not draw conclusions from that specific column.
+average accuracy in the from-scratch zoo.
 \end{enumerate}
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-We set out to test a specific, previously unexamined confound in
+This work set out to test a specific, previously unexamined confound in
 Lagrangian-dual constrained continual learning: because the dual variable
 $\lambda$ resets at every task boundary, the observed stability crossover of
 a function-space KL constraint could in principle be an artifact of the
@@ -1640,8 +1915,8 @@ constrained optimizer's own schedule rather than a property of the task or
 architecture it is applied to. It is. Holding architecture and task fixed,
 the dual learning rate, the initial multiplier, and the per-task step
 budget each move $\epsstar$ by more than an order of magnitude, more than
-a $75$-fold range in architecture size moves it, more than any other axis
-we tested. A back-of-envelope mechanistic account
+the $2.6\times$ range $\epsstar$ itself spans across a $75$-fold range of
+architecture size, more than any other axis this work tested. A back-of-envelope mechanistic account
 (Eq.~\ref{eq:eps_star_approx}) explains both this sensitivity and why
 architecture-independence survives it: the dominant term in $\epsstar$ is a
 pure function of the schedule, shared identically across every
@@ -1653,12 +1928,12 @@ That failure is real and, at the sample size this revision affords, now
 properly powered: across 30 architectures spanning five representational
 families, no tested curvature statistic predicts $\epsstar$, extending
 v1's claim from an $n=8$ test too underpowered to have supported it into an
-adequately powered one that does. What curvature does not predict, our own
-zoo design initially seemed to: ViT and MLP-Mixer sat systematically
+adequately powered one that does. What curvature does not predict, this
+paper's own zoo design initially seemed to: ViT and MLP-Mixer sat systematically
 lower than CNN/ResNet/MLP, until applying the paper's own central
 diagnostic to the paper's own architecture zoo showed most of that gap was
 a second, self-inflicted instance of the identical schedule confound.
-We report this correction plainly, because catching it is a demonstration
+This research reports this correction plainly, because catching it is a demonstration
 of the paper's thesis, not a footnote to it: this class of confound is easy
 to introduce by accident and easy to miss without deliberately checking for
 it, and it recurred a third time in an experiment explicitly designed to
@@ -1670,7 +1945,7 @@ architecture-specific tuning of the stability budget is not necessary, but
 the dual-ascent schedule is not a free implementation detail either, and
 checking sensitivity to $\eta_\lambda$, $\lambda_{\mathrm{init}}$, and
 steps-per-task belongs in the standard reporting protocol for any method in
-this family, ours included. Task ordering and the choice between
+this family, FTR included. Task ordering and the choice between
 task-incremental and class-incremental evaluation are further, genuine
 sources of variation this paper surfaces that v1's single fixed ordering
 and single protocol could not. Open questions remain: what remains of the
@@ -1679,7 +1954,7 @@ finds it small but not exactly zero, ICC$\approx0.05$) traces to; whether
 $d_{\mathrm{unc}}$ in Eq.~\ref{eq:eps_star_approx} can be derived rather
 than measured; and whether the same confound structure applies to other
 Lagrangian-dual methods in continual learning beyond FTR
-\citep{elenter2023primal,chamon2023constrained}. We see the diagnostic
+\citep{elenter2023primal,chamon2023constrained}. This work regards the diagnostic
 protocol demonstrated here, vary the constrained optimizer's own
 hyperparameters before attributing an observed threshold to the model or
 the task, as the paper's most transferable contribution, independent of
@@ -1723,7 +1998,7 @@ family) selects a fused backend whose backward pass is not itself
 twice-differentiable, raising \texttt{derivative for
 aten::\_scaled\allowbreak\_dot\allowbreak\_product\allowbreak\_efficient\allowbreak\_attention\allowbreak\_backward is not
 implemented} and failing 100\% of curvature measurements for ViT\_Tiny and
-ViT\_Small in our initial run. Wrapping only the curvature-measurement
+ViT\_Small in the initial run. Wrapping only the curvature-measurement
 forward/backward passes in
 \texttt{torch.nn.attention.sdpa\_kernel(\allowbreak[SDPBackend.MATH])}
 (or the equivalent \texttt{torch.backends.cuda.sdp\_kernel}
@@ -1740,7 +2015,7 @@ a LoRA adapter has no effect at inference or training time: PyTorch's
 \texttt{out\_proj.forward()} internally, it reads \texttt{out\_proj.weight}
 and \texttt{out\_proj.bias} directly inside a single fused functional
 attention call, so any wrapper module placed on \texttt{out\_proj} is
-silently bypassed and never receives a forward or backward pass. We
+silently bypassed and never receives a forward or backward pass. This work
 initially wrapped attention projections along with the MLP sublayers
 in Section~\ref{sec:pretrained}'s ViT-B/16 experiment, and only caught the
 bypass by checking gradient flow into the attention-side LoRA parameters

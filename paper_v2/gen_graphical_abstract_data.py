@@ -27,7 +27,8 @@ gs = fig.add_gridspec(1, 2, width_ratios=[1.05, 1.45], wspace=0.32)
 # ---- Panel A: architecture range vs schedule range (log scale dumbbells) ----
 axA = fig.add_subplot(gs[0])
 
-arch_lo, arch_hi = 6.10, 21.45
+# corrected (epoch-matched + wide-grid) 30-architecture range, schedule fixed
+arch_lo, arch_hi = 8.35, 21.45
 sched_lo, sched_hi = 0.97, 90.13
 
 rows = [

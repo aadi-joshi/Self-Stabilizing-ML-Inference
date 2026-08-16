@@ -39,10 +39,36 @@
 
 \title{Functional Trust Regions (FTR): A Lagrangian Framework for\\
 Stability-Constrained Continual Learning}
-\author{Kavya Bhand \quad Aadi Joshi \\
-\small Department of Computer Engineering, Vishwakarma Institute of Technology, Pune 411037, India \\
-\small \texttt{\{kavya.bhand0806,toaadijoshi\}@gmail.com}}
+\author{
+Kavya Bhand\textsuperscript{1} \quad Aadi Joshi\textsuperscript{1} \quad Vijay Rathod\textsuperscript{2} \\[4pt]
+\small \textsuperscript{1}Department of Computer Engineering, Vishwakarma Institute of Technology \\
+\small Pune 411037, India \\[2pt]
+\small \textsuperscript{2}Department of Computer Science and Engineering (AI \& ML) \\
+\small Vishwakarma Institute of Technology, Pune 411037, India \\[4pt]
+\small \texttt{\{kavya.bhand0806,toaadijoshi\}@gmail.com}, \texttt{vijay.rathod@vit.edu}
+}
 \date{}
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 0.3em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    {\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
 
 \begin{document}
 \maketitle
@@ -179,7 +205,7 @@ task fixed, a five-fold change in the dual learning rate $\eta_\lambda$, the
 initial multiplier $\lambda_{\mathrm{init}}$, or the per-task step budget
 each moves $\epsstar$ by more than an order of magnitude
 (Section~\ref{sec:diagnostic}), more than the $2.6\times$ range $\epsstar$
-itself spans across a $24$--$75$-fold range of architecture size with the
+itself spans across 30 architectures with the
 schedule held fixed, and more than any single robustness axis this work
 tests afterward (KL direction, task ordering, class-incremental vs.\
 task-incremental protocol). This three-dimensional schedule sensitivity is
@@ -925,7 +951,7 @@ choice most papers using Lagrangian-relaxed constraints (including v1 of
 this one) report as a fixed implementation detail rather than a variable to
 sweep, shifts the critical stability budget by more than an order of
 magnitude, comfortably exceeding the $2.6\times$ range $\epsstar$ itself
-spans across a $24$--$75\times$ range of architecture size in
+spans across 30 architectures in
 Section~\ref{sec:crossover}. So
 $\epsstar\approx7$--$13$ is not a hyperparameter-free constant of CIFAR-10's
 task structure that a practitioner can adopt off the shelf; it is the value
@@ -1368,7 +1394,7 @@ with how continual learning is actually practiced: fine-tuning a large
 pretrained backbone with a parameter-efficient adapter. This research tests this
 directly on ImageNet-pretrained ViT-B/16 (86M parameters) with LoRA
 (rank 8, $\alpha=16$) applied to the MLP sublayers only, following
-Section~\ref{app:lorafix}'s finding that \texttt{nn.MultiheadAttention}'s
+Appendix~\ref{app:lorafix}'s finding that \texttt{nn.MultiheadAttention}'s
 fused forward bypasses a wrapped \texttt{out\_proj}; the base network is
 frozen, the classification head and LoRA adapters ($0.84\%$ of total
 parameters) are trainable. Split CIFAR-100, 10 tasks of 10 classes each,
@@ -1915,8 +1941,8 @@ constrained optimizer's own schedule rather than a property of the task or
 architecture it is applied to. It is. Holding architecture and task fixed,
 the dual learning rate, the initial multiplier, and the per-task step
 budget each move $\epsstar$ by more than an order of magnitude, more than
-the $2.6\times$ range $\epsstar$ itself spans across a $75$-fold range of
-architecture size, more than any other axis this work tested. A back-of-envelope mechanistic account
+the $2.6\times$ range $\epsstar$ itself spans across 30 architectures,
+more than any other axis this work tested. A back-of-envelope mechanistic account
 (Eq.~\ref{eq:eps_star_approx}) explains both this sensitivity and why
 architecture-independence survives it: the dominant term in $\epsstar$ is a
 pure function of the schedule, shared identically across every
@@ -2030,7 +2056,7 @@ parameters out of $87{,}304{,}936$ total, $0.84\%$).
 \label{app:diagnostic}
 Raw per-run results, the sigmoid/bootstrap/hierarchical-model analysis
 scripts, and the full experiment campaign code (architecture zoo, task
-construction, training engine, Kaggle orchestration) are released with this
-submission at \url{https://github.com/kavyabhand/Self-Stabilizing-ML-Inference}.
+construction, training engine, Kaggle orchestration) are available from the
+authors upon reasonable request.
 
 \end{document}

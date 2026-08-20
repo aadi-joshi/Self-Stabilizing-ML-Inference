@@ -132,22 +132,6 @@ checking sensitivity to it, ideally by reporting $S$, belongs in the
 standard protocol for Lagrangian-constrained continual learning.
 \end{abstract}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/graphical_abstract.pdf}
-\caption{Left: on the same architecture and task, the dual-ascent schedule
-moves $\epsstar$ across a $93\times$ range (six single-factor
-perturbations, Section~\ref{sec:diagnostic}), more than the $2.6\times$
-range $\epsstar$ itself spans across 30 architectures with the schedule
-held fixed (Section~\ref{sec:crossover}, corrected values). Right: holding
-the schedule ratio
-$S=\lambda_{\mathrm{init}}/(\eta_\lambda N)$ fixed while independently
-varying its three components (circles) collapses that spread back down,
-on every architecture tested, versus a matched-magnitude change in $S$
-itself (X, Section~\ref{sec:sinvariance}).}
-\label{fig:graphical_abstract}
-\end{figure}
-
 \section{Introduction}
 \label{sec:intro}
 
@@ -617,6 +601,29 @@ PDCL \citep{elenter2023primal} & Loss/memory & Hard & Yes & No \\
 \end{tabular}
 \end{table}
 
+\subsection{Gap Analysis}
+\label{sec:gap}
+Table~\ref{tab:relatedwork} makes the shape of the gap explicit. Parameter-space
+and structural-isolation methods (EWC, SI, Online Laplace, Progressive Nets,
+HAT) never claim architecture-independence of a stability threshold, because
+none reports one in a form that could transfer across models. The
+function-space methods closest to FTR in constraint geometry, LwF, DER,
+functional regularization, FROMP, use a fixed, grid-searched penalty with no
+dual variable to reset; PDCL does adapt a dual variable but does not ask
+whether the resulting critical constraint level is a property of the model,
+the task, or the optimizer's own schedule. The trust-region literature
+(TRPO, PPO, natural gradient) shares FTR's KL-constrained mechanics but
+optimizes a single problem rather than a sequence of tasks with a dual
+variable reset at every boundary, so the schedule-confound question does
+not arise there in the same form. And the curvature-forgetting literature
+treats parameter-space curvature as the explanatory variable for a stability
+threshold without testing whether that assumption survives translation into
+a hard function-space constraint, at a sample size large enough to detect a
+moderate effect. No cluster reviewed here isolates the dual-ascent schedule
+itself, as opposed to the constraint level $\eps$, as a possible confound
+for a reported generality claim. That is the specific gap
+Sections~\ref{sec:diagnostic}--\ref{sec:sinvariance} close.
+
 \section{Method: Functional Trust Regions}
 \label{sec:method}
 
@@ -724,6 +731,62 @@ $\eps$, for this toy simulation.}
 \label{fig:mechanism}
 \end{figure}
 
+\subsection{Training Procedure}
+\label{sec:algorithm}
+Algorithm~\ref{alg:ftr} states the full per-task loop implied by
+Eqs.~\ref{eq:constrained}--\ref{eq:dual_ascent} and the reset rule above as a
+single procedure, and Figure~\ref{fig:flowchart} draws the same control flow
+as a diagram. Both make explicit two details that are easy to miss when the
+equations are read in isolation: the warmup epoch runs before $\lambda$ is
+ever compared against a violation (so the first gradient steps on a new task
+never see the constraint), and the dual-ascent update
+(lines~8--9 of Algorithm~\ref{alg:ftr}) is nested \emph{inside} the constrained
+step loop, executing once per primal step rather than once per task. It is
+this nesting, combined with the reset on line~2, that makes $\lambda$'s
+trajectory, and hence $\epsstar$, a function of how many constrained steps
+$N$ a task budget actually contains, the quantity Section~\ref{sec:diagnostic}
+varies directly.
+
+\begin{algorithm}[t]
+\caption{FTR training with dual-ascent constraint enforcement}
+\label{alg:ftr}
+\begin{algorithmic}[1]
+\REQUIRE task sequence $T_1, T_2, \ldots$; initial parameters $\theta$; stability
+budget $\eps$; hyperparameters $\lambda_{\mathrm{init}}, \lambda_{\max},
+\eta_\theta, \eta_\lambda, \rho, T$; constrained steps per task $N$
+\ENSURE trained parameters $\theta$
+\FOR{each task $T_t$ in sequence}
+  \STATE $\lambda \leftarrow \lambda_{\mathrm{init}}$;\quad $m \leftarrow 0$
+  \hfill \COMMENT{dual variable and momentum reset at every task boundary}
+  \STATE $f_{\mathrm{old}} \leftarrow f_\theta$ \hfill \COMMENT{freeze reference model before task $t$}
+  \STATE run 1 warmup epoch of gradient steps on $\mathcal{L}_{\mathrm{task}}$ alone
+  \hfill \COMMENT{$\lambda$ held at $\lambda_{\mathrm{init}}$, constraint not enforced}
+  \FOR{$n = 1$ to $N$}
+    \STATE sample batch $x \sim \mathcal{D}_t$
+    \STATE $D \leftarrow \DKL\big(f_\theta(x) \,\|\, f_{\mathrm{old}}(x)\big)$ at temperature $T$
+    \STATE $\theta \leftarrow \theta - \eta_\theta \nabla_\theta\big[\mathcal{L}_{\mathrm{task}}(\theta) + \lambda(D - \eps)\big]$
+    \hfill \COMMENT{primal step, Eq.~\ref{eq:lagrangian}}
+    \STATE $m \leftarrow \rho\, m + \eta_\lambda (D - \eps)$
+    \hfill \COMMENT{dual ascent, Eq.~\ref{eq:dual_ascent}}
+    \STATE $\lambda \leftarrow \max\big(0,\, \min(\lambda_{\max},\, \lambda + m)\big)$
+  \ENDFOR
+\ENDFOR
+\RETURN $\theta$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.62\textwidth]{figures/fig_methodology_flowchart.pdf}
+\caption{Control-flow diagram of Algorithm~\ref{alg:ftr}. The dashed panel is
+the constrained inner loop executed once per gradient step within a task; the
+outer loop (left) advances across task boundaries, where $\lambda$ and its
+momentum term are reset before the next task's warmup epoch. The reset on
+task-boundary crossing (orange) is the mechanism Section~\ref{sec:diagnostic}
+tests as a possible confound for $\epsstar$.}
+\label{fig:flowchart}
+\end{figure}
+
 \subsection{Relationship to Learning without Forgetting}
 When $\lambda$ is held fixed rather than adapted, FTR reduces exactly to
 Learning without Forgetting, which minimizes:
@@ -812,6 +875,22 @@ rule (an optimizer-schedule property: $\eta_\lambda$, $\lambda_{\mathrm{init}}$,
 $\lambda_{\max}$, momentum $\rho$, steps/task, and the temperature $T$, which
 rescales the drift term itself). v1 varied only the first axis. This work tests the
 second directly.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/graphical_abstract.pdf}
+\caption{Left: on the same architecture and task, the dual-ascent schedule
+moves $\epsstar$ across a $93\times$ range (six single-factor
+perturbations, tested directly below), more than the $2.6\times$
+range $\epsstar$ itself spans across 30 architectures with the schedule
+held fixed (Section~\ref{sec:crossover}, corrected values). Right: holding
+the schedule ratio
+$S=\lambda_{\mathrm{init}}/(\eta_\lambda N)$ fixed while independently
+varying its three components (circles) collapses that spread back down,
+on every architecture tested, versus a matched-magnitude change in $S$
+itself (X, Section~\ref{sec:sinvariance}).}
+\label{fig:graphical_abstract}
+\end{figure}
 
 \subsection{Setup}
 On two anchor architectures (CNN\_W16, CNN\_W32) and a 10-point $\eps$ grid
@@ -939,7 +1018,6 @@ fits reliably moves in the predicted direction, and the two
 best-established conditions generalize cleanly across all five
 representational families in the zoo.
 
-\subsection{Conclusion}
 This reframes, rather than negates, the claim that $\epsstar$ reflects task
 and architecture. Section~\ref{sec:crossover} still asks and answers a
 well-posed narrower question: holding the optimizer schedule fixed, is
@@ -1910,24 +1988,16 @@ constrained continual-learning method) on a different codebase should first
 check sensitivity to these three quantities, or to $S$ directly
 (Section~\ref{sec:sinvariance}), not assume architecture is the only
 relevant axis.
-\item \textbf{Limited scope.} All main experiments use CIFAR-10 and
-CIFAR-100 (Section~\ref{sec:taskstructure}); Tiny-ImageNet, CORe50, and
-CLEAR-style benchmarks remain untested. Model sizes in the from-scratch zoo
-($\le2.8$M parameters) and per-task sample counts ($1{,}000$/class) are
-modest by contemporary standards, partially offset by the pretrained
-ViT-B/16 check (Section~\ref{sec:pretrained}) but not by a systematic sweep
-at that scale.
-\item \textbf{The theoretical account (Section~\ref{sec:theory}) is
-approximate, not a closed-form derivation.} Equation~\ref{eq:eps_star_approx}
-ignores dual-ascent momentum and treats the drift rate as constant in
-$\lambda$; it matches the epochs/task sensitivity closely but under-predicts
-the baseline value by an amount comparable to the schedule term itself, so
-it should be read as a mechanistic account that generates testable
-predictions (Section~\ref{sec:selfconfound}), not an exact formula.
-\item \textbf{No accuracy/SOTA comparison.} Unchanged from v1: this work is
-diagnostic and mechanistic, not a proposal for a state-of-the-art
-continual-learning method, and FTR without replay does not exceed LwF on
-average accuracy in the from-scratch zoo.
+\item \textbf{Limited scope, and no accuracy/SOTA claim.} All main
+experiments use CIFAR-10 and CIFAR-100 (Section~\ref{sec:taskstructure});
+Tiny-ImageNet, CORe50, and CLEAR-style benchmarks remain untested. Model
+sizes in the from-scratch zoo ($\le2.8$M parameters) and per-task sample
+counts ($1{,}000$/class) are modest by contemporary standards, partially
+offset by the pretrained ViT-B/16 check (Section~\ref{sec:pretrained}) but
+not by a systematic sweep at that scale. This work is diagnostic and
+mechanistic, not a proposal for a state-of-the-art continual-learning
+method: FTR without replay does not exceed LwF on average accuracy in the
+from-scratch zoo.
 \end{enumerate}
 
 \section{Conclusion}
